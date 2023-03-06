@@ -16,7 +16,7 @@ const createBook = data => {
 }
 
 const updateBook = (id, data) => {
-    return api.put(`${path}/update/${id}`, data);
+    return api.post(`${path}/update/${id}`, data);
 }
 
 const deleteBook = id => {

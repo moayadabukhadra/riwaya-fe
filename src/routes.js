@@ -21,8 +21,12 @@ import Maps from "views/examples/Maps.js";
 import Register from "views/examples/Register.js";
 import Login from "views/examples/Login.js";
 import Icons from "views/examples/Icons.js";
-import BookForm from "views/books/BookForm.js";
-import BooksTable from "./views/books/BooksTable";
+import BookForm from "views/Admin/books/BookForm.js";
+import BooksTable from "./views/Admin/books/BooksTable";
+import CategoryForm from "./views/Admin/Ctegories/CategoryForm";
+import CategoriesTable from "./views/Admin/Ctegories/CategoriesTable";
+import AuthorsTable from "./views/Admin/Authors/AuthorsTable";
+import AuthorForm from "./views/Admin/Authors/AuthorForm";
 
 var routes = [
   {
@@ -67,6 +71,7 @@ var routes = [
     component: Register,
     layout: "/auth"
   },
+    /* books */
   {
     path:"/book/show",
     name: "BookForm",
@@ -81,5 +86,35 @@ var routes = [
     component: BooksTable,
     layout: "/admin"
   },
+    /* Categories */
+    {
+        path: "/categories",
+        name: "التصنيفات",
+        icon: "ni ni-bullet-list-67 text-red",
+        component: CategoriesTable,
+        layout: "/admin"
+    },
+  {
+    path: "/category/show",
+    name: "اضافة تصنيف",
+    icon: "ni ni-circle-08 text-pink",
+    component: CategoryForm,
+    layout: "/admin",
+  },
+    /* Authors */
+    {
+        path: "/authors",
+        name: "المؤلفين",
+        icon: "ni ni-bullet-list-67 text-red",
+        component: AuthorsTable,
+        layout: "/admin"
+    },
+  {
+    path: "/author/show",
+    name: "اضافة مؤلف",
+    icon: "ni ni-circle-08 text-pink",
+    component: AuthorForm,
+    layout: "/admin",
+  }
 ];
 export default routes;

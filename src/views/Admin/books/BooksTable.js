@@ -10,11 +10,11 @@ import {
 } from "reactstrap";
 import Header from "components/Headers/Header.js";
 import {useEffect, useState} from "react";
-import PaginationPages from "../../components/CRUD/PaginationPages";
+import PaginationPages from "../../../components/CRUD/PaginationPages";
 import Select from "react-select";
-import BookApi from "../../api/Book";
-import CategoryApi from "../../api/Category";
-import AuthorApi from "../../api/Author";
+import BookApi from "../../../api/Book";
+import CategoryApi from "../../../api/Category";
+import AuthorApi from "../../../api/Author";
 import Swal from "sweetalert2";
 
 const BooksTable = () => {
@@ -32,7 +32,7 @@ const BooksTable = () => {
             setPages(data.data.links);
         });
         CategoryApi.getAllCategories().then((data) => {
-            setCategories(data.data.map((category) => {
+            setCategories(data.data.data.map((category) => {
                 return {value: category.id, label: category.name}
             }));
         });
@@ -113,7 +113,7 @@ const BooksTable = () => {
                                             <Media className="align-items-center">
                                                 <a
                                                     className="avatar rounded-circle mr-3"
-                                                    href="#pablo"
+                                                    href="src/views/Admin/books#pablo"
                                                     onClick={(e) => e.preventDefault()}
                                                 >
                                                     <img
