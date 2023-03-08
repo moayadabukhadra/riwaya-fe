@@ -24,20 +24,21 @@ const BooksTable = () => {
     const [categories, setCategories] = useState();
     const [params, setParams] = useState({
         'with': 'author,category,image',
+        'paginate':10,
     })
 
     useEffect(() => {
-        BookApi.getAllBooks(params).then((data) => {
-            setBooks(data.data.data);
-            setPages(data.data.links);
+        BookApi.getAllBooks(params).then(({data}) => {
+            setBooks(data.data);
+            setPages(data.links);
         });
-        CategoryApi.getAllCategories().then((data) => {
-            setCategories(data.data.data.map((category) => {
+        CategoryApi.getAllCategories().then(({data}) => {
+            setCategories(data.map((category) => {
                 return {value: category.id, label: category.name}
             }));
         });
-        AuthorApi.getAllAuthors().then((data) => {
-            setAuthors(data.data.map((author) => {
+        AuthorApi.getAllAuthors().then(({data}) => {
+            setAuthors(data.map((author) => {
                 return {value: author.id, label: author.name}
             }));
         });
@@ -60,9 +61,9 @@ const BooksTable = () => {
                                                query: e.target.value
                                            });
                                            params.query = e.target.value;
-                                           BookApi.getAllBooks(params).then((data) => {
-                                               setBooks(data.data.data);
-                                               setPages(data.data.links);
+                                           BookApi.getAllBooks(params).then(({data}) => {
+                                               setBooks(data.data);
+                                               setPages(data.links);
                                            });
                                        }}
                                 />
@@ -73,9 +74,9 @@ const BooksTable = () => {
                                             category: e.value
                                         });
                                         params.category = e.value;
-                                        BookApi.getAllBooks(params).then((data) => {
-                                            setBooks(data.data.data);
-                                            setPages(data.data.links);
+                                        BookApi.getAllBooks(params).then(({data}) => {
+                                            setBooks(data.data);
+                                            setPages(data.links);
                                         });
                                     }}/>
 
@@ -85,9 +86,9 @@ const BooksTable = () => {
                                             author: e.value
                                         });
                                         params.author = e.value;
-                                        BookApi.getAllBooks(params).then((data) => {
-                                            setBooks(data.data.data);
-                                            setPages(data.data.links);
+                                        BookApi.getAllBooks(params).then(({data}) => {
+                                            setBooks(data.data);
+                                            setPages(data.links);
                                         });
                                     }}/>
                                 <a href={"/admin/book/show"}
@@ -108,7 +109,7 @@ const BooksTable = () => {
                                 </thead>
                                 <tbody>
                                 {books && books.map((book) => (
-                                    <tr>
+                                    <tr key={book.id}>
                                         <th scope="row">
                                             <Media className="align-items-center">
                                                 <a

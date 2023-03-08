@@ -1,30 +1,13 @@
-/*!
 
-=========================================================
-* Argon Dashboard React - v1.2.2
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 import { useLocation, Route, Switch, Redirect } from "react-router-dom";
-// reactstrap components
 import { Container, Row, Col } from "reactstrap";
-
-// core components
 import AuthNavbar from "components/Navbars/AuthNavbar.js";
 import AuthFooter from "components/Footers/AuthFooter.js";
 
 import routes from "routes.js";
+import store from "../store";
+import {Provider} from "react-redux";
 
 const Auth = (props) => {
   const mainContent = React.useRef(null);
@@ -57,9 +40,15 @@ const Auth = (props) => {
       }
     });
   };
-
+  const role = store.getState().role;
   return (
-    <>
+      <Provider store={store}>
+        {role === "admin" || role === 'content_creator' || role === 'content_manager' ? (
+            <Redirect from="/auth" to="/admin/index"/>
+        ) : (
+            <Redirect from="/admin" to="/auth/login"/>
+        )
+        }
       <div className="main-content" dir="rtl" ref={mainContent}>
         <AuthNavbar />
         <div className="header bg-gradient-info py-7 py-lg-8">
@@ -69,7 +58,7 @@ const Auth = (props) => {
                 <Col lg="5" md="6">
                   <h1 className="text-white">Welcome!</h1>
                   <p className="text-lead text-light">
-                    Use these awesome forms to login or create new account in
+                    Use these awesome forms to user or create new account in
                     your project for free.
                   </p>
                 </Col>
@@ -97,13 +86,13 @@ const Auth = (props) => {
           <Row className="justify-content-center">
             <Switch>
               {getRoutes(routes)}
-              <Redirect from="*" to="/auth/login" />
+              <Redirect from="*" to="/auth/user" />
             </Switch>
           </Row>
         </Container>
       </div>
       <AuthFooter />
-    </>
+      </Provider>
   );
 };
 

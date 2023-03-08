@@ -21,11 +21,11 @@ const CategoriesTable = () => {
     const [parents, setParents] = useState();
     const [params, setParams] = useState({
         'with': 'image,parent',
-    })
+        'paginate':10,
+    });
 
     useEffect(() => {
         CategoryApi.getAllCategories(params).then((data) => {
-            console.log(data)
             setCategories(data.data.data);
             setParents(data.data.data.map((category) => {
                 return {value: category.id, label: category.name}
@@ -86,7 +86,7 @@ const CategoriesTable = () => {
                                 </thead>
                                 <tbody>
                                 {categories && categories.map((category) => (
-                                    <tr>
+                                    <tr key={category.id}>
                                         <th scope="row">
                                             <Media className="align-items-center">
                                                 <a

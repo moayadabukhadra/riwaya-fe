@@ -11,7 +11,6 @@ import {
 import Header from "components/Headers/Header.js";
 import {useEffect, useState} from "react";
 import PaginationPages from "../../../components/CRUD/PaginationPages";
-import Select from "react-select";
 import AuthorApi from "../../../api/Author";
 import Swal from "sweetalert2";
 
@@ -20,13 +19,12 @@ const AuthorsTable = () => {
     const [authors, setAuthors] = useState();
     const [params, setParams] = useState({
         'with': 'image',
+        'paginate':10,
     })
-
     useEffect(() => {
-        AuthorApi.getAllAuthors(params).then((data) => {
-            setAuthors(data.data.data);
-            setPages(data.data.links);
-            console.log(data)
+        AuthorApi.getAllAuthors(params).then(({data}) => {
+            setAuthors(data.data);
+            setPages(data.links);
         });
     }, []);
 
@@ -47,9 +45,9 @@ const AuthorsTable = () => {
                                                query: e.target.value
                                            });
                                            params.query = e.target.value;
-                                           AuthorApi.getAllAuthors(params).then((data) => {
-                                               setAuthors(data.data.data);
-                                               setPages(data.data.links);
+                                           AuthorApi.getAllAuthors(params).then(({data}) => {
+                                               setAuthors(data.data);
+                                               setPages(data.links);
                                            });
                                        }}
                                 />
@@ -64,13 +62,12 @@ const AuthorsTable = () => {
                                 <tr>
                                     <th scope="col"></th>
                                     <th scope="col">الاسم</th>
-                                    <th scope="col">التصنيف الاب</th>
-                                    <th scope="col"/>
+                                    <th scope="col" className="text-center">الخيارات</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 {authors && authors.map((author) => (
-                                    <tr>
+                                    <tr key={author.id}>
                                         <th scope="row">
                                             <Media className="align-items-center">
                                                 <a
@@ -85,11 +82,6 @@ const AuthorsTable = () => {
                                             </Media>
                                         </th>
                                         <td>{author.name}</td>
-                                        <td>
-                                            <Badge color="" className="badge-dot mr-4">
-                                                {author.parent ? author.parent.name : ''}
-                                            </Badge>
-                                        </td>
                                         <td className="text-right d-flex align-items-center justify-content-center gap-1">
                                             <Button color="success" size="sm" type="button"
                                                     className="d-flex align-items-center justify-content-center gap-1"

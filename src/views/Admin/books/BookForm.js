@@ -33,13 +33,13 @@ const BookForm = () => {
     const [description, setDescription] = useState();
 
     useEffect(() => {
-        CategoryApi.getAllCategories().then((data) => {
-            setCategories(data.data.data.map((category) => {
+        CategoryApi.getAllCategories().then(({data}) => {
+            setCategories(data.map((category) => {
                 return {value: category.id, label: category.name}
             }));
         });
-        AuthorApi.getAllAuthors().then((data) => {
-            setAuthors(data.data.map((author) => {
+        AuthorApi.getAllAuthors().then(({data}) => {
+            setAuthors(data.map((author) => {
                 return {value: author.id, label: author.name}
             }));
         });
