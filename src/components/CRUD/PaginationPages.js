@@ -9,7 +9,7 @@ const PaginationPages = ({pages, setPages, setData, api ,params}) => {
                 listClassName="justify-content-end mb-0"
             >
                 {pages && pages.map((page) => (
-                    <PaginationItem className={((!page.url) ? "disabled" : '') + (page.active ? "active" : '')}>
+                    <PaginationItem className={((!page.url) ? "disabled" : '') + (page.active ? "active" : '')} key={page.label}>
                         <PaginationLink
                             onClick={() => {
                                 if (page.url) {
