@@ -11,22 +11,12 @@ const getBook = id => {
     return api.get(`${path}/show/${id}`);
 }
 
-const createBook = data => {
-    return api.post(path, data);
-}
-
-const updateBook = (id, data) => {
-    return api.post(`${path}/update/${id}`, data);
-}
-
-const deleteBook = id => {
-    return api.delete(`${path}/delete/${id}`);
+const getLatestBooks = () => {
+    return api.get(`${path}/latest`);
 }
 
 export default {
     getAllBooks,
     getBook,
-    createBook,
-    updateBook,
-    deleteBook,
+    getLatestBooks,
 }

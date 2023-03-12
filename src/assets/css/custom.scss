@@ -1,0 +1,35 @@
+$theme-colors: (
+        "primary": #14b8a6,
+        "secondary": #6c757d,
+        "success": #28a745,
+        "info": #a21caf,
+        "warning": #ffc107,
+        "danger": #dc3545,
+        "light": #f8f9fa,
+        "dark": #343a40
+);
+.image-slider-item-content {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  background-color: #6c757d;
+  opacity: 0;
+  color: #fff;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.image-slider-item {
+  position: relative;
+}
+
+.image-slider-item:hover {
+  .image-slider-item-content {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0.8;
+  }
+}
+
+$pagination-active-color: #fff;
+$pagination-active-bg: #14b8a6;
+$pagination-color: #14b8a6;
+@import '~bootstrap/scss/bootstrap';
