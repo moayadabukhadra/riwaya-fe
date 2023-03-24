@@ -1,6 +1,6 @@
 $theme-colors: (
-        "primary": #14b8a6,
-        "secondary": #6c757d,
+        "primary": #be123c,
+        "secondary": #4c1d95,
         "success": #28a745,
         "info": #a21caf,
         "warning": #ffc107,
@@ -8,6 +8,22 @@ $theme-colors: (
         "light": #f8f9fa,
         "dark": #343a40
 );
+
+/* bootstrap dark theme colors */
+$theme-colors: map-merge(
+                (
+                        "dark": #343a40,
+                        "dark-light": #495057,
+                        "dark-lighter": #6c757d,
+                        "dark-lightest": #adb5bd,
+                        "dark-dark": #212529,
+                        "dark-darker": #17181a,
+                        "dark-darkest": #0d0e0f
+                ),
+                $theme-colors
+);
+
+
 .image-slider-item-content {
   position: absolute;
   inset: 0;
@@ -32,4 +48,189 @@ $theme-colors: (
 $pagination-active-color: #fff;
 $pagination-active-bg: #14b8a6;
 $pagination-color: #14b8a6;
-@import '~bootstrap/scss/bootstrap';
+$pagination-focus-box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+
+.card {
+  border: none;
+  transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+  overflow: hidden;
+  border-radius: 20px;
+  min-height: 300px;
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+
+
+  &.card-has-bg {
+    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 0.5);
+    background-size: 120%;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: inherit;
+    }
+
+    &:hover {
+      transform: scale(0.98);
+      box-shadow: 0 0 5px -2px rgba(0, 0, 0, 0.3);
+      background-size: 90%;
+      transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+
+      .card-img-overlay {
+        transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+        background: rgb(35, 79, 109);
+        background: linear-gradient(0deg, rgba(4, 69, 114, 0.5) 0%, rgba(4, 69, 114, 0.3) 100%);
+      }
+
+      -webkit-filter: grayscale(0.5);
+      -moz-filter: grayscale(50%);
+      -ms-filter: grayscale(50%);
+      -o-filter: grayscale(50%);
+      filter: grayscale(50%)
+
+    }
+  }
+
+  .card-footer {
+    background: none;
+    border-top: none;
+
+    .media {
+      img {
+        border: solid 3px rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+
+  .card-meta {
+    color: #26BD75
+  }
+
+  .card-body {
+    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  &:hover {
+    .card-body {
+      margin-top: 30px;
+      transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    cursor: pointer;
+    transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .card-img-overlay {
+    transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+    background: rgb(35, 79, 109);
+    background: linear-gradient(0deg, rgba(35, 79, 109, 0.3785889355742297) 0%, rgba(69, 95, 113, 0.5) 100%);
+  }
+}
+
+.active {
+  font-weight: bold !important;
+  color: #be123c !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.categories-list {
+  li:hover {
+    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+    background-color: rgb(190, 18, 60, 0.5);
+    color: #fff;
+  }
+
+  li.active {
+    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+    background-color: rgb(190, 18, 60, 0.5);
+    color: #fff;
+  }
+}
+
+.header {
+  min-height: 50vh;
+  padding: 0;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.header-content {
+  width: 50%;
+  @media  screen and (max-width: 1024px) {
+    width: 80%;
+  }
+}
+
+.header-quote {
+  transform: translate(50%, 0);
+  @media screen and (max-width: 1024px) {
+    transform: translate(0, 0);
+  }
+}
+
+.transparent-nav {
+  transition: all 0.5s ease-in-out;
+  @media screen and (max-width: 1024px) {
+    background: #fff;
+    .navbar-brand {
+      color: #000 !important;
+    }
+    li {
+      a:not(.active) {
+        color: #000 !important;
+      }
+    }
+  }
+
+  .navbar-brand {
+    color: #fff;
+  }
+
+  li {
+    a:not(.active) {
+      color: #fff;
+    }
+  }
+}
+
+.riwaya-nav {
+  li {
+    a:hover {
+      color: #be123c !important;
+    }
+  }
+}
+
+.header-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  z-index: 9;
+}
+.box{
+    position: relative;
+  padding:1em;
+}
+.box:before{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 2px;
+  background: #be123c;
+}
+
+
+
+@import "bootstrap/scss/bootstrap";
+@import 'react-bootstrap-sidebar-menu/dist/sidebar-menu.scss';

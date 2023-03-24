@@ -7,7 +7,7 @@ const service = axios.create({
 
 service.interceptors.request.use(
     (config) => {
-        const token = store.getState().token;
+        const token = store.getState().user?.token;
         if (token) {
             config.headers['Authorization'] = `Bearer ${token}`;
         }

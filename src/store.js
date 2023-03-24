@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 
 const initialState = {
     token: Cookies.get('token'),
-    user: JSON.parse(Cookies.get('user') || '{}'),
+    user: Cookies.get('user') ? JSON.parse(Cookies.get('user')) : null,
     role: Cookies.get('role')
 }
 

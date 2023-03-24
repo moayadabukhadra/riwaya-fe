@@ -15,8 +15,13 @@ const getLatestBooks = () => {
     return api.get(`${path}/latest`);
 }
 
+const getMostReadBooks = () => {
+    return api.get(`${path}/most-read`);
+}
+
 export default {
     getAllBooks,
     getBook,
     getLatestBooks,
+    getMostReadBooks
 }

@@ -1,10 +1,11 @@
 import React from 'react';
 import store from "../store";
 import {Provider} from "react-redux";
-import {Redirect, Route, Switch, useLocation} from "react-router-dom";
+import {Redirect, Route, Switch} from "react-router-dom";
 import routes from "routes.js";
 import NavBar from "../common/NavBar";
 import Footer from "../common/Footer";
+
 
 const Layout = (props) => {
     const getRoutes = (routes) => {
@@ -23,27 +24,23 @@ const Layout = (props) => {
         });
     }
     const mainContent = React.useRef(null);
-    const location = useLocation();
-    React.useEffect(() => {
-        document.documentElement.scrollTop = 0;
-        document.scrollingElement.scrollTop = 0;
-        mainContent.current.scrollTop = 0;
-    }, [location]);
-
-    return (
-        <Provider store={store}>
-               <div className={"d-flex flex-column gap-4 mvh-100"}>
-                   <NavBar/>
-                   <div className="main-content" ref={mainContent}>
-                       <Switch>
-                           {getRoutes(routes)}
-                           <Redirect from="*" to="/"/>
-                       </Switch>
-                   </div>
-                   <Footer/>
-               </div>
-        </Provider>
-    );
+        return (
+            <Provider store={store}>
+                <div className={"d-flex flex-column"}>
+                    <NavBar/>
+                    <div className="main-content p-0 m-0" ref={mainContent}>
+                        <Switch>
+                            {getRoutes(routes)}
+                            <Redirect from="*" to="/"/>
+                        </Switch>
+                    </div>
+                    <Footer/>
+                    <a href="#" className={"scroll-to-top text-decoration-none"}>
+                        <i className="fas fa-chevron-up"/>
+                    </a>
+                </div>
+            </Provider>
+        );
 }
 
 export default Layout;
