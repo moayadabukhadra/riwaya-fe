@@ -4,11 +4,13 @@ import React, {useEffect, useState} from "react";
 import BookApi from "../api/Book";
 import LoadingScreen from "../components/LoadingScreen";
 import $ from "jquery";
+import QuoteApi from "../api/Quote";
 
 const Home = () => {
     const [loading, setLoading] = useState(true);
     const [mostReadBooks, setMostReadBooks] = useState();
     const [latestBooks, setLatestBooks] = useState();
+    const [quote, setQuote] = useState();
 
     useEffect(() => {
         setLoading(true);
@@ -19,6 +21,11 @@ const Home = () => {
         BookApi.getLatestBooks().then(({data}) => {
             setLatestBooks(data);
             setLoading(false);
+        });
+
+        QuoteApi.getRandomQuote().then(({data}) => {
+            console.log(data)
+            setQuote(data);
         });
 
         $(document).ready(function () {
@@ -71,15 +78,17 @@ const Home = () => {
                     <BookSwiper books={latestBooks} key={'latest'}
                                 swiperKey={'latest'}/>
                 </Row>
-                <div className={"box my-5"}>
-                    <i className={"fas fa-quote-left fa2"}></i>
+                <div className={"box my-5 shadow"}>
                     <div className={"text"}>
-                        <h3>أندر من الكتاب الجيد، القارئ الجيد.</h3>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book.
+                        <p className={"mt-1 d-flex align-items-center gap-2 fs-4"}>
+                            <i className={"fas fa-quote-right fa2 text-primary"} style={{
+                                transform: 'translateY(-0.5rem)'
+
+                            }}></i>
+                            {quote?.body}
+                            <i  style={{transform: 'translateY(0.5rem)'}} className={"fas fa-quote-left fa2 text-primary"}></i>
                         </p>
+                        <small className={"fs-6"}>{quote?.author?.name}</small>
                     </div>
                 </div>
                 <div className={"book-section-title mb-4"}>

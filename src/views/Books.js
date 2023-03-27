@@ -18,7 +18,7 @@ const Books = () => {
 
     const [params, setParams] = useState({
         'with': 'author,category,image',
-        'paginate': '12',
+        'paginate': '18',
     });
 
 
@@ -126,7 +126,7 @@ const Books = () => {
                         {
                             books?.data && books?.data.map((book) => {
                                 return (
-                                    <div className={"col-12 col-md-6 col-lg-3 mb-4"}>
+                                    <div className={"col-6 col-md-4 col-lg-3 col-xl-2 mb-4"}>
                                         <BookCard book={book} key={book.id}/>
                                     </div>
                                 );

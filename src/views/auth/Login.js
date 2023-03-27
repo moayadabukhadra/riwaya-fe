@@ -17,7 +17,7 @@ const Login = () => {
                 type: 'LOGIN',
                 payload: data.success
             });
-            history.push('/books');
+            history.push('/');
         })
     }
 

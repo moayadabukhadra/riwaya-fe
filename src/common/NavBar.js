@@ -25,6 +25,7 @@ function NavBar(args) {
 
     const toggle = () => setIsOpen(!isOpen);
     const handleLogout = () => {
+        console.log('logout')
         store.dispatch({type: 'LOGOUT'});
         history.push('/auth/login');
     }
@@ -45,7 +46,34 @@ function NavBar(args) {
                 <img src={"/images/logo/riwaya-logo.png"} alt={"logo"} width={50}/>
                 <span className={"text-amiri fs-4"}>رواية</span>
             </NavbarBrand>
-            <NavbarToggler className={"bg-white border-light text-white  fs-6 p-2"} onClick={toggle}/>
+            <div className={"d-flex align-items-center"}>
+                {/*{user &&*/}
+                {/*    <>*/}
+                {/*        <i className={"fa fa-bell text-primary ms-3 fs-5 cursor-pointer d-md-none"}></i>*/}
+                {/*        <Dropdown className={"ms-4 d-md-none p-0"} isOpen={dropdownOpen} toggle={dropdownToggle}>*/}
+                {/*            <DropdownToggle className={"bg-transparent border-0 p-0"}>*/}
+                {/*                <img className={"rounded-circle"} src={user?.image ? user?.image.path : "/images/placeholders/user-placeholder.png"}*/}
+                {/*                     width={50} />*/}
+                {/*            </DropdownToggle>*/}
+                {/*            <DropdownMenu>*/}
+                {/*                <DropdownItem href={"/profile"}*/}
+                {/*                              className={"d-flex align-items-center gap-1 text-secondary"}>*/}
+                {/*                    <i className="fas fa-user-circle"></i>*/}
+                {/*                    الصفحة الشخصية*/}
+                {/*                </DropdownItem>*/}
+                {/*                <DropdownItem divider={true}/>*/}
+                {/*                <DropdownItem role={"button"} className={"text-danger d-flex align-items-center gap-1"}*/}
+                {/*                              onClick={handleLogout}>*/}
+                {/*                    <i className="fas fa-sign-out-alt"></i>*/}
+                {/*                    تسجيل الخروج*/}
+                {/*                </DropdownItem>*/}
+                {/*            </DropdownMenu>*/}
+                {/*        </Dropdown>*/}
+                {/*    </>*/}
+                {/*}*/}
+                <NavbarToggler className={"bg-white border-light text-white  fs-6 p-2"} onClick={toggle}/>
+
+            </div>
             <Collapse className={"justify-content-center"} isOpen={isOpen} navbar>
                 <Nav className="justify-content-center gap-1" navbar>
                     <NavItem>
@@ -95,11 +123,11 @@ function NavBar(args) {
                 </Nav>
             </Collapse>
             {user &&
-                <>
-                    <i className={"fa fa-bell text-primary ms-3 fs-5 curso"}></i>
-                    <Dropdown className={"ms-4 d-none d-md-block"} isOpen={dropdownOpen} toggle={dropdownToggle}>
+                <div className={"d-none d-md-flex align-items-center gap-1"}>
+                    <i className={"fa fa-bell text-primary ms-3 fs-5 cursor-pointer"}></i>
+                    <Dropdown className={"ms-4 p-0"} isOpen={dropdownOpen} toggle={dropdownToggle}>
                         <DropdownToggle className={"bg-transparent border-0 p-0"}>
-                            <img src={user?.image ? user?.image.path : "/images/placeholders/user-placeholder.png"}
+                            <img className={"rounded-circle"} src={user?.image ? user?.image.path : "/images/placeholders/user-placeholder.png"}
                                  width={50}/>
                         </DropdownToggle>
                         <DropdownMenu>
@@ -109,14 +137,14 @@ function NavBar(args) {
                                 الصفحة الشخصية
                             </DropdownItem>
                             <DropdownItem divider={true}/>
-                            <DropdownItem className={"text-danger d-flex align-items-center gap-1"}
+                            <DropdownItem role={"button"} className={"text-danger d-flex align-items-center gap-1"}
                                           onClick={handleLogout}>
                                 <i className="fas fa-sign-out-alt"></i>
                                 تسجيل الخروج
                             </DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
-                </>
+                </div>
             }
         </Navbar>
     );

@@ -2,7 +2,7 @@ import axios from 'axios';
 import store from '../store';
 
 const service = axios.create({
-    baseURL: process.env.API_URL || 'http://localhost:8000/api',
+    baseURL: process.env.API_URL || 'http://riwaya.rf.gd/api',
 });
 
 service.interceptors.request.use(

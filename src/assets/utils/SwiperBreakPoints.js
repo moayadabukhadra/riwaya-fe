@@ -1,6 +1,6 @@
 const breakPoints = {
     320: {
-        slidesPerView: 1,
+        slidesPerView: 2,
         spaceBetween: 10
     },
     480: {
@@ -11,13 +11,16 @@ const breakPoints = {
         slidesPerView: 3,
         spaceBetween: 10
     },
-    1250: {
+    800: {
         slidesPerView: 4,
+    },
+    1250: {
+        slidesPerView: 5,
         spaceBetween: 10
 
     },
     1500: {
-        slidesPerView: 5,
+        slidesPerView: 7,
         spaceBetween: 10
     }
 }

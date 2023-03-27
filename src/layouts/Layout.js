@@ -1,13 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import store from "../store";
 import {Provider} from "react-redux";
 import {Redirect, Route, Switch} from "react-router-dom";
 import routes from "routes.js";
 import NavBar from "../common/NavBar";
 import Footer from "../common/Footer";
-
+import {Toaster} from "react-hot-toast";
 
 const Layout = (props) => {
+
     const getRoutes = (routes) => {
         return routes.map((prop, key) => {
             if (prop.layout === "/front") {
@@ -24,23 +25,24 @@ const Layout = (props) => {
         });
     }
     const mainContent = React.useRef(null);
-        return (
-            <Provider store={store}>
-                <div className={"d-flex flex-column"}>
-                    <NavBar/>
-                    <div className="main-content p-0 m-0" ref={mainContent}>
-                        <Switch>
-                            {getRoutes(routes)}
-                            <Redirect from="*" to="/"/>
-                        </Switch>
-                    </div>
-                    <Footer/>
-                    <a href="#" className={"scroll-to-top text-decoration-none"}>
-                        <i className="fas fa-chevron-up"/>
-                    </a>
+    return (
+        <Provider store={store}>
+            <div className={""}>
+                <Toaster/>
+                <NavBar/>
+                <div className="main-content p-0 m-0" ref={mainContent}>
+                    <Switch>
+                        {getRoutes(routes)}
+                        <Redirect from="*" to="/"/>
+                    </Switch>
                 </div>
-            </Provider>
-        );
+                <Footer/>
+                <a href="#" className={"scroll-to-top text-decoration-none"}>
+                    <i className="fas fa-chevron-up"/>
+                </a>
+            </div>
+        </Provider>
+    );
 }
 
 export default Layout;

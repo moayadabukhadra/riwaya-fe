@@ -9,19 +9,6 @@ $theme-colors: (
         "dark": #343a40
 );
 
-/* bootstrap dark theme colors */
-$theme-colors: map-merge(
-                (
-                        "dark": #343a40,
-                        "dark-light": #495057,
-                        "dark-lighter": #6c757d,
-                        "dark-lightest": #adb5bd,
-                        "dark-dark": #212529,
-                        "dark-darker": #17181a,
-                        "dark-darkest": #0d0e0f
-                ),
-                $theme-colors
-);
 
 
 .image-slider-item-content {
@@ -46,16 +33,16 @@ $theme-colors: map-merge(
 }
 
 $pagination-active-color: #fff;
-$pagination-active-bg: #14b8a6;
-$pagination-color: #14b8a6;
-$pagination-focus-box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+$pagination-active-bg: #be123c;
+$pagination-color: #be123c;
+$pagination-focus-box-shadow: 0 0 0 0.2rem rgb(190, 18, 60);
 
 .card {
   border: none;
   transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
   overflow: hidden;
   border-radius: 20px;
-  min-height: 300px;
+  min-height: 225px;
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
 
 
@@ -226,10 +213,36 @@ $pagination-focus-box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
   content: '';
   position: absolute;
   height: 100%;
-  width: 2px;
+  width: 4px;
+  right: 0;
+  top: 0;
   background: #be123c;
 }
 
+.scroll-to-top {
+  position: fixed;
+  bottom: 1em;
+  left: 1em;
+  background: #be123c;
+  padding: 15px;
+  color: #ffffff;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  opacity: 0.7;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.fs-7{
+  font-size: 0.7rem;
+}
 
 
 @import "bootstrap/scss/bootstrap";

@@ -20,7 +20,7 @@ const Register = () => {
                 type: 'REGISTER',
                 payload: data.success
             });
-            history.push('/books');
+            history.push('/');
         })
     }
     return (

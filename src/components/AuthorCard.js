@@ -1,18 +1,16 @@
-import parse from "html-react-parser";
-import {useState} from "react";
+
 import {summary} from "../Helpers";
 
 const AuthorCard = (props) => {
 const author = props.author;
     return (
-        <div className={"col-12 col-md-6 col-lg-4 justify-content-between border rounded-2 author-card"}>
-
+        <div className={"col-12 col-md-6 justify-content-between border rounded-2 author-card"}>
             <div className="py-2">
                 <div className="d-flex align-items-center gap-1">
                     <img className={"rounded-circle"}
                          width={"50"}
                          height={"50"}
-                         src={author.image ? "http://localhost:8000/storage/images/" + author.image.path : "/images/placeholders/placeholder.jpg"}
+                         src={author.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + author.image.path : "/images/placeholders/placeholder.jpg"}
                          alt={author.name}
                     />
                     <h5 className="card-title fw-bold">{author.name}</h5>
