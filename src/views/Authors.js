@@ -120,7 +120,7 @@ const Authors = () => {
                     <div className={"d-flex align-items-start gap-2"}>
                         <img className={"rounded-1 image-thumbnail"}
                              width={"150"}
-                             src={selectedAuthor?.image ? "http://riwaya.rf.gd/riwaya/storage/app/public/images/" + selectedAuthor.image.path : "/images/placeholders/placeholder.jpg"}
+                             src={selectedAuthor?.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + selectedAuthor.image.path : "/images/placeholders/placeholder.jpg"}
                              alt={selectedAuthor?.name}
                         />
                         {selectedAuthor && parse(selectedAuthor?.bio)}

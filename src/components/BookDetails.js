@@ -92,7 +92,7 @@ const BookDetails = ({book}) => {
     return (
         <div className={"row align-items-start"}>
             <img className={"col-md-4 mb-3"}
-                 src={book.image ? "http://riwaya.rf.gd/riwaya/storage/app/public/images/" + book.image.path : "/images/placeholders/placeholder.jpg"}
+                 src={book.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + book.image.path : "/images/placeholders/placeholder.jpg"}
                  alt={book.title}/>
             <div className={"d-flex flex-column gap-2 ms-3 col-12 col-md-7"}>
                 <div className={"d-flex align-items-center justify-content-between"}>
@@ -146,7 +146,7 @@ const BookDetails = ({book}) => {
                                          <div className={"d-flex align-items-center justify-content-between"}>
                                              <div className={"d-flex align-items-start"}>
                                                  <img
-                                                     src={comment.user?.image ? "http://localhost:8000/storage/images/" + comment.user?.image.path : "/images/placeholders/user-placeholder.png"}
+                                                     src={comment.user?.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + comment.user?.image.path : "/images/placeholders/user-placeholder.png"}
                                                      alt={comment.user?.name} className={"rounded-circle"} width={50}
                                                      height={50}/>
                                                  <div>
@@ -191,7 +191,7 @@ const BookDetails = ({book}) => {
                                                                      className={"d-flex align-items-center justify-content-between"}>
                                                                      <div className={"d-flex align-items-start"}>
                                                                          <img
-                                                                             src={reply.user?.image ? "http://localhost:8000/storage/images/" + reply.user?.image.path : "/images/placeholders/user-placeholder.png"}
+                                                                             src={reply.user?.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + reply.user?.image.path : "/images/placeholders/user-placeholder.png"}
                                                                              alt={reply.user?.name} className={"rounded-circle"}
                                                                              width={50}
                                                                              height={50}/>
