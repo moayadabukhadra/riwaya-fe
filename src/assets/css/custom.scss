@@ -10,7 +10,6 @@ $theme-colors: (
 );
 
 
-
 .image-slider-item-content {
   position: absolute;
   inset: 0;
@@ -129,16 +128,21 @@ $pagination-focus-box-shadow: 0 0 0 0.2rem rgb(190, 18, 60);
 }
 
 .categories-list {
+  max-height: 400px;
+  overflow: auto;
   li:hover {
     transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
-    background-color: rgb(190, 18, 60, 0.5);
-    color: #fff;
+    background-color: #eeeeee;
   }
 
   li.active {
     transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
     background-color: rgb(190, 18, 60, 0.5);
     color: #fff;
+  }
+
+  @media (max-width: 1024px) {
+    max-height: 200px;
   }
 }
 
@@ -151,7 +155,7 @@ $pagination-focus-box-shadow: 0 0 0 0.2rem rgb(190, 18, 60);
 
 .header-content {
   width: 50%;
-  @media  screen and (max-width: 1024px) {
+  @media screen and (max-width: 1024px) {
     width: 80%;
   }
 }
@@ -163,8 +167,7 @@ $pagination-focus-box-shadow: 0 0 0 0.2rem rgb(190, 18, 60);
   }
 }
 
-.transparent-nav {
-  transition: all 0.5s ease-in-out;
+.bg-white-nav-toggle{
   @media screen and (max-width: 1024px) {
     background: #fff;
     .navbar-brand {
@@ -176,6 +179,9 @@ $pagination-focus-box-shadow: 0 0 0 0.2rem rgb(190, 18, 60);
       }
     }
   }
+}
+.transparent-nav {
+  transition: all 0.5s ease-in-out;
 
   .navbar-brand {
     color: #fff;
@@ -205,11 +211,13 @@ $pagination-focus-box-shadow: 0 0 0 0.2rem rgb(190, 18, 60);
   color: #fff;
   z-index: 9;
 }
-.box{
-    position: relative;
-  padding:1em;
+
+.box {
+  position: relative;
+  padding: 1em;
 }
-.box:before{
+
+.box:before {
   content: '';
   position: absolute;
   height: 100%;
@@ -235,14 +243,16 @@ $pagination-focus-box-shadow: 0 0 0 0.2rem rgb(190, 18, 60);
   cursor: pointer;
   z-index: 999;
   opacity: 0.7;
+
   &:hover {
     opacity: 1;
   }
 }
 
-.fs-7{
+.fs-7 {
   font-size: 0.7rem;
 }
+
 
 
 @import "bootstrap/scss/bootstrap";

@@ -71,7 +71,10 @@ function NavBar(args) {
                 {/*        </Dropdown>*/}
                 {/*    </>*/}
                 {/*}*/}
-                <NavbarToggler className={"bg-white border-light text-white  fs-6 p-2"} onClick={toggle}/>
+                <NavbarToggler className={"bg-white border-light text-white  fs-6 p-2"} onClick={()=>{
+                toggle();
+                $('.riwaya-nav').toggleClass('bg-white-nav-toggle');
+                }}/>
 
             </div>
             <Collapse className={"justify-content-center"} isOpen={isOpen} navbar>

@@ -52,11 +52,11 @@ const Books = () => {
     return (
         <>
             <LoadingScreen loading={loading}/>
-            <Container fluid className={"row justify-content-around"} style={{
+            <Container fluid className={"row mx-0 justify-content-md-around justify-content-center"} style={{
                 marginTop: '100px',
             }}>
 
-                <div className={"col-md-3 row border-start"}>
+                <div className={"col-md-3 row border-md-start border-0"}>
                     <div className={"bg-white rounded-2 p-3"}>
                         <div className={"d-flex flex-column gap-3"}>
                             <label className={"position-relative d-flex align-items-center position-relative"}>
@@ -80,7 +80,15 @@ const Books = () => {
                         <div className={"book-section-title mb-4 "}>
                             التصنيفات
                         </div>
-                        <ul className={"list-unstyled categories-list"}>
+                        <ul className={"list-unstyled categories-list custom-scroll"}>
+                            <li className={"d-flex align-items-center gap-2 p-2 cursor-pointer  border-bottom d-flex align-items-center justify-content-between"} onClick={() => {
+                                setParams({
+                                    ...params,
+                                    category: null,
+                                })
+                            }}>
+                                جميع التصنيفات
+                            </li>
                             {
                                 categories && categories.map((category) => {
                                         return (<li key={category.value} onClick={() => {
@@ -133,7 +141,7 @@ const Books = () => {
                             }, [])
                         }
                     </Row>
-                    <nav aria-label="...">
+                    <nav className={"overflow-hidden"} aria-label="...">
                         <Pagination
                             className="pagination justify-content-center my-2"
                             listClassName="justify-content-end gap-1 ">
@@ -141,18 +149,19 @@ const Books = () => {
                                 <PaginationItem
                                     className={((!page.url) ? "disabled" : '') + (page.active ? "active" : '')}
                                     key={page.label}>
-                                    <PaginationLink className={"rounded-2 d-flex align-items-center justify-content-center gap-1 flex-grow-1"}
-                                                    onClick={() => {
-                                                        if (page.url) {
-                                                            params.page = page.url.substring(page.url.lastIndexOf('=') + 1);
+                                    <PaginationLink
+                                        className={"rounded-2 d-flex align-items-center justify-content-center gap-1 flex-grow-1"}
+                                        onClick={() => {
+                                            if (page.url) {
+                                                params.page = page.url.substring(page.url.lastIndexOf('=') + 1);
 
-                                                            BookApi.getAllBooks(params).then(({data}) => {
-                                                                setBooks(data.books);
-                                                                setRelatedBooks(data.related_books)
-                                                                setPages(data.books.links);
-                                                            });
-                                                        }
-                                                    }}
+                                                BookApi.getAllBooks(params).then(({data}) => {
+                                                    setBooks(data.books);
+                                                    setRelatedBooks(data.related_books)
+                                                    setPages(data.books.links);
+                                                });
+                                            }
+                                        }}
                                     >
                                         {(page.label.includes('next')) ?
                                             <i className="fa fa-angle-left"/> : (page.label.includes('prev')) ?

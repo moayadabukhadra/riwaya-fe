@@ -50,11 +50,11 @@ const Authors = () => {
     return (
         <>
             <LoadingScreen loading={loading}/>
-            <div className={"row justify-content-between align-self-center"} style={{
+            <div className={"row justify-content-center justify-content-md-between align-self-center"} style={{
                 margin: '100px  auto',
                 alignSelf: 'center',
             }}>
-                <div className={"col-md-3 row border-start"}>
+                <div className={"col-md-3 row border-md-start border-0"}>
                     <div className={"bg-white rounded-2 p-3"}>
                         <div className={"d-flex flex-column gap-3"}>
                             <label className={"position-relative d-flex align-items-center position-relative"}>
@@ -80,7 +80,7 @@ const Authors = () => {
                     {authors && authors.map((author) => {
                         return <AuthorCard setSelectedAuthor={setSelectedAuthor} author={author}/>
                     })}
-                    <nav className={"col-12"} aria-label="...">
+                    <nav className={"col-12 overflow-hidden"} aria-label="...">
                         <Pagination
                             className="pagination justify-content-center my-2"
                             listClassName="justify-content-end gap-1 ">
