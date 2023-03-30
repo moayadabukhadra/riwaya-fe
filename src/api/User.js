@@ -15,8 +15,8 @@ const getRole = () => {
     return api.post('user-role');
 }
 
-const getFavoriteBooks = () => {
-    return api.get('favorite-books');
+const getFavoriteBooks = (params) => {
+    return api.get('favorite-books',{params});
 }
 
 const addFavoriteBook = (bookId) => {
@@ -27,6 +27,10 @@ const facebookLogin = () => {
     return api.get('auth/facebook');
 }
 
+const editProfile = (data) => {
+    return api.post('edit-profile', data);
+}
+
 export default {
     login,
     register: register,
@@ -34,5 +38,6 @@ export default {
     logout: logout,
     getFavoriteBooks,
     addFavoriteBook,
-    facebookLogin
+    facebookLogin,
+    editProfile
 }

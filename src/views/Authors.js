@@ -27,7 +27,7 @@ const Authors = () => {
 
     const [params, setParams] = useState({
         'with': 'image',
-        'paginate': '9',
+        'paginate': '6',
     });
     useEffect(() => {
 

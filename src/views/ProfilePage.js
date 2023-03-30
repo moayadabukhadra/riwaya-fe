@@ -3,59 +3,82 @@ import ImageInput from "../components/ImageInput";
 import React, {useEffect, useState} from "react";
 import UserApi from "../api/User";
 import LoadingScreen from "../components/LoadingScreen";
+import {Pagination, PaginationItem, PaginationLink} from "reactstrap";
+
 
 const ProfilePage = () => {
     const user = store.getState().user;
     const [favoriteBooks, setFavoriteBooks] = useState([]);
     const [loading, setLoading] = useState(true);
     const [tap, setTap] = useState('favoriteBooks');
+    const [pages, setPages] = useState();
+
+    const handleEditProfile = (e) => {
+        e.preventDefault();
+        setLoading(true);
+        const formData = new FormData(e.target);
+        UserApi.editProfile(formData).then(({data}) => {
+            store.dispatch({type: 'UPDATE', payload: data.success});
+            setLoading(false);
+        });
+    }
     useEffect(() => {
         if (tap === 'favoriteBooks') {
             UserApi.getFavoriteBooks().then(({data}) => {
-                setFavoriteBooks(data.success);
+                setFavoriteBooks(data.success.data);
+                setPages(data.success.links);
                 setLoading(false);
             });
         }
-    });
+    }, []);
 
     return (
-        <div className={"row justify-content-around py-5 min-vh-100"} style={{margin: "0 auto"}}>
+        <div className={"row justify-content-around"} style={{margin: "100px 0"}}>
             <LoadingScreen loading={loading}/>
             <div
-                className={"col-3 d-flex align-items-center flex-column  shadow-lg rounded-1"}>
+                className={"col-12 col-md-3  d-flex align-items-center flex-column  shadow-lg rounded-1"}>
                 <img
-                    src={user?.image ? "http://localhost:8000/storage/images/" + user?.image.path : "/images/placeholders/user-placeholder.png"}
+                    src={user?.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + user?.image.path : "/images/placeholders/user-placeholder.png"}
                     alt={user?.name}
-                    className={"rounded-circle"}
-                    width={"150"}
+                    className={"rounded-circle mt-1"}
+                    width={"125"}
+                    height={"125"}
 
                 />
                 <h3 className={"fw-bold"}>{user?.name}</h3>
                 <span className={"fw-bold text-muted"}>{user?.email}</span>
-                <ul className={"d-flex flex-column list-unstyled align-items-start mt-4 p-0"}>
-                    <li className="btn btn-primary">
-                        <a className={"nav-link " + (tap === 'favoriteBooks' ? 'active' : '')}
-                           onClick={() => setTap('favoriteBooks')}>المفضلة</a>
+                <ul className={"d-flex flex-column align-self-stretch list-unstyled  mt-4 p-0"}>
+                    <li className="nav-item">
+                        <a className={"p-2 rounded-1  nav-link " + (tap === 'favoriteBooks' ? 'active-pill' : '')}
+                           onClick={() => setTap('favoriteBooks')}>
+                            الكتب المفضلة
+                        </a>
                     </li>
                     <li className="nav-item">
-                        <a className={"nav-link " + (tap === 'orders' ? 'active' : '')}
+                        <a className={"p-2 rounded-1  nav-link " + (tap === 'favoriteAuthors' ? 'active-pill' : '')}
+                           onClick={() => setTap('favoriteAuthors')}>
+                            المؤلفين المفضلين
+                        </a>
+                    </li>
+                    <li className="nav-item">
+                        <a className={"p-2 rounded-1  nav-link " + (tap === 'orders' ? 'active-pill' : '')}
                            onClick={() => setTap('orders')}>الطلبات</a>
                     </li>
                     <li className="nav-item">
-                        <a className={"nav-link " + (tap === 'edit-profile' ? 'active' : '')}
+                        <a className={"p-2 rounded-1  nav-link " + (tap === 'edit-profile' ? 'active-pill' : '')}
                            onClick={() => setTap('edit-profile')}>تعديل الملف الشخصي</a>
                     </li>
                 </ul>
 
             </div>
-            <div className={"shadow col-8"}>
+            <div className={"shadow col-12 col-md-8"}>
                 <div
                     className={"row justify-content-between "} {...(tap === 'favoriteBooks' ? {} : {style: {display: 'none'}})}>
                     {favoriteBooks && favoriteBooks.map((book) => {
                         return (
                             <div className={"col-12 col-md-6 row  rounded-2  m-0 p-0 border border-light"}>
                                 <img
-                                    src={book.image ? "http://localhost:8000/storage/images/" + book.image.path : "/images/placeholders/placeholder.jpg"}
+                                    src={book.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + book.image.path : "/images/placeholders/placeholder.jpg"}
                                     alt={book.title}
                                     className={"col-3"}
                                 />
@@ -66,7 +89,7 @@ const ProfilePage = () => {
                                     </div>
                                     <div className={"d-flex flex-column gap-1"}>
                                         <button
-                                            className={"btn btn-sm btn-outline-primary d-flex align-items-center justify-content-center gap-1"}>
+                                            className={"btn btn-sm btn-outline-info d-flex align-items-center justify-content-center gap-1"}>
                                             <i className={"fa fa-book-reader"}></i>
                                             <span className={"ms-2"}>قراءة</span>
                                         </button>
@@ -87,25 +110,56 @@ const ProfilePage = () => {
                         );
                     })
                     }
+                    <nav className={"col-12 overflow-hidden"} aria-label="...">
+                        <Pagination
+                            className="pagination justify-content-center my-2"
+                            listClassName="justify-content-end gap-1 ">
+                            {pages && pages.map((page) => (
+                                <PaginationItem
+                                    className={((!page.url) ? "disabled" : '') + (page.active ? "active" : '')}
+                                    key={page.label}>
+                                    <PaginationLink className={"rounded-2"}
+                                                    onClick={() => {
+                                                        if (page.url) {
+                                                            UserApi.getFavoriteBooks({page: page.url.split('=')[1]}).then(({data}) => {
+                                                                setFavoriteBooks(data.success.data);
+                                                                setPages(data.success.links);
+                                                                setLoading(false);
+                                                            });
+                                                        }
+                                                    }}
+                                    >
+                                        {(page.label.includes('next')) ?
+                                            <i className="fa fa-angle-left"/> : (page.label.includes('prev')) ?
+                                                <i className="fa fa-angle-right"/> : page.label ?? page.label}
+                                    </PaginationLink>
+                                </PaginationItem>
+                            ))}
+
+                        </Pagination>
+                    </nav>
                 </div>
                 <div
-                    className={"row "} {...(tap === 'edit-profile' ? {} : {style: {display: 'none'}})}>
-                    <form className={"col-8 row"} encType={"multipart/form-data"}>
-                        <ImageInput itemImage={user?.image}/>
-                        <div>
+                    className={"row p-4"} {...(tap === 'edit-profile' ? {} : {style: {display: 'none'}})}>
+                    <form onSubmit={handleEditProfile} className={"d-flex flex-column"} encType={"multipart/form-data"}>
+                        <div className={"align-self-center"}>
+                            <ImageInput itemImage={user?.image?.path}/>
+                        </div>
+                        <div className={"form-group mb-4"}>
                             <label htmlFor="name" className="form-label">الاسم</label>
-                            <input type="text" className="form-control" id="name" placeholder="الاسم"/>
+                            <input type="text" name={"name"} className="form-control" id="name"/>
                         </div>
-                        <div>
+                        <div className={"form-group mb-4"}>
                             <label htmlFor="email" className="form-label">البريد الالكتروني</label>
-                            <input type="email" className="form-control" id="email" placeholder="البريد الالكتروني"/>
+                            <input type="email" name={"email"} className="form-control" id="email"/>
                         </div>
-
+                        <div className={"form-group mb-4"}>
+                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"
+                                      placeholder="نبذة عنك"></textarea>
+                        </div>
+                        <button type="submit" className="btn btn-primary align-self-end">حفظ</button>
                     </form>
-
-
                 </div>
-
             </div>
         </div>
     );

@@ -19,7 +19,16 @@ const reducer = (state = initialState, action) => {
                 user: action.payload.user,
                 role: action.payload.user.role
             };
-
+        case 'UPDATE':
+            Cookies.set('token', action.payload.token);
+            Cookies.set('user', JSON.stringify(action.payload.user));
+            Cookies.set('role', action.payload.user.role);
+            return {
+                ...state,
+                token: action.payload.token,
+                user: action.payload.user,
+                role: action.payload.user.role
+            };
         case 'LOGOUT':
             Cookies.remove('token');
             Cookies.remove('user');

@@ -253,7 +253,11 @@ $pagination-focus-box-shadow: 0 0 0 0.2rem rgb(190, 18, 60);
   font-size: 0.7rem;
 }
 
-
+.active-pill{
+  background:#be123c;
+  color: #fff !important;
+  font-weight: bold;
+}
 
 @import "bootstrap/scss/bootstrap";
 @import 'react-bootstrap-sidebar-menu/dist/sidebar-menu.scss';
