@@ -231,7 +231,7 @@ $pagination-focus-box-shadow: 0 0 0 0.2rem rgb(190, 18, 60);
   position: fixed;
   bottom: 1em;
   left: 1em;
-  background: #be123c;
+  background: #cccccc;
   padding: 15px;
   color: #ffffff;
   border-radius: 50%;
@@ -246,6 +246,7 @@ $pagination-focus-box-shadow: 0 0 0 0.2rem rgb(190, 18, 60);
 
   &:hover {
     opacity: 1;
+    color: #fff !important;
   }
 }
 
@@ -257,6 +258,16 @@ $pagination-focus-box-shadow: 0 0 0 0.2rem rgb(190, 18, 60);
   background:#be123c;
   color: #fff !important;
   font-weight: bold;
+}
+
+.footer{
+  a{
+    text-decoration: none;
+    color: #000000;
+    &:hover{
+      color: #be123c;
+    }
+  }
 }
 
 @import "bootstrap/scss/bootstrap";

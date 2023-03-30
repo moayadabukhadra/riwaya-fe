@@ -17,14 +17,9 @@ const author = props.author;
                 </div>
                 <p className="text-truncate author-bio">{summary(author?.bio, 80)}</p>
                 <div className={"d-flex align-items-center justify-content-end gap-2"}>
-                    <button
-                        className={"btn btn-outline-danger float-start d-flex align-items-center justify-content-center gap-1"}>
-                        <i className={"fa fa-heart"}></i>
-                        <span className={"ms-2"}>إضافة الى المفضلة</span>
-                    </button>
                     <button onClick={()=>{
                         props.setSelectedAuthor(author);
-                    }} className="btn btn-secondary text-white float-start">
+                    }} className="btn btn-dark text-white float-start">
                         {"عرض التفاصيل"}
                     </button>
                 </div>
