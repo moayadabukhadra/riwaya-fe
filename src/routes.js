@@ -35,6 +35,7 @@ const routes = [
         layout: '/front',
         role: ['user', 'guest']
     },
+
     /* auth routes */
     {
         path: "/login",

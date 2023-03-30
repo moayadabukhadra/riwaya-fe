@@ -23,9 +23,10 @@ const Books = () => {
 
 
     useEffect(() => {
+        console.log(params)
         setLoading(true);
-        if (window.location.pathname.includes('book')) {
-            const id = window.location.search.split('=')[1];
+        const id = window.location.search.split('=')[1];
+        if (id) {
             params.selected_book = id;
             BookApi.getBook(id).then(({data}) => {
                 setSelectedBook(data);

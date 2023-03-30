@@ -4,7 +4,7 @@ const path = '/book';
 
 
 const getAllBooks = params => {
-    return api.get(path+'s', { params });
+    return api.get(path + 's', {params});
 }
 
 const getBook = id => {
@@ -19,9 +19,14 @@ const getMostReadBooks = () => {
     return api.get(`${path}/most-read`);
 }
 
+const downloadBook = id => {
+    return api.get(`${path}/download/${id}`);
+}
+
 export default {
     getAllBooks,
     getBook,
     getLatestBooks,
-    getMostReadBooks
+    getMostReadBooks,
+    downloadBook,
 }

@@ -71,9 +71,9 @@ function NavBar(args) {
                 {/*        </Dropdown>*/}
                 {/*    </>*/}
                 {/*}*/}
-                <NavbarToggler className={"bg-white border-light text-white  fs-6 p-2"} onClick={()=>{
-                toggle();
-                $('.riwaya-nav').toggleClass('bg-white-nav-toggle');
+                <NavbarToggler className={"bg-white border-light text-white  fs-6 p-2"} onClick={() => {
+                    toggle();
+                    $('.riwaya-nav').toggleClass('bg-white-nav-toggle');
                 }}/>
 
             </div>
@@ -130,8 +130,9 @@ function NavBar(args) {
                     <i className={"fa fa-bell text-primary ms-3 fs-5 cursor-pointer"}></i>
                     <Dropdown className={"ms-4 p-0"} isOpen={dropdownOpen} toggle={dropdownToggle}>
                         <DropdownToggle className={"bg-transparent border-0 p-0"}>
-                            <img className={"rounded-circle"} src={user?.image ? user?.image.path : "/images/placeholders/user-placeholder.png"}
-                                 width={50}/>
+                            <img className={"rounded-circle"}
+                                 src={user?.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + user?.image.path : "/images/placeholders/user-placeholder.png"}
+                                 width={40} height={40}/>
                         </DropdownToggle>
                         <DropdownMenu>
                             <DropdownItem href={"/profile"}

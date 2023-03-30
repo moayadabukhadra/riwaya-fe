@@ -2,7 +2,6 @@ import AuthorApi from "../api/Author";
 import React, {useEffect, useState} from "react";
 import {
     Button,
-    Container,
     Modal,
     ModalBody,
     ModalFooter,

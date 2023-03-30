@@ -7,6 +7,7 @@ import store from "../store";
 import $ from "jquery";
 import Pusher from 'pusher-js';
 import toast from "react-hot-toast";
+import BookApi from "../api/Book";
 
 const BookDetails = ({book}) => {
     const [comments, setComments] = useState([]);
@@ -58,9 +59,7 @@ const BookDetails = ({book}) => {
             }
         });
     }
-    const handleDownload = () => {
-        /**/
-    }
+
 
     const handleAddComment = (e) => {
         e.preventDefault();
@@ -114,16 +113,16 @@ const BookDetails = ({book}) => {
                 </a>
                 {parse(book?.description)}
                 <div className={"mt-2 row align-items-center justify-content-center justify-content-lg-start gap-1"}>
-                    <button onClick={handleDownload}
+                    <a download={book.file}  href={"https://riwaya.rf.gd/api/book/download/" + book.id}
                             className={"btn btn-primary d-flex align-items-center justify-content-center gap-1 text-white col-5 col-lg-3 mb-3"}>
                         <i className="fas fa-file-pdf"/>
                         تحميل الكتاب
-                    </button>
-                    <button
+                    </a>
+                    <a href={"https://riwaya.rf.gd/riwaya/storage/app/public/books/" + book.file}
                         className={"btn btn-info  d-flex align-items-center justify-content-center gap-1 text-white col-5 col-lg-3 mb-3"}>
                         <i className="fas fa-book-open"/>
                         قراءة
-                    </button>
+                    </a>
                 </div>
             </div>
             <div className={"comment-section col-12"}>
@@ -133,99 +132,101 @@ const BookDetails = ({book}) => {
                         <button
                             className={"btn btn-outline-dark d-flex align-items-center justify-content-center gap-1"}>
                             <i className={"fa fa-comment"}></i>
-                            <span className={"ms-2 d-none d-md-block"}>{book.comments.length} تعليق</span>
+                            {book.comments.length}<span className={"ms-2 d-none d-md-block"}> تعليق</span>
                         </button>
                     </div>
 
                     <div className={"d-flex flex-column border-bottom border-light pb-2 gap-1"}>
                         {
                             comments && comments.map((comment) => {
-                             if(!comment.parent_id){
-                                 return (
-                                     <div className={"d-flex flex-column border rounded-2  p-2"}>
-                                         <div className={"d-flex align-items-center justify-content-between"}>
-                                             <div className={"d-flex align-items-start"}>
-                                                 <img
-                                                     src={comment.user?.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + comment.user?.image.path : "/images/placeholders/user-placeholder.png"}
-                                                     alt={comment.user?.name} className={"rounded-circle"} width={50}
-                                                     height={50}/>
-                                                 <div>
+                                if (!comment.parent_id) {
+                                    return (
+                                        <div className={"d-flex flex-column border rounded-2  p-2"}>
+                                            <div className={"d-flex align-items-center justify-content-between"}>
+                                                <div className={"d-flex align-items-start"}>
+                                                    <img
+                                                        src={comment.user?.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + comment.user?.image.path : "/images/placeholders/user-placeholder.png"}
+                                                        alt={comment.user?.name} className={"rounded-circle"} width={50}
+                                                        height={50}/>
+                                                    <div>
                                                    <span
                                                        className="fw-bold text-dark text-decoration-none m-0 fs-5">{comment.user?.name}</span>
-                                                     <p className={"text-muted"}>{comment.body}</p>
+                                                        <p className={"text-muted"}>{comment.body}</p>
 
-                                                 </div>
-                                             </div>
+                                                    </div>
+                                                </div>
 
-                                             <span
-                                                 className="text-muted text-decoration-none m-0 flex-shrink-0">{comment.created_at}</span>
+                                                <span
+                                                    className="text-muted text-decoration-none m-0 flex-shrink-0">{comment.created_at}</span>
 
-                                         </div>
-                                         <div>
-                                             <div className={"d-flex align-items-center gap-3 me-3"}>
+                                            </div>
+                                            <div>
+                                                <div className={"d-flex align-items-center gap-3 me-3"}>
 
-                                                 <a className={"cursor-pointer text-decoration-none text-primary fs-7 fw-bold"}
-                                                    onClick={(e) => {
-                                                        let form = $(e.target).parent().parent().find("form");
-                                                        form.toggleClass("d-none");
-                                                        form.find("textarea").focus();
-                                                    }}
-                                                 >الرد على التعليق </a>
+                                                    <a className={"cursor-pointer text-decoration-none text-primary fs-7 fw-bold"}
+                                                       onClick={(e) => {
+                                                           let form = $(e.target).parent().parent().find("form");
+                                                           form.toggleClass("d-none");
+                                                           form.find("textarea").focus();
+                                                       }}
+                                                    >الرد على التعليق </a>
 
-                                                 {comment.replies && comment.replies.length > 0 &&
-                                                     <a
-                                                         onClick={(e) => {
-                                                             $(e.target).parent().parent().find(".replies").toggleClass("d-none");
-                                                         }}
-                                                         className={"cursor-pointer text-decoration-none text-primary fs-7 fw-bold"}>
-                                                         الردود
-                                                     </a>
-                                                 }
-                                             </div>
-                                             <div className={"replies m-3 d-none"}>
-                                                 {
-                                                     comment.replies && comment.replies.map((reply) => {
-                                                         return (
-                                                             <div className={"d-flex flex-column border-bottom border-light"}>
-                                                                 <div
-                                                                     className={"d-flex align-items-center justify-content-between"}>
-                                                                     <div className={"d-flex align-items-start"}>
-                                                                         <img
-                                                                             src={reply.user?.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + reply.user?.image.path : "/images/placeholders/user-placeholder.png"}
-                                                                             alt={reply.user?.name} className={"rounded-circle"}
-                                                                             width={50}
-                                                                             height={50}/>
-                                                                         <div>
+                                                    {comment.replies && comment.replies.length > 0 &&
+                                                        <a
+                                                            onClick={(e) => {
+                                                                $(e.target).parent().parent().find(".replies").toggleClass("d-none");
+                                                            }}
+                                                            className={"cursor-pointer text-decoration-none text-primary fs-7 fw-bold"}>
+                                                            الردود
+                                                        </a>
+                                                    }
+                                                </div>
+                                                <div className={"replies m-3 d-none"}>
+                                                    {
+                                                        comment.replies && comment.replies.map((reply) => {
+                                                            return (
+                                                                <div
+                                                                    className={"d-flex flex-column border-bottom border-light"}>
+                                                                    <div
+                                                                        className={"d-flex align-items-center justify-content-between"}>
+                                                                        <div className={"d-flex align-items-start"}>
+                                                                            <img
+                                                                                src={reply.user?.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + reply.user?.image.path : "/images/placeholders/user-placeholder.png"}
+                                                                                alt={reply.user?.name}
+                                                                                className={"rounded-circle"}
+                                                                                width={50}
+                                                                                height={50}/>
+                                                                            <div>
                                                                             <span
                                                                                 className="fw-bold text-dark text-decoration-none p-0 fs-5">{reply.user?.name}</span>
-                                                                             <p className={"text-muted"}>{reply.body}</p>
-                                                                         </div>
-                                                                     </div>
-                                                                 </div>
-                                                             </div>
-                                                         )
-                                                     })
-                                                 }
-                                             </div>
-                                             <form onSubmit={handleAddComment}
-                                                   className={"comment-form w-100 my-2 d-none"}>
-                                                 <input type={"hidden"} name={"parent_id"} value={comment.id}/>
-                                                 <textarea rows={1} name={"comment"} className={"form-control"}
-                                                           placeholder={"اكتب تعليقك هنا"}></textarea>
-                                                 <button type={"submit"}
-                                                         className={"btn btn-light mt-2 float-start text-dark d-flex align-items-center gap-1"}>
-                                                     <i className={"fa fa-paper-plane"}></i>
-                                                 </button>
-                                             </form>
+                                                                                <p className={"text-muted"}>{reply.body}</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            )
+                                                        })
+                                                    }
+                                                </div>
+                                                <form onSubmit={handleAddComment}
+                                                      className={"comment-form w-100 my-2 d-none"}>
+                                                    <input type={"hidden"} name={"parent_id"} value={comment.id}/>
+                                                    <textarea rows={1} name={"comment"} className={"form-control"}
+                                                              placeholder={"اكتب تعليقك هنا"}></textarea>
+                                                    <button type={"submit"} data-auth={"true"}
+                                                            className={"btn btn-light mt-2 float-start text-dark d-flex align-items-center gap-1"}>
+                                                        <i className={"fa fa-paper-plane"}></i>
+                                                    </button>
+                                                </form>
 
-                                         </div>
-                                     </div>
-                                 )
-                             }
+                                            </div>
+                                        </div>
+                                    )
+                                }
                             })
                         }
                     </div>
-                    <form onSubmit={handleAddComment} className={"comment-form col-12 my-2"}>
+                    <form onSubmit={handleAddComment} data-auth={"true"} className={"comment-form col-12 my-2"}>
                         <textarea name={"comment"} className={"form-control"}
                                   placeholder={"اكتب تعليقك هنا"}></textarea>
                         <button type={"submit"}
