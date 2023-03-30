@@ -3,7 +3,7 @@ export default function Footer() {
         <footer className="footer bg-light text-muted">
             <div className="container py-5">
                 <div className="row">
-                    <div className="col-md-4">
+                    <div className="col-md-4 text-center text-md-end">
                         <h3>
                             <img src={"/images/logo/riwaya-logo.png"} alt="logo" width="50" height="50"
                                  className="d-inline-block align-text-top"/>
@@ -11,7 +11,7 @@ export default function Footer() {
                         </h3>
                         <p>موقع مخصص للكتب والقراءة.</p>
                     </div>
-                    <div className="col-md-3">
+                    <div className="col-md-3 text-center text-md-end">
                         <h3>استكشاف</h3>
                         <ul className="list-unstyled">
                             <li><a href="#">الكتب المميزة</a></li>
@@ -19,7 +19,7 @@ export default function Footer() {
                             <li><a href="#">المؤلفون</a></li>
                         </ul>
                     </div>
-                    <div className="col-md-3">
+                    <div className="col-md-3 text-center text-md-end">
                         <h3>تواصل معنا</h3>
                         <ul className="list-unstyled">
                             <li><a href="#">اتصل بنا</a></li>
@@ -27,11 +27,11 @@ export default function Footer() {
                             <li><a href="#">الشروط والأحكام</a></li>
                         </ul>
                     </div>
-                    <div className="col-md-2">
+                    <div className="col-md-2 text-center text-md-end">
                         <h3>
                             تابعنا
                         </h3>
-                        <ul className="d-flex align-items-center list-unstyled">
+                        <ul className="d-flex align-items-center list-unstyled justify-content-center">
                             <li className="ms-3">
                                 <a href="https://web.facebook.com/riwaya.jo"
                                    className="text-body-secondary">
