@@ -47,30 +47,6 @@ function NavBar(args) {
                 <span className={"text-amiri fs-4"}>رواية</span>
             </NavbarBrand>
             <div className={"d-flex align-items-center"}>
-                {/*{user &&*/}
-                {/*    <>*/}
-                {/*        <i className={"fa fa-bell text-primary ms-3 fs-5 cursor-pointer d-md-none"}></i>*/}
-                {/*        <Dropdown className={"ms-4 d-md-none p-0"} isOpen={dropdownOpen} toggle={dropdownToggle}>*/}
-                {/*            <DropdownToggle className={"bg-transparent border-0 p-0"}>*/}
-                {/*                <img className={"rounded-circle"} src={user?.image ? user?.image.path : "/images/placeholders/user-placeholder.png"}*/}
-                {/*                     width={50} />*/}
-                {/*            </DropdownToggle>*/}
-                {/*            <DropdownMenu>*/}
-                {/*                <DropdownItem href={"/profile"}*/}
-                {/*                              className={"d-flex align-items-center gap-1 text-secondary"}>*/}
-                {/*                    <i className="fas fa-user-circle"></i>*/}
-                {/*                    الصفحة الشخصية*/}
-                {/*                </DropdownItem>*/}
-                {/*                <DropdownItem divider={true}/>*/}
-                {/*                <DropdownItem role={"button"} className={"text-danger d-flex align-items-center gap-1"}*/}
-                {/*                              onClick={handleLogout}>*/}
-                {/*                    <i className="fas fa-sign-out-alt"></i>*/}
-                {/*                    تسجيل الخروج*/}
-                {/*                </DropdownItem>*/}
-                {/*            </DropdownMenu>*/}
-                {/*        </Dropdown>*/}
-                {/*    </>*/}
-                {/*}*/}
                 <NavbarToggler className={"bg-white border-light text-white  fs-6 p-2"} onClick={() => {
                     toggle();
                     $('.riwaya-nav').toggleClass('bg-white-nav-toggle');
@@ -103,6 +79,32 @@ function NavBar(args) {
                             اتصل بنا
                         </NavLink>
                     </NavItem>
+                    <NavItem>
+                        {user &&
+                            <div className={"d-flex align-items-center gap-1 me-5"}>
+                                <Dropdown className={"ms-4 p-0"} isOpen={dropdownOpen} toggle={dropdownToggle}>
+                                    <DropdownToggle className={"bg-transparent border-0 p-0"}>
+                                        <img className={"rounded-circle"}
+                                             src={user?.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + user?.image.path : "/images/placeholders/user-placeholder.png"}
+                                             width={40} height={40}/>
+                                    </DropdownToggle>
+                                    <DropdownMenu>
+                                        <DropdownItem href={"/profile"}
+                                                      className={"d-flex align-items-center gap-1 text-secondary"}>
+                                            <i className="fas fa-user-circle"></i>
+                                            الصفحة الشخصية
+                                        </DropdownItem>
+                                        <DropdownItem divider={true}/>
+                                        <DropdownItem role={"button"} className={"text-danger d-flex align-items-center gap-1"}
+                                                      onClick={handleLogout}>
+                                            <i className="fas fa-sign-out-alt"></i>
+                                            تسجيل الخروج
+                                        </DropdownItem>
+                                    </DropdownMenu>
+                                </Dropdown>
+                            </div>
+                        }
+                    </NavItem>
 
                     {!user &&
                         <>
@@ -120,36 +122,13 @@ function NavBar(args) {
                                     تسجيل جديد
                                 </NavLink>
                             </NavItem>
+
                         </>
                     }
 
                 </Nav>
             </Collapse>
-            {user &&
-                <div className={"d-none d-md-flex align-items-center gap-1"}>
-                    <i className={"fa fa-bell text-primary ms-3 fs-5 cursor-pointer"}></i>
-                    <Dropdown className={"ms-4 p-0"} isOpen={dropdownOpen} toggle={dropdownToggle}>
-                        <DropdownToggle className={"bg-transparent border-0 p-0"}>
-                            <img className={"rounded-circle"}
-                                 src={user?.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + user?.image.path : "/images/placeholders/user-placeholder.png"}
-                                 width={40} height={40}/>
-                        </DropdownToggle>
-                        <DropdownMenu>
-                            <DropdownItem href={"/profile"}
-                                          className={"d-flex align-items-center gap-1 text-secondary"}>
-                                <i className="fas fa-user-circle"></i>
-                                الصفحة الشخصية
-                            </DropdownItem>
-                            <DropdownItem divider={true}/>
-                            <DropdownItem role={"button"} className={"text-danger d-flex align-items-center gap-1"}
-                                          onClick={handleLogout}>
-                                <i className="fas fa-sign-out-alt"></i>
-                                تسجيل الخروج
-                            </DropdownItem>
-                        </DropdownMenu>
-                    </Dropdown>
-                </div>
-            }
+
         </Navbar>
     );
 }

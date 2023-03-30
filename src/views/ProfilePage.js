@@ -73,7 +73,7 @@ const ProfilePage = () => {
             </div>
             <div className={"shadow col-12 col-md-8"}>
                 <div
-                    className={"row justify-content-between "} {...(tap === 'favoriteBooks' ? {} : {style: {display: 'none'}})}>
+                    className={"row justify-content-between  p-4"} {...(tap === 'favoriteBooks' ? {} : {style: {display: 'none'}})}>
                     {favoriteBooks && favoriteBooks.map((book) => {
                         return (
                             <div className={"col-12 col-md-6 row  rounded-2  m-0 p-0 border border-light"}>

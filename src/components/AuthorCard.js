@@ -18,7 +18,7 @@ const author = props.author;
                 <p className="text-truncate author-bio">{summary(author?.bio, 80)}</p>
                 <div className={"d-flex align-items-center justify-content-end gap-2"}>
                     <button onClick={()=>{
-                        props.setSelectedAuthor(author);
+                       props.callBack(author)
                     }} className="btn btn-dark text-white float-start">
                         {"عرض التفاصيل"}
                     </button>

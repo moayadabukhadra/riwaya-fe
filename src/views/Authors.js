@@ -29,31 +29,42 @@ const Authors = () => {
         'with': 'image',
         'paginate': '6',
     });
+    const authorSelectedCallback = (author) => {
+        setSelectedAuthor(author);
+        AuthorApi.getAuthorBooks(author?.id).then(({data}) => {
+            setSelectedAuthorBooks(data);
+            setModal(true);
+        });
+    }
     useEffect(() => {
-
+        const author = window.location.href.split('=').pop();
+        if (author) {
+            AuthorApi.getAuthor(author).then(({data}) => {
+                setSelectedAuthor(data);
+                setModal(true);
+            });
+        }
+        if (author) {
+            AuthorApi.getAuthorBooks(author).then(({data}) => {
+                setSelectedAuthorBooks(data);
+                setModal(true);
+            });
+        }
         AuthorApi.getAllAuthors(params).then(({data}) => {
             setLoading(false);
             setAuthors(data.data);
             setPages(data.links);
             setLoading(false);
         });
-
-        if (selectedAuthor) {
-            AuthorApi.getAuthorBooks(selectedAuthor.id).then(({data}) => {
-                setSelectedAuthorBooks(data);
-                setModal(true);
-            });
-        }
-
-    }, [params, selectedAuthor]);
+    }, [params]);
     return (
         <>
             <LoadingScreen loading={loading}/>
-            <div className={"row justify-content-center justify-content-md-between align-self-center"} style={{
+            <div className={"row justify-content-center justify-content-md-around align-self-center"} style={{
                 margin: '100px  auto',
                 alignSelf: 'center',
             }}>
-                <div className={"col-md-3 row border-md-start border-0"}>
+                <div className={"col-md-3 row border-start"}>
                     <div className={"bg-white rounded-2 p-3"}>
                         <div className={"d-flex flex-column gap-3"}>
                             <label className={"position-relative d-flex align-items-center position-relative"}>
@@ -77,7 +88,7 @@ const Authors = () => {
                 </div>
                 <div className={"col-md-9 row"}>
                     {authors && authors.map((author) => {
-                        return <AuthorCard setSelectedAuthor={setSelectedAuthor} author={author}/>
+                        return <AuthorCard callBack={authorSelectedCallback} author={author}/>
                     })}
                     <nav className={"col-12 overflow-hidden"} aria-label="...">
                         <Pagination
