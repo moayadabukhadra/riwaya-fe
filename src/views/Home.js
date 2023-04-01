@@ -75,8 +75,8 @@ const Home = () => {
                 <div className={"row justify-content-center bg-light rounded-1"}>
                     <a href={"/books"}
                        className={"fs-1 col-4 d-flex align-items-center justify-content-center flex-column gap-3 border-start  page-section"}>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-book-2"
-                             width="150" height="150" viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50"
+                        <svg id={"section-icon"} xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-book-2"
+                             viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50"
                              fill="#be123c" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <path d="M19 4v16h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12z"></path>
@@ -89,8 +89,8 @@ const Home = () => {
                     </a>
                     <a href={"/authors"}
                        className={"fs-1 col-4 d-flex align-items-center justify-content-center flex-column page-section"}>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-users"
-                             width={"150"} height={"150"} viewBox="0 0 24 24" stroke="#2c3e50"
+                        <svg id={"section-icon"} xmlns="http://www.w3.org/2000/svg" className="section-icon icon icon-tabler icon-tabler-users"
+                              viewBox="0 0 24 24" stroke="#2c3e50"
                              fill="#be123c">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                             <circle cx="9" cy="7" r="4"/>
@@ -104,8 +104,8 @@ const Home = () => {
                     </a>
                     <a href={"/quotes"}
                        className={"fs-1 col-4 d-flex align-items-center justify-content-center flex-column gap-3 border-end page-section"}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="#be123c" stroke="#2c3e50"
-                             class="bi bi-quote" viewBox="0 0 14 14">
+                        <svg id={"section-icon"} xmlns="http://www.w3.org/2000/svg" fill="#be123c" stroke="#2c3e50"
+                             className="bi bi-quote section-icon" viewBox="0 0 14 14">
                             <path
                                 d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z"/>
                         </svg>
