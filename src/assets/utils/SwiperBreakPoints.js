@@ -13,9 +13,10 @@ const breakPoints = {
     },
     800: {
         slidesPerView: 4,
+        spaceBetween: 10
     },
     1250: {
-        slidesPerView: 5,
+        slidesPerView: 6,
         spaceBetween: 10
 
     },

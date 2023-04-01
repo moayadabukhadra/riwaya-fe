@@ -49,7 +49,7 @@ const Register = () => {
                     <span className={"text-secondary"}>
                         لديك حساب؟
                     </span>
-                    <a href="#" className={"text-decoration-none text-gulzar"}>
+                    <a href="/auth/login" className={"text-decoration-none text-gulzar"}>
                         تسجيل الدخول
                     </a>
                 </div>

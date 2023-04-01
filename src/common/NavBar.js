@@ -22,13 +22,13 @@ function NavBar(args) {
     const dropdownToggle = () => setDropdownOpen((prevState) => !prevState);
     const user = store.getState().user;
     const history = useHistory();
-
     const toggle = () => setIsOpen(!isOpen);
+
     const handleLogout = () => {
-        console.log('logout')
         store.dispatch({type: 'LOGOUT'});
         history.push('/auth/login');
     }
+
     useEffect(() => {
         $(document).ready(function () {
             $('a[href]').each(function () {
@@ -71,6 +71,12 @@ function NavBar(args) {
                         <NavLink className={"d-flex align-items-center gap-2"} href={"/authors"}>
                             <i className="fas fa-user-tie text-primary d-md-none"></i>
                             المؤلفين
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink className={"d-flex align-items-center gap-2"} href={"/quotes"}>
+                            <i className="fas fa-user-tie text-primary d-md-none"></i>
+                            اقتباسات
                         </NavLink>
                     </NavItem>
                     <NavItem>

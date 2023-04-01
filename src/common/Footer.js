@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <footer className="footer bg-light text-muted">
+        <footer className="footer bg-light border-top text-muted">
             <div className="container py-5">
                 <div className="row">
                     <div className="col-md-4 text-center text-md-end">
@@ -14,17 +14,33 @@ export default function Footer() {
                     <div className="col-md-3 text-center text-md-end">
                         <h3>استكشاف</h3>
                         <ul className="list-unstyled">
-                            <li><a href="#">الكتب المميزة</a></li>
-                            <li><a href="#">الكتب الأكثر قراءة</a></li>
-                            <li><a href="#">المؤلفون</a></li>
+                            <li><a className={"d-flex align-items-center gap-1"} href="#">
+                                <i className={"fa fa-angle-left text-primary"}></i>
+                                الكتب المميزة</a></li>
+                            <li><a className={"d-flex align-items-center gap-1"} href="#">
+                                <i className={"fa fa-angle-left text-primary"}></i>
+                                الكتب الأكثر قراءة</a></li>
+                            <li><a className={"d-flex align-items-center gap-1"} href="#">
+                                <i className={"fa fa-angle-left text-primary"}></i>
+                                المؤلفون
+                            </a></li>
                         </ul>
                     </div>
                     <div className="col-md-3 text-center text-md-end">
                         <h3>تواصل معنا</h3>
                         <ul className="list-unstyled">
-                            <li><a href="#">اتصل بنا</a></li>
-                            <li><a href="#">سياسة الخصوصية</a></li>
-                            <li><a href="#">الشروط والأحكام</a></li>
+                            <li><a className={"d-flex align-items-center gap-1"} href="#">
+                                <i className={"fa fa-angle-left text-primary"}></i>
+                                اتصل بنا
+                            </a></li>
+                            <li><a className={"d-flex align-items-center gap-1"} href="#">
+                                <i className={"fa fa-angle-left text-primary"}></i>
+                                سياسة الخصوصية
+                            </a></li>
+                            <li><a className={"d-flex align-items-center gap-1"} href="#">
+                                <i className={"fa fa-angle-left text-primary"}></i>
+                                الشروط والأحكام
+                            </a></li>
                         </ul>
                     </div>
                     <div className="col-md-2 text-center text-md-end">
@@ -40,7 +56,8 @@ export default function Footer() {
                                     }}></i>
                                 </a>
                             </li>
-                            <li className="ms-3"><a className="text-body-secondary" href="https://github.com/moayadabukhadra">
+                            <li className="ms-3"><a className="text-body-secondary"
+                                                    href="https://github.com/moayadabukhadra">
                                 <i className="fab fa-github fa-2x text-dark"></i>
                             </a>
                             </li>

@@ -86,7 +86,7 @@ const Authors = () => {
                         </div>
                     </div>
                 </div>
-                <div className={"col-md-9 row"}>
+                <div className={"col-md-9 row gap-1 justify-content-center"}>
                     {authors && authors.map((author) => {
                         return <AuthorCard callBack={authorSelectedCallback} author={author}/>
                     })}

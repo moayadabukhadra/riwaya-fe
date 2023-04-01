@@ -7,6 +7,7 @@ import BookSwiper from "../components/BookSwiper";
 import BookDetails from "../components/BookDetails";
 import LoadingScreen from "../components/LoadingScreen";
 import BookCard from "../components/BookCard";
+import $ from "jquery";
 
 const Books = () => {
     const [books, setBooks] = useState();
@@ -23,7 +24,6 @@ const Books = () => {
 
 
     useEffect(() => {
-        console.log(params)
         setLoading(true);
         const id = window.location.search.split('=')[1];
         if (id) {
@@ -57,8 +57,8 @@ const Books = () => {
                 marginTop: '100px',
             }}>
 
-                <div className={"col-md-3 row border-md-start border-0"}>
-                    <div className={"bg-white rounded-2 p-3"}>
+                <div className={"col-md-3 row mb-5"}>
+                    <div className={" bg-light shadow rounded-2 p-3"}>
                         <div className={"d-flex flex-column gap-3"}>
                             <label className={"position-relative d-flex align-items-center position-relative"}>
                                 <input type="text" className={"main-search-input"}

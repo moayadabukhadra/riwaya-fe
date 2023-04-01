@@ -21,7 +21,6 @@ const BookDetails = ({book}) => {
 
         const channel = pusher.subscribe('comments.' + user?.id);
         channel.bind('App\\Events\\NewComment', function (data) {
-            console.log(data)
             toast.success('تم الرد على تعليقك من قبل ' + data.comment.user.name, {
                 icon: '👏',
                 duration: 5000,
@@ -77,7 +76,6 @@ const BookDetails = ({book}) => {
                 timer: 1500
             })
         }).catch((error) => {
-            console.log(error)
             if (error.response.status === 401) {
                 Swal.fire({
                     icon: 'error',
