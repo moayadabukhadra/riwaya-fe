@@ -17,7 +17,9 @@ const author = props.author;
        </div>
 
             { summary(author.bio)}
-            <button className={"btn btn-dark d-flex align-items-center justify-content-center gap-1 mt-1"}>
+            <button  onClick={()=>{
+               props.callBack(author)
+            }} className={"btn btn-dark d-flex align-items-center justify-content-center gap-1 mt-1"}>
                 <i className={"fa fa-eye"}></i>
                 عرض التفاصيل
             </button>
