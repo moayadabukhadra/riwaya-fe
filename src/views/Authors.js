@@ -15,6 +15,7 @@ import AuthorCard from "../components/AuthorCard";
 import LoadingScreen from "../components/LoadingScreen";
 import parse from "html-react-parser";
 import BookCard from "../components/BookCard";
+import QuoteApi from "../api/Quote";
 
 const Authors = () => {
     const [authors, setAuthors] = useState();
@@ -23,6 +24,7 @@ const Authors = () => {
     const [selectedAuthor, setSelectedAuthor] = useState();
     const [modal, setModal] = useState(false);
     const [selectedAuthorBooks, setSelectedAuthorBooks] = useState([]);
+    const [quote, setQuote] = useState();
     const toggle = () => setModal(!modal);
 
     const [params, setParams] = useState({
@@ -56,6 +58,10 @@ const Authors = () => {
             setPages(data.links);
             setLoading(false);
         });
+
+        QuoteApi.getRandomQuote().then(({data}) => {
+            setQuote(data);
+        });
     }, [params]);
     return (
         <>
@@ -83,6 +89,20 @@ const Authors = () => {
                                 <i className="fa fa-search"/>
                                 بحث
                             </button>
+                        </div>
+                        <div className={"box my-5 shadow-sm bg-light text-muted"}>
+                            <div className={"text"}>
+                                <p className={"mt-1 d-flex align-items-center gap-2 fs-4"}>
+                                    <i className={"fas fa-quote-right fa2 text-primary"} style={{
+                                        transform: 'translateY(-0.5rem)'
+
+                                    }}></i>
+                                    {quote?.body}
+                                    <i style={{transform: 'translateY(0.5rem)'}}
+                                       className={"fas fa-quote-left fa2 text-primary"}></i>
+                                </p>
+                                <small className={"fs-6"}>{quote?.author?.name}</small>
+                            </div>
                         </div>
                     </div>
                 </div>
