@@ -23,10 +23,7 @@ const author = props.author;
                 <i className={"fa fa-eye"}></i>
                 عرض التفاصيل
             </button>
-
-
     </div>
-
     );
 
 

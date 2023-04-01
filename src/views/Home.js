@@ -72,7 +72,7 @@ const Home = () => {
             </div>
 
             <Container>
-                <div className={"row justify-content-center bg-light p-3 rounded-1"}>
+                <div className={"row justify-content-center bg-light rounded-1"}>
                     <a href={"/books"}
                        className={"fs-1 col-4 d-flex align-items-center justify-content-center flex-column gap-3 border-start  page-section"}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-book-2"

@@ -7,15 +7,18 @@
     display: flex;
     align-items: center;
     gap: 0.5em;
-    color: #ccc;
+    color: #2c3e50;
 }
-
+.page-section:hover{
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 0 2px rgba(146, 146, 146, 0.5);
+}
 .book-section-title:after {
     content: "";
     display: block;
     flex-grow: 1;
     height: 1px;
-    background: #ccc;
+    background: #2c3e50;
     margin-top: 0.5em;
 }
 
