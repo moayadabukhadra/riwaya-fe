@@ -22,13 +22,13 @@ function NavBar(args) {
     const dropdownToggle = () => setDropdownOpen((prevState) => !prevState);
     const user = store.getState().user;
     const history = useHistory();
-    const toggle = () => setIsOpen(!isOpen);
 
+
+    const toggle = () => setIsOpen(!isOpen);
     const handleLogout = () => {
         store.dispatch({type: 'LOGOUT'});
         history.push('/auth/login');
     }
-
     useEffect(() => {
         $(document).ready(function () {
             $('a[href]').each(function () {
@@ -37,6 +37,7 @@ function NavBar(args) {
                 }
             });
         });
+
     }, []);
 
     return (

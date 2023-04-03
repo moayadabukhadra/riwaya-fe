@@ -100,15 +100,15 @@ const BookDetails = ({book}) => {
                         <span className={"ms-2 d-none d-md-block"}>إضافة الى المفضلة</span>
                     </button>
                 </div>
-                <a className="fw-bold fs-6 text-muted text-decoration-none m-0">
+                <span className="fw-bold fs-6 text-muted text-decoration-none m-0">
                     المؤلف: {book.author?.name}
-                </a>
-                <a className="fw-bold fs-6 text-muted text-decoration-none m-0">
+                </span>
+                <span className="fw-bold fs-6 text-muted text-decoration-none m-0">
                     التصنيف: {book?.category?.name}
-                </a>
-                <a className="fw-bold fs-6 text-muted text-decoration-none m-0">
+                </span>
+                <span className="fw-bold fs-6 text-muted text-decoration-none m-0">
                     عدد الصفحات: {book?.page_count}
-                </a>
+                </span>
                 {parse(book?.description)}
                 <div className={"mt-2 row align-items-center justify-content-center justify-content-lg-start gap-1"}>
                     <a download={book.file}  href={"https://riwaya.rf.gd/api/book/download/" + book.id}

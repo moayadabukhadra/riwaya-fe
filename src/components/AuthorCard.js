@@ -6,7 +6,7 @@ const author = props.author;
     return (
 
 
-    <div className={"col-3 p-2 d-flex flex-column bg-light border rounded-2 justify-content-center align-items-center"}>
+    <div className={"col-3 p-2 d-flex flex-column bg-light border rounded-2 justify-content-between align-items-center"}>
        <div className={"mb-2"}>
            <img className={"rounded-circle"}
                 width={"150"}
@@ -16,7 +16,8 @@ const author = props.author;
            />
        </div>
 
-            { summary(author.bio)}
+        <span className={"fw-bold fs-5"}>{author.name}</span>
+            { summary(author.bio,50)}
             <button  onClick={()=>{
                props.callBack(author)
             }} className={"btn btn-dark d-flex align-items-center justify-content-center gap-1 mt-1"}>

@@ -98,7 +98,7 @@ const Register = () => {
                     </Row>
                 </div>
             </Form>
-            <div className={"w-50 h-100"} style={{
+            <div className={"w-50 h-100  d-none d-md-block"} style={{
                 backgroundImage: `url("/images/login-img.png")`,
                 backgroundSize: "contain",
                 backgroundPosition: "center",
