@@ -53,10 +53,10 @@ const Layout = (props) => {
     const mainContent = React.useRef(null);
     return (
         <Provider store={store}>
-            <div className={""}>
+            <div className={"d-flex justify-content-between gap-5 flex-column"}>
                 <Toaster/>
                 <NavBar/>
-                <div className="main-content p-0 m-0" ref={mainContent}>
+                <div className="main-content m-0" ref={mainContent}>
                     <Switch>
                         {getRoutes(routes)}
                         <Redirect from="*" to="/"/>

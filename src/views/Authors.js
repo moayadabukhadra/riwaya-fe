@@ -16,6 +16,7 @@ import LoadingScreen from "../components/LoadingScreen";
 import parse from "html-react-parser";
 import BookCard from "../components/BookCard";
 import QuoteApi from "../api/Quote";
+import QuoteCard from "../components/QuoteCard";
 
 const Authors = () => {
     const [authors, setAuthors] = useState();
@@ -45,28 +46,28 @@ const Authors = () => {
                 setSelectedAuthor(data);
                 setModal(true);
             });
-        }
-        if (author) {
             AuthorApi.getAuthorBooks(author).then(({data}) => {
                 setSelectedAuthorBooks(data);
                 setModal(true);
             });
         }
         AuthorApi.getAllAuthors(params).then(({data}) => {
-            setLoading(false);
+           console.log(data)
             setAuthors(data.data);
             setPages(data.links);
+            setLoading(false);
             setLoading(false);
         });
 
         QuoteApi.getRandomQuote().then(({data}) => {
             setQuote(data);
         });
+
     }, [params]);
     return (
         <>
             <LoadingScreen loading={loading}/>
-            <div className={"row justify-content-center justify-content-md-around align-self-center"} style={{
+            <div className={"content row justify-content-center justify-content-md-around align-self-center"} style={{
                 margin: '100px  auto',
                 alignSelf: 'center',
             }}>
@@ -81,6 +82,7 @@ const Authors = () => {
                                 () => {
                                     setParams({
                                         ...params,
+                                        page: 1,
                                         query: document.querySelector('.main-search-input').value,
                                     });
                                 }
@@ -90,25 +92,14 @@ const Authors = () => {
                                 بحث
                             </button>
                         </div>
-                        <div className={"box my-5 shadow-sm bg-light text-muted"}>
-                            <div className={"text"}>
-                                <p className={"mt-1 d-flex align-items-center gap-2 fs-4"}>
-                                    <i className={"fas fa-quote-right fa2 text-primary"} style={{
-                                        transform: 'translateY(-0.5rem)'
-
-                                    }}></i>
-                                    {quote?.body}
-                                    <i style={{transform: 'translateY(0.5rem)'}}
-                                       className={"fas fa-quote-left fa2 text-primary"}></i>
-                                </p>
-                                <small className={"fs-6"}>{quote?.author?.name}</small>
-                            </div>
+                        <div className={"d-none d-md-block"}>
+                            <QuoteCard quote={quote}/>
                         </div>
                     </div>
                 </div>
                 <div className={"col-md-9 row gap-1 justify-content-center"}>
-                    {authors && authors.map((author) => {
-                        return <AuthorCard callBack={authorSelectedCallback} author={author}/>
+                    {authors && authors.map((author, index) => {
+                        return <AuthorCard key={index} callBack={authorSelectedCallback} author={author}/>
                     })}
                     <nav className={"col-12 overflow-hidden"} aria-label="...">
                         <Pagination

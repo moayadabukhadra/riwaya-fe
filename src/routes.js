@@ -4,6 +4,7 @@ import Register from "./views/auth/Register";
 import Authors from "./views/Authors";
 import ProfilePage from "./views/ProfilePage";
 import Home from "./views/Home";
+import Quotes from "./views/Quotes";
 
 const routes = [
     /* front */
@@ -25,6 +26,13 @@ const routes = [
         path: '/profile',
         name: 'الملف الشخصي',
         component: ProfilePage,
+        layout: '/front',
+        role: ['user'],
+    },
+    {
+        path: '/quotes',
+        name: 'الاقتباسات',
+        component: Quotes,
         layout: '/front',
         role: ['user'],
     },

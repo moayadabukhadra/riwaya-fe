@@ -2,8 +2,8 @@ import api from '.';
 
 const path = '/quote';
 
-const getQuote = () => {
-    return api.get(path);
+const getAllQuotes = () => {
+    return api.get('/quotes');
 }
 
 const getRandomQuote = () => {
@@ -11,6 +11,6 @@ const getRandomQuote = () => {
 }
 
 export default {
-    getQuote,
+    getAllQuotes,
     getRandomQuote,
 }

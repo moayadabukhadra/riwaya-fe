@@ -5,6 +5,7 @@ import BookApi from "../api/Book";
 import LoadingScreen from "../components/LoadingScreen";
 import $ from "jquery";
 import QuoteApi from "../api/Quote";
+import QuoteCard from "../components/QuoteCard";
 
 const Home = () => {
     const [loading, setLoading] = useState(true);
@@ -121,20 +122,7 @@ const Home = () => {
                     <BookSwiper books={latestBooks} key={'latest'}
                                 swiperKey={'latest'}/>
                 </Row>
-                <div className={"box my-5 shadow-sm bg-light text-muted"}>
-                    <div className={"text"}>
-                        <p className={"mt-1 d-flex align-items-center gap-2 fs-4"}>
-                            <i className={"fas fa-quote-right fa2 text-primary"} style={{
-                                transform: 'translateY(-0.5rem)'
-
-                            }}></i>
-                            {quote?.body}
-                            <i style={{transform: 'translateY(0.5rem)'}}
-                               className={"fas fa-quote-left fa2 text-primary"}></i>
-                        </p>
-                        <small className={"fs-6"}>{quote?.author?.name}</small>
-                    </div>
-                </div>
+              <QuoteCard  quote={quote}/>
                 <div className={"book-section-title mb-4"}>
                     الكتب الاكثر تحميلا
                 </div>

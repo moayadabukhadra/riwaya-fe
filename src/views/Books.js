@@ -41,7 +41,6 @@ const Books = () => {
             }));
         });
         BookApi.getAllBooks(params).then(({data}) => {
-            console.log(data)
             setBooks(data.books);
             setRelatedBooks(data.related_books)
             setPages(data.books.links);
@@ -53,9 +52,7 @@ const Books = () => {
     return (
         <>
             <LoadingScreen loading={loading}/>
-            <Container fluid className={"row mx-0 justify-content-md-around justify-content-center"} style={{
-                marginTop: '100px',
-            }}>
+            <Container fluid className={"content row mx-0 justify-content-md-around justify-content-center"}>
 
                 <div className={"col-md-3 row mb-5"}>
                     <div className={" bg-light shadow rounded-2 p-3"}>
@@ -68,6 +65,7 @@ const Books = () => {
                                 () => {
                                     setParams({
                                         ...params,
+                                        page: 1,
                                         query: document.querySelector('.main-search-input').value,
                                     });
                                 }
@@ -131,7 +129,7 @@ const Books = () => {
                             <BookSwiper books={relatedBooks} key={'related'} swiperKey={'related'}/>
                         </Row>
                     }
-                    <Row className={"mb-5 justify-content-between"}>
+                    <Row className={"mb-5 justify-content-ؤثىفثق"}>
                         {
                             books?.data && books?.data.map((book) => {
                                 return (
