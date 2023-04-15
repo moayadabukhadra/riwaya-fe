@@ -140,10 +140,10 @@ const Books = () => {
                             }, [])
                         }
                     </Row>
-                    <nav className={"overflow-hidden"} aria-label="...">
+                    <nav className={""} aria-label="...">
                         <Pagination
                             className="pagination justify-content-center my-2"
-                            listClassName="justify-content-end gap-1 ">
+                            listClassName="justify-content-center gap-1  flex-wrap">
                             {pages && pages.map((page) => (
                                 <PaginationItem
                                     className={((!page.url) ? "disabled" : '') + (page.active ? "active" : '')}

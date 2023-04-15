@@ -40,7 +40,7 @@ const Authors = () => {
         });
     }
     useEffect(() => {
-        const author = window.location.href.split('=').pop();
+        const author = window.location.href.split('=')[1];
         if (author) {
             AuthorApi.getAuthor(author).then(({data}) => {
                 setSelectedAuthor(data);
@@ -101,10 +101,10 @@ const Authors = () => {
                     {authors && authors.map((author, index) => {
                         return <AuthorCard key={index} callBack={authorSelectedCallback} author={author}/>
                     })}
-                    <nav className={"col-12 overflow-hidden"} aria-label="...">
+                    <nav className={"col-12"} aria-label="...">
                         <Pagination
                             className="pagination justify-content-center my-2"
-                            listClassName="justify-content-end gap-1 ">
+                            listClassName="justify-content-center gap-1 flex-wrap">
                             {pages && pages.map((page) => (
                                 <PaginationItem
                                     className={((!page.url) ? "disabled" : '') + (page.active ? "active" : '')}

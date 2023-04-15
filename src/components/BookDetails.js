@@ -1,5 +1,4 @@
 import parse from "html-react-parser";
-import UserApi from "../api/User";
 import Swal from "sweetalert2";
 import commentApi from "../api/Comment";
 import {useEffect, useState} from "react";
@@ -7,19 +6,19 @@ import store from "../store";
 import $ from "jquery";
 import Pusher from 'pusher-js';
 import toast from "react-hot-toast";
-import BookApi from "../api/Book";
+import BookmarksButtons from "./BookmarksButtons";
 
 const BookDetails = ({book}) => {
     const [comments, setComments] = useState([]);
     useEffect(() => {
         const user = store.getState().user;
-        Pusher.logToConsole = true;
         const pusher = new Pusher('1d2155e8f9d2d65bf322', {
             cluster: 'ap2',
             encrypted: true,
         });
 
         const channel = pusher.subscribe('comments.' + user?.id);
+
         channel.bind('App\\Events\\NewComment', function (data) {
             toast.success('تم الرد على تعليقك من قبل ' + data.comment.user.name, {
                 icon: '👏',
@@ -32,32 +31,13 @@ const BookDetails = ({book}) => {
                     fontWeight: 600,
                     fontSize: '1.2rem',
                 },
-                // Custom ID
                 id: 'custom-id-yes',
             });
         });
         setComments(book.comments);
     }, []);
 
-    const handleAddToFavorite = () => {
-        UserApi.addFavoriteBook(book.id).then(({data}) => {
-            Swal.fire({
-                icon: 'success',
-                title: 'تمت الاضافة الى المفضلة',
-                showConfirmButton: false,
-                timer: 1500
-            })
-        }).catch((error) => {
-            if (error.response.status === 401) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'يجب تسجيل الدخول اولا',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            }
-        });
-    }
+
 
 
     const handleAddComment = (e) => {
@@ -93,31 +73,30 @@ const BookDetails = ({book}) => {
                  alt={book.title}/>
             <div className={"d-flex flex-column gap-2 ms-3 col-12 col-md-7"}>
                 <div className={"d-flex align-items-center justify-content-between"}>
-                    <span className="fw-bold text-dark text-decoration-none m-0 fs-3">{book?.title}</span>
-                    <button onClick={handleAddToFavorite}
-                            className={"btn btn-outline-danger d-flex align-items-center justify-content-center gap-1"}>
-                        <i className={"fa fa-heart"}></i>
-                        <span className={"ms-2 d-none d-md-block"}>إضافة الى المفضلة</span>
-                    </button>
+                    <div className={"d-flex flex-column"}>
+                        <span className="fw-bold text-dark text-decoration-none m-0 fs-3">{book?.title}</span>
+
+                        <span className="fw-bold fs-6 text-muted text-decoration-none m-0">
+                            المؤلف: {book.author?.name}
+                        </span>
+                                <span className="fw-bold fs-6 text-muted text-decoration-none m-0">
+                            التصنيف: {book?.category?.name}
+                        </span>
+                                <span className="fw-bold fs-6 text-muted text-decoration-none m-0">
+                            عدد الصفحات: {book?.page_count}
+                        </span>
+                    </div>
+                    <BookmarksButtons bookId={book.id}/>
                 </div>
-                <span className="fw-bold fs-6 text-muted text-decoration-none m-0">
-                    المؤلف: {book.author?.name}
-                </span>
-                <span className="fw-bold fs-6 text-muted text-decoration-none m-0">
-                    التصنيف: {book?.category?.name}
-                </span>
-                <span className="fw-bold fs-6 text-muted text-decoration-none m-0">
-                    عدد الصفحات: {book?.page_count}
-                </span>
                 {parse(book?.description)}
                 <div className={"mt-2 row align-items-center justify-content-center justify-content-lg-start gap-1"}>
-                    <a download={book.file}  href={"https://riwaya.rf.gd/api/book/download/" + book.id}
-                            className={"btn btn-primary d-flex align-items-center justify-content-center gap-1 text-white col-5 col-lg-3 mb-3"}>
+                    <a download={book.file} href={"https://riwaya.rf.gd/api/book/download/" + book.id}
+                       className={"btn btn-primary d-flex align-items-center justify-content-center gap-1 text-white col-5 col-lg-3 mb-3"}>
                         <i className="fas fa-file-pdf"/>
                         تحميل الكتاب
                     </a>
                     <a href={"https://riwaya.rf.gd/riwaya/storage/app/public/books/" + book.file}
-                        className={"btn btn-info  d-flex align-items-center justify-content-center gap-1 text-white col-5 col-lg-3 mb-3"}>
+                       className={"btn btn-info  d-flex align-items-center justify-content-center gap-1 text-white col-5 col-lg-3 mb-3"}>
                         <i className="fas fa-book-open"/>
                         قراءة
                     </a>

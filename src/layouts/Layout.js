@@ -12,17 +12,14 @@ import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 const Layout = (props) => {
     const [loginModal, setLoginModal] = useState(false);
     const user = store.getState().user
-    console.log(user)
     const toggle = () => setLoginModal(!loginModal);
     $(document).ready(function () {
 
         $('[data-auth="true"]').each(function () {
-            /* if form stop form submit */
             $(this)[0].addEventListener('submit', function (e) {
                 e.stopImmediatePropagation();
                 if (!user) {
                     toggle();
-
                 }
             });
             $(this)[0].addEventListener('click', function (e) {

@@ -4,12 +4,13 @@ import React, {useEffect, useState} from "react";
 import UserApi from "../api/User";
 import LoadingScreen from "../components/LoadingScreen";
 import {Pagination, PaginationItem, PaginationLink} from "reactstrap";
-
+import BookmarksButtons from "../components/BookmarksButtons";
+import BookmarkApi from "../api/Bookmark";
 
 const ProfilePage = () => {
     const user = store.getState().user;
     const [favoriteBooks, setFavoriteBooks] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [tap, setTap] = useState('favoriteBooks');
     const [pages, setPages] = useState();
 
@@ -23,13 +24,9 @@ const ProfilePage = () => {
         });
     }
     useEffect(() => {
-        if (tap === 'favoriteBooks') {
-            UserApi.getFavoriteBooks().then(({data}) => {
-                setFavoriteBooks(data.success.data);
-                setPages(data.success.links);
-                setLoading(false);
-            });
-        }
+        BookmarkApi.getUserBookmarks().then(({data}) => {
+            setFavoriteBooks(data.success['المفضلة'])
+        })
     }, []);
 
     return (
@@ -76,7 +73,7 @@ const ProfilePage = () => {
                     className={"row justify-content-between  p-4"} {...(tap === 'favoriteBooks' ? {} : {style: {display: 'none'}})}>
                     {favoriteBooks && favoriteBooks.map((book) => {
                         return (
-                            <div className={"col-12 col-md-6 row  rounded-2  m-0 p-0 border border-light"}>
+                            <div className={"col-12  row  rounded-2  m-0 p-0 border border-light"}>
                                 <img
                                     src={book.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + book.image.path : "/images/placeholders/placeholder.jpg"}
                                     alt={book.title}
@@ -87,24 +84,7 @@ const ProfilePage = () => {
                                         <span className={"fw-bold fs-5"}>{book.title}</span>
                                         <span className={"fw-bold fs-6 text-secondary"}>{book.author.name}</span>
                                     </div>
-                                    <div className={"d-flex flex-column gap-1"}>
-                                        <button
-                                            className={"btn btn-sm btn-outline-info d-flex align-items-center justify-content-center gap-1"}>
-                                            <i className={"fa fa-book-reader"}></i>
-                                            <span className={"ms-2"}>قراءة</span>
-                                        </button>
-                                        <a href={"http://localhost:8000/storage/books/" + book.file}
-                                           className={"btn btn-sm btn-outline-success d-flex align-items-center justify-content-center gap-1"}>
-                                            <i className={"fa fa-file-pdf"}></i>
-                                            <span className={"ms-2"}>تحميل</span>
-                                        </a>
-                                        <button
-                                            className={"btn btn-sm btn-outline-danger d-flex align-items-center justify-content-center gap-1"}>
-                                            <i className={"fa fa-trash"}></i>
-                                            <span className={"ms-2"}>حذف</span>
-                                        </button>
-                                    </div>
-
+                                    <BookmarksButtons bookId={book.id}/>
                                 </div>
                             </div>
                         );

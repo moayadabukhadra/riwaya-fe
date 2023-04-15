@@ -5,7 +5,7 @@ const LoadingScreen = ({loading}) => {
     return (
 
         <div style={{
-            position:'absolute',
+            position:'fixed',
             inset:'0',zIndex:'9999',
             background:'#fff',
             display:'flex',
