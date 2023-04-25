@@ -50,13 +50,17 @@ const Home = () => {
 
     const handleSearch = (e) => {
         e.preventDefault();
+        setLoading(true)
         const search = e.target.search.value;
         BookApi.searchBooks(search).then(({data}) => {
             history.push({
                 pathname: '/search',
                 state: {data: data}
             });
+        }).catch((error) => {
+            setLoading(false)
         });
+
     }
 
     return (

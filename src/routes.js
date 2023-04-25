@@ -7,6 +7,8 @@ import Home from "./views/Home";
 import Quotes from "./views/Quotes";
 import SearchResults from "./views/SearchResults";
 import ContactUs from "./views/ContactUs";
+import ForgotPassword from "./views/auth/ForgotPassword";
+import ResetPassword from "./views/auth/ResetPassword";
 
 const routes = [
     /* front */
@@ -71,6 +73,20 @@ const routes = [
         path: "/register",
         name: "انشاء حساب",
         component: Register,
+        layout: "/auth",
+        role: ['guest'],
+    },
+    {
+        path: "/forgot-password",
+        name: "نسيت كلمة المرور",
+        component: ForgotPassword,
+        layout: "/auth",
+        role: ['guest'],
+    },
+    {
+        path: "/reset-password/:token/:email",
+        name: "اعادة تعيين كلمة المرور",
+        component: ResetPassword,
         layout: "/auth",
         role: ['guest'],
     }

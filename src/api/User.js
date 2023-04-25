@@ -16,7 +16,7 @@ const getRole = () => {
 }
 
 const getFavoriteBooks = (params) => {
-    return api.get('favorite-books',{params});
+    return api.get('favorite-books', {params});
 }
 
 const addFavoriteBook = (bookId) => {
@@ -31,6 +31,13 @@ const editProfile = (data) => {
     return api.post('edit-profile', data);
 }
 
+const forgetPassword = (data) => {
+    return api.post('auth/forgot-password', data);
+}
+
+const resetPassword = (data) => {
+    return api.post('auth/reset-password', data);
+}
 export default {
     login,
     register: register,
@@ -39,5 +46,7 @@ export default {
     getFavoriteBooks,
     addFavoriteBook,
     facebookLogin,
-    editProfile
+    editProfile,
+    forgetPassword,
+    resetPassword
 }

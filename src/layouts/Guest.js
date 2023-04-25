@@ -24,9 +24,7 @@ const Guest = (props) => {
     const content = React.useRef(null);
 
     return (
-        <div className="content d-flex container" ref={content} style={{
-            minHeight: "100vh",
-        }}>
+        <div className="content d-flex container" ref={content}>
             {user && user.token && history.push('/')}
             <Switch>
                 {getGuestRoutes(routes)}

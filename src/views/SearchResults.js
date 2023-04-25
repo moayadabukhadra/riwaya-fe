@@ -1,10 +1,10 @@
 import {Container, Row} from "reactstrap";
 import AuthorCard from "../components/AuthorCard";
 import BookCard from "../components/BookCard";
+import LoadingScreen from "../components/LoadingScreen";
 
 const SearchResults = (props) => {
     const data = props.location.state.data
-    console.log(data)
     const books = data.books
     const authors = data.authors
     return (
