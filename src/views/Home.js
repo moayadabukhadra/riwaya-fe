@@ -6,12 +6,14 @@ import LoadingScreen from "../components/LoadingScreen";
 import $ from "jquery";
 import QuoteApi from "../api/Quote";
 import QuoteCard from "../components/QuoteCard";
+import {useHistory} from "react-router-dom";
 
 const Home = () => {
     const [loading, setLoading] = useState(true);
     const [mostReadBooks, setMostReadBooks] = useState();
     const [latestBooks, setLatestBooks] = useState();
     const [quote, setQuote] = useState();
+    const history = useHistory();
 
     useEffect(() => {
         setLoading(true);
@@ -27,7 +29,6 @@ const Home = () => {
         QuoteApi.getRandomQuote().then(({data}) => {
             setQuote(data);
         });
-
 
 
         $(document).ready(function () {
@@ -47,7 +48,19 @@ const Home = () => {
 
     }, []);
 
+    const handleSearch = (e) => {
+        e.preventDefault();
+        const search = e.target.search.value;
+        BookApi.searchBooks(search).then(({data}) => {
+            history.push({
+                pathname: '/search',
+                state: {data: data}
+            });
+        });
+    }
+
     return (
+
         <div>
             <LoadingScreen loading={loading}/>
             <div className={"header"} style={{
@@ -55,19 +68,19 @@ const Home = () => {
                 backgroundRepeat: 'repeat-x',
             }}>
 
-                <div className={"header-content"}>
+                <form onSubmit={handleSearch} className={"header-content"}>
                     <div className={"search-bar d-flex flex-column"}>
                         <span className={"fs-3 mb-2 w-100 header-quote"}>أندر من الكتاب الجيد، القارئ الجيد.</span>
                         <label className={"search-bar position-relative"}>
-                                <span
+                            <button type={"submit"}
                                     className={"btn btn-primary  d-flex align-items-center h-100 justify-content-center position-absolute top-50 start-0 translate-middle-y"}>
-                              <i className={"fa fa-search text-white"}/>
-                                </span>
-                            <input type="text" className={"form-control py-2"}
+                                <i className={"fa fa-search text-white"}/>
+                            </button>
+                            <input name={"search"} type="text" className={"form-control py-2"}
                                    placeholder={"ابحث عن كتاب او مؤلف...."}/>
                         </label>
                     </div>
-                </div>
+                </form>
 
 
             </div>
@@ -76,7 +89,8 @@ const Home = () => {
                 <div className={"row justify-content-center bg-light rounded-1"}>
                     <a href={"/books"}
                        className={"fs-1 col-4 d-flex align-items-center justify-content-center flex-column gap-3 border-start  page-section"}>
-                        <svg id={"section-icon"} xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-book-2"
+                        <svg id={"section-icon"} xmlns="http://www.w3.org/2000/svg"
+                             className="icon icon-tabler icon-tabler-book-2"
                              viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50"
                              fill="#be123c" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -90,8 +104,9 @@ const Home = () => {
                     </a>
                     <a href={"/authors"}
                        className={"fs-1 col-4 d-flex align-items-center justify-content-center flex-column page-section"}>
-                        <svg id={"section-icon"} xmlns="http://www.w3.org/2000/svg" className="section-icon icon icon-tabler icon-tabler-users"
-                              viewBox="0 0 24 24" stroke="#2c3e50"
+                        <svg id={"section-icon"} xmlns="http://www.w3.org/2000/svg"
+                             className="section-icon icon icon-tabler icon-tabler-users"
+                             viewBox="0 0 24 24" stroke="#2c3e50"
                              fill="#be123c">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                             <circle cx="9" cy="7" r="4"/>
@@ -122,7 +137,7 @@ const Home = () => {
                     <BookSwiper books={latestBooks} key={'latest'}
                                 swiperKey={'latest'}/>
                 </Row>
-              <QuoteCard  quote={quote}/>
+                <QuoteCard quote={quote}/>
                 <div className={"book-section-title mb-4"}>
                     الكتب الاكثر تحميلا
                 </div>

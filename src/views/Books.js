@@ -7,7 +7,6 @@ import BookSwiper from "../components/BookSwiper";
 import BookDetails from "../components/BookDetails";
 import LoadingScreen from "../components/LoadingScreen";
 import BookCard from "../components/BookCard";
-import $ from "jquery";
 
 const Books = () => {
     const [books, setBooks] = useState();

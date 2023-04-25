@@ -5,6 +5,7 @@ import Authors from "./views/Authors";
 import ProfilePage from "./views/ProfilePage";
 import Home from "./views/Home";
 import Quotes from "./views/Quotes";
+import SearchResults from "./views/SearchResults";
 
 const routes = [
     /* front */
@@ -37,13 +38,19 @@ const routes = [
         role: ['user'],
     },
     {
+        path: '/search',
+        name: 'البحث',
+        component: SearchResults,
+        layout: '/front',
+        role: ['user', 'guest']
+    },
+    {
         path: '/',
         name: 'الرئيسية',
         component: Home,
         layout: '/front',
         role: ['user', 'guest']
     },
-
     /* auth routes */
     {
         path: "/login",

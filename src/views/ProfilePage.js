@@ -10,7 +10,9 @@ import BookmarkApi from "../api/Bookmark";
 const ProfilePage = () => {
     const user = store.getState().user;
     const [favoriteBooks, setFavoriteBooks] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [toReadLaterBooks, setToReadLaterBooks] = useState([]);
+    const [doneReadingBooks, setDoneReadingBooks] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [tap, setTap] = useState('favoriteBooks');
     const [pages, setPages] = useState();
 
@@ -26,6 +28,10 @@ const ProfilePage = () => {
     useEffect(() => {
         BookmarkApi.getUserBookmarks().then(({data}) => {
             setFavoriteBooks(data.success['المفضلة'])
+            console.log(data)
+            setToReadLaterBooks(data.success['القرائة لاحقا'])
+            setDoneReadingBooks(data.success['تمت قراءته'])
+            setLoading(false);
         })
     }, []);
 
@@ -77,7 +83,7 @@ const ProfilePage = () => {
                                 <img
                                     src={book.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + book.image.path : "/images/placeholders/placeholder.jpg"}
                                     alt={book.title}
-                                    className={"col-3"}
+                                    className={"col-2"}
                                 />
                                 <div className={"d-flex align-items-center justify-content-between gap-2 col-9  p-1"}>
                                     <div className={"d-flex flex-column"}>

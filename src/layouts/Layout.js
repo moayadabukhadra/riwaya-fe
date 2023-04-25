@@ -40,6 +40,7 @@ const Layout = (props) => {
                         path={prop.path}
                         component={prop.component}
                         key={key}
+
                     />
                 );
             } else {
