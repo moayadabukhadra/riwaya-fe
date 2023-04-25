@@ -38,7 +38,7 @@ const SearchResults = (props) => {
                 <h3 className={"book-section-title mb-3"}>
                     المؤلفين
                 </h3>
-                <Row className={"mb-5 justify-content-center"}>
+                <Row className={"mb-5 justify-content-center gap-1"}>
                     {
                         authors && authors.map((author) => {
                                 return (

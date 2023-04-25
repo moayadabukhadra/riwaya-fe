@@ -81,9 +81,9 @@ function NavBar(args) {
                         </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink className={"d-flex align-items-center gap-2"} href={"/"}>
+                        <NavLink className={"d-flex align-items-center gap-2"} href={"/contact-us"}>
                             <i className="fas fa-newspaper text-primary d-md-none"></i>
-                            اتصل بنا
+                            تواصل معنا
                         </NavLink>
                     </NavItem>
                     <NavItem>

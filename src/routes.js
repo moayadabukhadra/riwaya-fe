@@ -6,6 +6,7 @@ import ProfilePage from "./views/ProfilePage";
 import Home from "./views/Home";
 import Quotes from "./views/Quotes";
 import SearchResults from "./views/SearchResults";
+import ContactUs from "./views/ContactUs";
 
 const routes = [
     /* front */
@@ -41,6 +42,13 @@ const routes = [
         path: '/search',
         name: 'البحث',
         component: SearchResults,
+        layout: '/front',
+        role: ['user', 'guest']
+    },
+    {
+        path: '/contact-us',
+        name: 'تواصل معنا',
+        component: ContactUs,
         layout: '/front',
         role: ['user', 'guest']
     },

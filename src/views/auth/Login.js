@@ -30,6 +30,13 @@ const Login = () => {
     }
     return (
         <div className={"d-flex align-items-center justify-content-between flex-grow-1"}>
+            <a className={"position-absolute text-primary d-flex align-items-center gap-1"} href={"/"} style={{
+                top: '2rem',
+                left: '2rem'
+            }}>
+                <i className={"fas fa-arrow-left"}></i>
+                <span>الصفحة الرئيسية</span>
+            </a>
             <Form className={"guest-container shadow p-5 rounded-3"} onSubmit={handleSubmit}>
                 <h1 className={"text-amiri text-center mb-3"}>تسجيل الدخول</h1>
                 <div className="mb-3 position-relative">
