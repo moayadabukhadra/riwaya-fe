@@ -92,6 +92,18 @@ const ProfilePage = () => {
                                     </div>
                                     <BookmarksButtons bookId={book.id}/>
                                 </div>
+                                <div className={"mt-2 row align-items-center justify-content-center justify-content-lg-start gap-1"}>
+                                    <a download={book.file} href={"https://riwaya.rf.gd/api/book/download/" + book.id}
+                                       className={"btn btn-primary d-flex align-items-center justify-content-center gap-1 text-white col-5 col-lg-3 mb-3"}>
+                                        <i className="fas fa-file-pdf"/>
+                                        تحميل الكتاب
+                                    </a>
+                                    <a href={"https://riwaya.rf.gd/riwaya/storage/app/public/books/" + book.file}
+                                       className={"btn btn-info  d-flex align-items-center justify-content-center gap-1 text-white col-5 col-lg-3 mb-3"}>
+                                        <i className="fas fa-book-open"/>
+                                        قراءة
+                                    </a>
+                                </div>
                             </div>
                         );
                     })

@@ -17,6 +17,7 @@ import parse from "html-react-parser";
 import BookCard from "../components/BookCard";
 import QuoteApi from "../api/Quote";
 import QuoteCard from "../components/QuoteCard";
+import {Helmet} from "react-helmet-async";
 
 const Authors = () => {
     const [authors, setAuthors] = useState();
@@ -66,6 +67,13 @@ const Authors = () => {
     }, [params]);
     return (
         <>
+            <Helmet>
+                <title>
+                    المؤلفين - رواية
+                </title>
+                <meta name={"description"}
+                      content={"اكتشف مجموعة من الأسماء البارزة في عالم الكتابة | استكشف أعمالهم الأدبية وسيرهم الذاتية"}/>
+            </Helmet>
             <LoadingScreen loading={loading}/>
             <div className={"content row justify-content-center justify-content-md-around align-self-center"} style={{
                 margin: '100px  auto',

@@ -1,5 +1,6 @@
 import React from "react";
 import MessageApi from "../api/Message";
+import {Helmet} from "react-helmet-async";
 
 const ContactUs = () => {
 
@@ -17,6 +18,13 @@ const ContactUs = () => {
     }
     return (
         <div className="container content">
+            <Helmet>
+                <title>
+                    اتصل بنا | تواصل مع فريقنا وشاركنا استفساراتك وملاحظاتك
+                </title>
+                <meta name={"description"}
+                      content={"نحن نتطلع للتواصل معك! اتصل بفريقنا لمشاركة استفساراتك، مقترحاتك أو أي ملاحظات. نحن هنا لمساعدتك والاستماع إلى ما لديك لتقديم أفضل تجربة لك."}/>
+            </Helmet>
             <h1 className={"text-center mb-5"}>تواصل معنا</h1>
             <div className="row justify-content-center">
                 <div className={"col-md-5 d-none d-md-block"} style={{

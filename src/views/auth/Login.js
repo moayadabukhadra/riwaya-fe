@@ -23,7 +23,8 @@ const Login = () => {
 
     const handleFacebookLogin = () => {
         UserApi.facebookLogin().then(({data}) => {
-            window.location.href = data.url
+            console.log(data);
+            window.location.href = data;
         }).catch((err) => {
             console.log(err);
         })
@@ -57,7 +58,8 @@ const Login = () => {
                         <input type="checkbox" className="form-check-input me-1"/>
                     </div>
                     <div className={"mb-3"}>
-                        <a href="/auth/forgot-password" className={"text-decoration-none text-gulzar"}>نسيت كلمة المرور؟</a>
+                        <a href="/auth/forgot-password" className={"text-decoration-none text-gulzar"}>نسيت كلمة
+                            المرور؟</a>
                     </div>
                 </div>
 

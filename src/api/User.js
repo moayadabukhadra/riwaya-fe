@@ -27,6 +27,10 @@ const facebookLogin = () => {
     return api.get('auth/facebook');
 }
 
+const facebookLoginCallback = (url) => {
+    return api.post(url);
+}
+
 const editProfile = (data) => {
     return api.post('edit-profile', data);
 }
@@ -48,5 +52,6 @@ export default {
     facebookLogin,
     editProfile,
     forgetPassword,
-    resetPassword
+    resetPassword,
+    facebookLoginCallback
 }

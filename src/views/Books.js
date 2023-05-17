@@ -7,6 +7,7 @@ import BookSwiper from "../components/BookSwiper";
 import BookDetails from "../components/BookDetails";
 import LoadingScreen from "../components/LoadingScreen";
 import BookCard from "../components/BookCard";
+import {Helmet} from "react-helmet-async";
 
 const Books = () => {
     const [books, setBooks] = useState();
@@ -51,6 +52,13 @@ const Books = () => {
     return (
         <>
             <LoadingScreen loading={loading}/>
+            <Helmet>
+                <title>
+                    تصفح وحمّل مجموعة واسعة من الكتب باللغة العربية وغيرها | اعثر على قراءتك التالية
+                </title>
+                <meta name={"description"}
+                      content={" المعاصرة، استكشف مجموعة واسعة من الأنواع الأدبية واعثر على قراءتك التالية المثيرة. تصفح وابحث وانغمس في العالم الأدبي الغني للكتب باللغة العربي"}/>
+            </Helmet>
             <Container fluid className={"content row mx-0 justify-content-md-around justify-content-center"}>
 
                 <div className={"col-md-3 row mb-5"}>
@@ -79,12 +87,13 @@ const Books = () => {
                             التصنيفات
                         </div>
                         <ul className={"list-unstyled categories-list custom-scroll"}>
-                            <li className={"d-flex align-items-center gap-2 p-2 cursor-pointer  border-bottom d-flex align-items-center justify-content-between"} onClick={() => {
-                                setParams({
-                                    ...params,
-                                    category: null,
-                                })
-                            }}>
+                            <li className={"d-flex align-items-center gap-2 p-2 cursor-pointer  border-bottom d-flex align-items-center justify-content-between"}
+                                onClick={() => {
+                                    setParams({
+                                        ...params,
+                                        category: null,
+                                    })
+                                }}>
                                 جميع التصنيفات
                             </li>
                             {

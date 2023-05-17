@@ -7,6 +7,7 @@ import $ from "jquery";
 import QuoteApi from "../api/Quote";
 import QuoteCard from "../components/QuoteCard";
 import {useHistory} from "react-router-dom";
+import {Helmet} from "react-helmet-async";
 
 const Home = () => {
     const [loading, setLoading] = useState(true);
@@ -66,6 +67,13 @@ const Home = () => {
     return (
 
         <div>
+            <Helmet>
+                <title>
+                    تصفح وحمّل مجموعة واسعة من الكتب باللغة العربية وغيرها | اعثر على قراءتك التالية
+                </title>
+                <meta name={"description"}
+                      content={" المعاصرة، استكشف مجموعة واسعة من الأنواع الأدبية واعثر على قراءتك التالية المثيرة. تصفح وابحث وانغمس في العالم الأدبي الغني للكتب باللغة العربي"}/>
+            </Helmet>
             <LoadingScreen loading={loading}/>
             <div className={"header"} style={{
                 backgroundImage: `url(/images/library.jpg)`,
