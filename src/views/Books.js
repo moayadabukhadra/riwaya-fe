@@ -14,6 +14,7 @@ const Books = () => {
     const [loading, setLoading] = useState(true);
     const [pages, setPages] = useState();
     const [categories, setCategories] = useState();
+    const [selectedCategory, setSelectedCategory] = useState();
     const [selectedBook, setSelectedBook] = useState();
     const [relatedBooks, setRelatedBooks] = useState();
 
@@ -54,10 +55,13 @@ const Books = () => {
             <LoadingScreen loading={loading}/>
             <Helmet>
                 <title>
-                    تصفح وحمّل مجموعة واسعة من الكتب باللغة العربية وغيرها | اعثر على قراءتك التالية
+                    {
+                        selectedBook ? "كتاب " + selectedBook.title : (selectedCategory ? "تحميل وقرائة كتب " + selectedCategory : "تصفح وحمّل مجموعة واسعة من الكتب باللغة العربية وغيرها | اعثر على قراءتك التالية" )
+                    }
                 </title>
                 <meta name={"description"}
-                      content={" المعاصرة، استكشف مجموعة واسعة من الأنواع الأدبية واعثر على قراءتك التالية المثيرة. تصفح وابحث وانغمس في العالم الأدبي الغني للكتب باللغة العربي"}/>
+                      content={selectedBook ? "كتاب " + selectedBook.title + " للكاتب " + selectedBook.author.name + " تصنيف " + selectedBook.category.name + " تحميل وقرائة الكتاب pdf "
+                          : " المعاصرة، استكشف مجموعة واسعة من الأنواع الأدبية واعثر على قراءتك التالية المثيرة. تصفح وابحث وانغمس في العالم الأدبي الغني للكتب باللغة العربي"}/>
             </Helmet>
             <Container fluid className={"content row mx-0 justify-content-md-around justify-content-center"}>
 
@@ -103,6 +107,8 @@ const Books = () => {
                                                 ...params,
                                                 category: category.value,
                                             })
+
+                                            setSelectedCategory(category.label)
                                         }}
                                                     className={`d-flex align-items-center gap-2 p-2 cursor-pointer  border-bottom d-flex align-items-center justify-content-between ` + {
                                                         'active': params.category === category.value

@@ -18,6 +18,7 @@ import BookCard from "../components/BookCard";
 import QuoteApi from "../api/Quote";
 import QuoteCard from "../components/QuoteCard";
 import {Helmet} from "react-helmet-async";
+import {useHistory} from "react-router-dom";
 
 const Authors = () => {
     const [authors, setAuthors] = useState();
@@ -27,6 +28,7 @@ const Authors = () => {
     const [modal, setModal] = useState(false);
     const [selectedAuthorBooks, setSelectedAuthorBooks] = useState([]);
     const [quote, setQuote] = useState();
+    const history = useHistory();
     const toggle = () => setModal(!modal);
 
     const [params, setParams] = useState({
@@ -39,7 +41,9 @@ const Authors = () => {
             setSelectedAuthorBooks(data);
             setModal(true);
         });
+        history.push((params.page ? '?page=' +params.page : "") + '&author='+author.id)
     }
+
     useEffect(() => {
         const author = window.location.href.split('=')[1];
         if (author) {
@@ -53,7 +57,6 @@ const Authors = () => {
             });
         }
         AuthorApi.getAllAuthors(params).then(({data}) => {
-           console.log(data)
             setAuthors(data.data);
             setPages(data.links);
             setLoading(false);
@@ -63,13 +66,15 @@ const Authors = () => {
         QuoteApi.getRandomQuote().then(({data}) => {
             setQuote(data);
         });
-
     }, [params]);
+
     return (
         <>
             <Helmet>
                 <title>
-                    المؤلفين - رواية
+                    {
+                        selectedAuthor ? "تحميل وقرائة كتب " + selectedAuthor.name : " المؤلفين - رواية"
+                    }
                 </title>
                 <meta name={"description"}
                       content={"اكتشف مجموعة من الأسماء البارزة في عالم الكتابة | استكشف أعمالهم الأدبية وسيرهم الذاتية"}/>
@@ -105,6 +110,7 @@ const Authors = () => {
                         </div>
                     </div>
                 </div>
+
                 <div className={"col-md-9 row gap-1 justify-content-center"}>
                     {authors && authors.map((author, index) => {
                         return <AuthorCard key={index} callBack={authorSelectedCallback} author={author}/>
@@ -121,11 +127,11 @@ const Authors = () => {
                                                     onClick={() => {
                                                         if (page.url) {
                                                             params.page = page.url.substring(page.url.lastIndexOf('=') + 1);
-
                                                             AuthorApi.getAllAuthors(params).then(({data}) => {
                                                                 setAuthors(data.data);
                                                                 setPages(data.links);
                                                             });
+                                                            history.push('?page=' +params.page + selectedAuthor ? "?author=" +selectedAuthor.id : "")
                                                         }
                                                     }}
                                     >
@@ -139,8 +145,6 @@ const Authors = () => {
                         </Pagination>
                     </nav>
                 </div>
-
-
             </div>
             <Modal className={"modal-dialog-scrollable modal-lg"} isOpen={modal} toggle={toggle}>
                 <ModalHeader className={"d-flex align-items-center justify-content-between w-100"}

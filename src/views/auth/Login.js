@@ -3,6 +3,7 @@ import React from "react";
 import UserApi from "../../api/User";
 import store from "../../store";
 import {useHistory} from "react-router-dom";
+import FacebookLogin from 'react-facebook-login';
 
 const Login = () => {
     const history = useHistory();
@@ -21,12 +22,11 @@ const Login = () => {
         })
     }
 
-    const handleFacebookLogin = () => {
-        UserApi.facebookLogin().then(({data}) => {
-            console.log(data);
-            window.location.href = data;
-        }).catch((err) => {
-            console.log(err);
+    const handleFacebookLogin = (response) => {
+        UserApi.facebookLogin({
+            accessToken: response.accessToken
+        }).then(({data}) => {
+           console.log(data);
         })
     }
     return (
@@ -74,16 +74,18 @@ const Login = () => {
                     <span className={"text-secondary"}>تسجيل الدخول بواسطة</span>
                     <Row className={"justify-content-center mt-1"}>
                         <div className={"col-2"}>
-                            <a onClick={handleFacebookLogin} href="#" className={"text-decoration-none text-gulzar"}>
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                     className="icon icon-tabler icon-tabler-brand-facebook"
-                                     width="24" height="24" viewBox="0 0 24 24" stroke="currentColor"
-                                     fill="none">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path
-                                        d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path>
-                                </svg>
-                            </a>
+                           <FacebookLogin
+                                 appId="1304757180291828"
+                                    autoLoad={true}
+                                    fields="name,email,picture"
+                                    callback={handleFacebookLogin}
+                                    icon="fa-facebook"
+                                    cssClass="rounded-circle"
+                                    textButton={""}
+                                    />
+
+
+
                         </div>
                         <div className={"col-2"}>
                             <a href="#" className={"text-decoration-none text-dark"}>

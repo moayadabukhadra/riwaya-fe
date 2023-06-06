@@ -23,8 +23,8 @@ const addFavoriteBook = (bookId) => {
     return api.post('add-book-favorite', {book: bookId});
 }
 
-const facebookLogin = () => {
-    return api.get('auth/facebook');
+const facebookLogin = (data) => {
+    return api.get('auth/facebook', data);
 }
 
 const facebookLoginCallback = (url) => {
