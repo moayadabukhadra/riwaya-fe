@@ -23,11 +23,12 @@ const Login = () => {
     }
 
     const handleFacebookLogin = (response) => {
-        UserApi.facebookLogin({
-            accessToken: response.accessToken
-        }).then(({data}) => {
-           console.log(data);
-        })
+        console.log(response);
+        // UserApi.facebookLogin({
+        //     accessToken: response.accessToken
+        // }).then(({data}) => {
+        //    console.log(data);
+        // })
     }
     return (
         <div className={"d-flex align-items-center justify-content-between flex-grow-1"}>
