@@ -3,7 +3,7 @@ import React from "react";
 import UserApi from "../../api/User";
 import store from "../../store";
 import {useHistory} from "react-router-dom";
-import FacebookLogin from 'react-facebook-login';
+import FacebookLogin from '@greatsumini/react-facebook-login';
 
 const Login = () => {
     const history = useHistory();
