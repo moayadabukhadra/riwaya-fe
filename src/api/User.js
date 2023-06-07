@@ -24,12 +24,13 @@ const addFavoriteBook = (bookId) => {
 }
 
 const facebookLogin = (data) => {
-    return api.get('auth/facebook', data);
+    return api.post('auth/facebook', data);
 }
 
-const facebookLoginCallback = (url) => {
-    return api.post(url);
+const googleLogin = (data) => {
+    return api.post('auth/google', data);
 }
+
 
 const editProfile = (data) => {
     return api.post('edit-profile', data);
@@ -53,5 +54,5 @@ export default {
     editProfile,
     forgetPassword,
     resetPassword,
-    facebookLoginCallback
+    googleLogin
 }
