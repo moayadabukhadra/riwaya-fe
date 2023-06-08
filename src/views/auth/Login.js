@@ -38,21 +38,18 @@ const Login = () => {
     const handleGoogleLogin = (response) => {
 
         const encodedPayload = response.credential.split('.')[1];
-        console.log(encodedPayload);
         const decodedPayload = atob(encodedPayload);
         const utf8Payload = decodeURIComponent(escape(decodedPayload));
         const payload = JSON.parse(utf8Payload);
-        console.log(payload);
-        // UserApi.googleLogin(
-        //     payload
-        // ).then(({data}) => {
-        //     console.log(data);
-        //     // store.dispatch({
-        //     //     type: 'LOGIN',
-        //     //     payload: data.success
-        //     // });
-        //     // history.push('/');
-        // })
+        UserApi.googleLogin(
+            payload
+        ).then(({data}) => {
+            store.dispatch({
+                type: 'LOGIN',
+                payload: data.success
+            });
+            history.push('/');
+        })
     }
     return (
         <div className={"d-flex align-items-center justify-content-between flex-grow-1"}>
@@ -105,11 +102,12 @@ const Login = () => {
                                     backgroundColor: '#3b5998',
                                     border: 'none',
                                     color: 'white',
-                                    padding: '10px',
+                                    padding: '10px 15px',
+                                    textAlign: 'center',
                                     borderRadius: '5px',
                                     cursor: 'pointer'
                                 }}
-                                children={<i className={"fab fa-facebook-f p-0 fs-5"}></i>}
+                                children={<i className={"fab fa-facebook-f"}></i>}
                                 onSuccess={(response) => handleFacebookLogin(response)}
                             />
 
@@ -117,25 +115,14 @@ const Login = () => {
                         </div>
                         <div className={"col-2"}>
                             <GoogleLogin
-
                                 onSuccess={handleGoogleLogin}
+                                onFailure={handleGoogleLogin}
+                                containerProps={{
+                                    dir: 'rtl',
+                                    lang: 'ar',
+                                }}
+                                useOneTap={true}
                             />
-
-
-                        </div>
-                        <div className={"col-2"}>
-                            <a href="#" className={"text-decoration-none text-danger"}>
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                     className="icon icon-tabler icon-tabler-brand-instagram"
-                                     width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                     fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path
-                                        d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"></path>
-                                    <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
-                                    <path d="M16.5 7.5l0 .01"></path>
-                                </svg>
-                            </a>
                         </div>
                     </Row>
                 </div>
