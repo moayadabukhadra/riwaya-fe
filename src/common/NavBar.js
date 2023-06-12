@@ -101,6 +101,11 @@ function NavBar(args) {
                                             <i className="fas fa-user-circle"></i>
                                             الصفحة الشخصية
                                         </DropdownItem>
+                                        <DropdownItem href={"/my-library"}
+                                                      className={"d-flex align-items-center gap-1 text-secondary"}>
+                                            <i className="fa fa-book-reader"></i>
+                                            مكتبتي
+                                        </DropdownItem>
                                         <DropdownItem divider={true}/>
                                         <DropdownItem role={"button"} className={"text-danger d-flex align-items-center gap-1"}
                                                       onClick={handleLogout}>

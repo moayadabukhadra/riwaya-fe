@@ -1,13 +1,19 @@
 import {useEffect, useState} from "react";
 import UserApi from "../api/User";
+import store from "../store";
+
 const ImageInput = ({itemImage}) => {
     const [image, setImage] = useState(null);
 
     const handleImageChange = (e) => {
-         setImage(URL.createObjectURL(e.target.files[0]));
+        setImage(URL.createObjectURL(e.target.files[0]));
+        let formData = new FormData();
+        formData.append('image', e.target.files[0]);
+        UserApi.editProfileImage(formData).then(({data}) => {
+            store.dispatch({type: 'UPDATE', payload: data.success});
+        })
     }
     useEffect(() => {
-
         if (itemImage) {
             setImage("https://riwaya.rf.gd/riwaya/storage/app/public/images/" + itemImage)
         } else {
@@ -16,7 +22,8 @@ const ImageInput = ({itemImage}) => {
     }, [itemImage]);
 
     return (
-        <div className="position-relative d-flex mb-2" style={{height: "150px", width: "150px"}}>
+        <form encType={"multipart/form-data"}
+              className="position-relative d-flex mb-2" style={{height: "150px", width: "150px"}}>
             <label className="position-absolute btn btn-dark rounded-icon cursor-pointer text-white"
                    style={{top: "0", left: "0"}}>
                 <i className="fa fa-edit"></i>
@@ -37,7 +44,7 @@ const ImageInput = ({itemImage}) => {
                 <i className="fa fa-trash"></i>
                 <input hidden={true} type="checkbox" name={"remove_image"}/>
             </label>
-        </div>
+        </form>
     );
 }
 

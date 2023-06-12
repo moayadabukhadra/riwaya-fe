@@ -4,42 +4,17 @@ import commentApi from "../api/Comment";
 import {useEffect, useState} from "react";
 import store from "../store";
 import $ from "jquery";
-import Pusher from 'pusher-js';
-import toast from "react-hot-toast";
-import BookmarksButtons from "./BookmarksButtons";
+import UserApi from "../api/User";
 
 const BookDetails = ({book}) => {
     const [comments, setComments] = useState([]);
+    const [bookInLibrary, setBookInLibrary] = useState(false);
+
     useEffect(() => {
-        const user = store.getState().user;
-        const pusher = new Pusher('1d2155e8f9d2d65bf322', {
-            cluster: 'ap2',
-            encrypted: true,
+        UserApi.checkLibraryForBook(book.id).then(({data}) => {
+            setBookInLibrary(data.success);
         });
-
-        const channel = pusher.subscribe('comments.' + user?.id);
-
-        channel.bind('App\\Events\\NewComment', function (data) {
-            toast.success('تم الرد على تعليقك من قبل ' + data.comment.user.name, {
-                icon: '👏',
-                duration: 5000,
-                position: 'bottom-right',
-                style: {
-                    border: '1px solid #713200',
-                    padding: '16px',
-                    color: '#713200',
-                    fontWeight: 600,
-                    fontSize: '1.2rem',
-                },
-                id: 'custom-id-yes',
-            });
-        });
-        setComments(book.comments);
     }, []);
-
-
-
-
     const handleAddComment = (e) => {
         e.preventDefault();
         const comment = {
@@ -52,6 +27,27 @@ const BookDetails = ({book}) => {
             Swal.fire({
                 icon: 'success',
                 title: 'تمت الاضافة',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }).catch((error) => {
+            if (error.response.status === 401) {
+                Swal.fire({
+                    icon: 'error',
+                    title: error.response.data.message,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+        });
+    }
+
+    const updateBookInLibrary = () => {
+        UserApi.updateLibrary(book.id).then(({data}) => {
+            setBookInLibrary(data.in_library);
+            Swal.fire({
+                icon: 'success',
+                title: data.message,
                 showConfirmButton: false,
                 timer: 1500
             })
@@ -79,14 +75,21 @@ const BookDetails = ({book}) => {
                         <span className="fw-bold fs-6 text-muted text-decoration-none m-0">
                             المؤلف: {book.author?.name}
                         </span>
-                                <span className="fw-bold fs-6 text-muted text-decoration-none m-0">
+                        <span className="fw-bold fs-6 text-muted text-decoration-none m-0">
                             التصنيف: {book?.category?.name}
                         </span>
-                                <span className="fw-bold fs-6 text-muted text-decoration-none m-0">
+                        <span className="fw-bold fs-6 text-muted text-decoration-none m-0">
                             عدد الصفحات: {book?.page_count}
                         </span>
                     </div>
-                    <BookmarksButtons bookId={book.id}/>
+
+                    <button onClick={updateBookInLibrary}
+                            className={`btn ${bookInLibrary ? 'btn-secondary' : 'btn-outline-secondary'}
+                         d-flex align-items-center justify-content-center gap-1 col-5 col-lg-3 mb-3`}>
+                        <i className="fas fa-plus"/>
+                        {bookInLibrary ? 'حذف من مكتبتي' : 'إضافة الى مكتبتي'}
+                    </button>
+
                 </div>
                 {parse(book?.description)}
                 <div className={"mt-2 row align-items-center justify-content-center justify-content-lg-start gap-1"}>

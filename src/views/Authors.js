@@ -41,7 +41,7 @@ const Authors = () => {
             setSelectedAuthorBooks(data);
             setModal(true);
         });
-        history.push((params.page ? '?page=' +params.page : "") + '&author='+author.id)
+        history.push((params.page ? '?page=' +params.page : "") + '&author='+author?.id)
     }
 
     useEffect(() => {
@@ -150,7 +150,7 @@ const Authors = () => {
                 <ModalHeader className={"d-flex align-items-center justify-content-between w-100"}
                              toggle={toggle}>{selectedAuthor?.name}</ModalHeader>
                 <ModalBody className={"custom-scroll"}>
-                    <div className={"d-flex align-items-start gap-2"}>
+                    <div className={"d-flex align-items-start gap-2 flex-column"}>
                         <img className={"rounded-1 image-thumbnail"}
                              width={"150"}
                              src={selectedAuthor?.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + selectedAuthor.image.path : "/images/placeholders/placeholder.jpg"}

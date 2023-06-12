@@ -9,6 +9,7 @@ import SearchResults from "./views/SearchResults";
 import ContactUs from "./views/ContactUs";
 import ForgotPassword from "./views/auth/ForgotPassword";
 import ResetPassword from "./views/auth/ResetPassword";
+import MyLibrary from "./views/MyLibrary";
 
 const routes = [
     /* front */
@@ -55,6 +56,13 @@ const routes = [
         role: ['user', 'guest']
     },
     {
+        path: '/my-library',
+        name: 'مكتبتي',
+        component: MyLibrary,
+        layout: '/front',
+        role: ['user']
+    },
+    {
         path: '/',
         name: 'الرئيسية',
         component: Home,
@@ -89,6 +97,7 @@ const routes = [
         component: ResetPassword,
         layout: "/auth",
         role: ['guest'],
-    }
+    },
+
 ];
 export default routes;

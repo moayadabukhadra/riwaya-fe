@@ -5,13 +5,40 @@ import {Redirect, Route, Switch} from "react-router-dom";
 import routes from "routes.js";
 import NavBar from "../common/NavBar";
 import Footer from "../common/Footer";
-import {Toaster} from "react-hot-toast";
+import toast, {Toaster} from "react-hot-toast";
 import $ from "jquery";
 import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
+import Pusher from 'pusher-js';
 
 const Layout = (props) => {
     const [loginModal, setLoginModal] = useState(false);
     const user = store.getState().user
+
+    useEffect(() => {
+        const user = store.getState().user;
+        const pusher = new Pusher('1d2155e8f9d2d65bf322', {
+            cluster: 'ap2',
+            encrypted: true,
+        });
+
+        const channel = pusher.subscribe('comments.' + user?.id);
+
+        channel.bind('App\\Events\\NewComment', function (data) {
+            toast.success('تم الرد على تعليقك من قبل ' + data.comment.user.name, {
+                icon: '👏',
+                duration: 5000,
+                position: 'bottom-right',
+                style: {
+                    border: '1px solid #713200',
+                    padding: '16px',
+                    color: '#713200',
+                    fontWeight: 600,
+                    fontSize: '1.2rem',
+                },
+                id: 'custom-id-yes',
+            });
+        });
+    }, []);
     const toggle = () => setLoginModal(!loginModal);
     $(document).ready(function () {
 
@@ -40,7 +67,6 @@ const Layout = (props) => {
                         path={prop.path}
                         component={prop.component}
                         key={key}
-
                     />
                 );
             } else {
@@ -65,20 +91,7 @@ const Layout = (props) => {
                     <i className="fas fa-chevron-up"/>
                 </a>
             </div>
-            <Modal isOpen={loginModal} toggle={toggle}>
-                <ModalHeader toggle={toggle}>Modal title</ModalHeader>
-                <ModalBody>
 
-                </ModalBody>
-                <ModalFooter>
-                    <Button color="primary" onClick={toggle}>
-                        Do Something
-                    </Button>{' '}
-                    <Button color="secondary" onClick={toggle}>
-                        Cancel
-                    </Button>
-                </ModalFooter>
-            </Modal>
         </Provider>
     );
 }
