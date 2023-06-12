@@ -1,14 +1,13 @@
 import store from "../store";
 import ImageInput from "../components/ImageInput";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import UserApi from "../api/User";
 import LoadingScreen from "../components/LoadingScreen";
 import {Row} from "reactstrap";
-import BookmarkApi from "../api/Bookmark";
 
 const ProfilePage = () => {
     const user = store.getState().user;
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const handleEditProfile = (e) => {
         e.preventDefault();
