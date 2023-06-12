@@ -7,7 +7,6 @@ import NavBar from "../common/NavBar";
 import Footer from "../common/Footer";
 import toast, {Toaster} from "react-hot-toast";
 import $ from "jquery";
-import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 import Pusher from 'pusher-js';
 
 const Layout = (props) => {
@@ -38,6 +37,7 @@ const Layout = (props) => {
                 id: 'custom-id-yes',
             });
         });
+
     }, []);
     const toggle = () => setLoginModal(!loginModal);
     $(document).ready(function () {
@@ -87,7 +87,7 @@ const Layout = (props) => {
                     </Switch>
                 </div>
                 <Footer/>
-                <a href="#" className={"scroll-to-top text-decoration-none"}>
+                <a href="#" className={"scroll-to-top text-decoration-none d-none"}>
                     <i className="fas fa-chevron-up"/>
                 </a>
             </div>

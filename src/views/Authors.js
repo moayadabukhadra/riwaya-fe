@@ -40,8 +40,9 @@ const Authors = () => {
         AuthorApi.getAuthorBooks(author?.id).then(({data}) => {
             setSelectedAuthorBooks(data);
             setModal(true);
+            history.push('?page=' +params.page + selectedAuthor ? "?author=" +author?.id : "")
         });
-        history.push((params.page ? '?page=' +params.page : "") + '&author='+author?.id)
+
     }
 
     useEffect(() => {
@@ -131,7 +132,7 @@ const Authors = () => {
                                                                 setAuthors(data.data);
                                                                 setPages(data.links);
                                                             });
-                                                            history.push('?page=' +params.page + selectedAuthor ? "?author=" +selectedAuthor.id : "")
+                                                            history.push('?page=' +params.page + selectedAuthor ? "?author=" +selectedAuthor?.id : "")
                                                         }
                                                     }}
                                     >
