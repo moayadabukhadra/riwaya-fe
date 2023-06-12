@@ -14,13 +14,13 @@ export default function Footer() {
                     <div className="col-md-3 text-center text-md-end">
                         <h3>استكشاف</h3>
                         <ul className="list-unstyled">
-                            <li><a className={"d-flex align-items-center gap-1"} href="#">
+                            <li><a className={"d-flex align-items-center gap-1"} href="/books">
                                 <i className={"fa fa-angle-left text-primary"}></i>
                                 الكتب المميزة</a></li>
-                            <li><a className={"d-flex align-items-center gap-1"} href="#">
+                            <li><a className={"d-flex align-items-center gap-1"} href="/books">
                                 <i className={"fa fa-angle-left text-primary"}></i>
                                 الكتب الأكثر قراءة</a></li>
-                            <li><a className={"d-flex align-items-center gap-1"} href="#">
+                            <li><a className={"d-flex align-items-center gap-1"} href="/authors">
                                 <i className={"fa fa-angle-left text-primary"}></i>
                                 المؤلفون
                             </a></li>
@@ -29,7 +29,7 @@ export default function Footer() {
                     <div className="col-md-3 text-center text-md-end">
                         <h3>تواصل معنا</h3>
                         <ul className="list-unstyled">
-                            <li><a className={"d-flex align-items-center gap-1"} href="#">
+                            <li><a className={"d-flex align-items-center gap-1"} href="/contact-us">
                                 <i className={"fa fa-angle-left text-primary"}></i>
                                 اتصل بنا
                             </a></li>
