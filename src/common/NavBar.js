@@ -52,7 +52,6 @@ function NavBar(args) {
                     toggle();
                     $('.riwaya-nav').toggleClass('bg-white-nav-toggle');
                 }}/>
-
             </div>
             <Collapse className={"justify-content-center"} isOpen={isOpen} navbar>
                 <Nav className="justify-content-center gap-1" navbar>
@@ -86,9 +85,29 @@ function NavBar(args) {
                             تواصل معنا
                         </NavLink>
                     </NavItem>
-                    <NavItem>
+
+                    {!user &&
+                        <>
+                            <NavItem>
+                                <NavLink className={"d-flex align-items-center gap-1"}
+                                         href={"/auth/login"}>
+                                    <i className="fas fa-sign-in-alt text-primary"></i>
+                                    تسجيل الدخول
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className={"d-flex align-items-center gap-1"}
+                                         href={"/auth/register"}>
+                                    <i className="fas fa-user-plus text-primary"></i>
+                                    تسجيل جديد
+                                </NavLink>
+                            </NavItem>
+
+                        </>
+                    }
+                    <div>
                         {user &&
-                            <div className={"d-flex align-items-center gap-1 me-5"}>
+                            <div className={"d-flex align-items-center gap-1"}>
                                 <Dropdown className={"ms-4 p-0"} isOpen={dropdownOpen} toggle={dropdownToggle}>
                                     <DropdownToggle className={"bg-transparent border-0 p-0"}>
                                         <img className={"rounded-circle"}
@@ -116,29 +135,10 @@ function NavBar(args) {
                                 </Dropdown>
                             </div>
                         }
-                    </NavItem>
-
-                    {!user &&
-                        <>
-                            <NavItem>
-                                <NavLink className={"d-flex align-items-center gap-1"}
-                                         href={"/auth/login"}>
-                                    <i className="fas fa-sign-in-alt text-primary"></i>
-                                    تسجيل الدخول
-                                </NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className={"d-flex align-items-center gap-1"}
-                                         href={"/auth/register"}>
-                                    <i className="fas fa-user-plus text-primary"></i>
-                                    تسجيل جديد
-                                </NavLink>
-                            </NavItem>
-
-                        </>
-                    }
+                    </div>
 
                 </Nav>
+
             </Collapse>
 
         </Navbar>
