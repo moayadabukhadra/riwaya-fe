@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+		<!--	created with www.mysitemapgenerator.com	-->
+		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+	<loc>https://riwaya-jo.site/</loc>
+	<lastmod>2023-06-15T08:34:36+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://riwaya-jo.site/pusher/user-auth</loc>
+	<lastmod>2023-06-15T08:34:36+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://riwaya-jo.site/pusher/auth</loc>
+	<lastmod>2023-06-15T08:34:36+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://riwaya-jo.site/docs/channels/server_api/authenticating_users</loc>
+	<lastmod>2023-06-15T08:34:36+01:00</lastmod>
+	<priority>0.4</priority>
+</url>
+<url>
+	<loc>https://riwaya-jo.site/docs/channels/server_api/authorizing-users/</loc>
+	<lastmod>2023-06-15T08:34:36+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://riwaya-jo.site/docs/javascript_quick_start</loc>
+	<lastmod>2023-06-15T08:34:36+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://riwaya-jo.site/auth/forgot-password</loc>
+	<lastmod>2023-06-15T08:34:36+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://riwaya-jo.site/auth/register</loc>
+	<lastmod>2023-06-15T08:34:36+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://riwaya-jo.site/auth/login</loc>
+	<lastmod>2023-06-15T08:34:36+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://riwaya-jo.site/books</loc>
+	<lastmod>2023-06-15T08:34:36+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://riwaya-jo.site/authors</loc>
+	<lastmod>2023-06-15T08:34:36+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://riwaya-jo.site/quotes</loc>
+	<lastmod>2023-06-15T08:34:36+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://riwaya-jo.site/profile</loc>
+	<lastmod>2023-06-15T08:34:36+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://riwaya-jo.site/search</loc>
+	<lastmod>2023-06-15T08:34:36+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://riwaya-jo.site/contact-us</loc>
+	<lastmod>2023-06-15T08:34:36+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://riwaya-jo.site/my-library</loc>
+	<lastmod>2023-06-15T08:34:36+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://riwaya-jo.site/login</loc>
+	<lastmod>2023-06-15T08:34:36+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://riwaya-jo.site/register</loc>
+	<lastmod>2023-06-15T08:34:36+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://riwaya-jo.site/forgot-password</loc>
+	<lastmod>2023-06-15T08:34:36+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://riwaya-jo.site/auth</loc>
+	<lastmod>2023-06-15T08:34:36+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+</urlset>
