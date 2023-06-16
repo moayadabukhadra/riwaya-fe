@@ -55,13 +55,14 @@ const Books = () => {
             <LoadingScreen loading={loading}/>
             <Helmet>
                 <title>
-                    {
-                        selectedBook ? "كتاب " + selectedBook.title : (selectedCategory ? "تحميل وقرائة كتب " + selectedCategory : "تصفح وحمّل مجموعة واسعة من الكتب باللغة العربية وغيرها | اعثر على قراءتك التالية" )
-                    }
+                    {selectedBook ? 'كتاب ' + selectedBook.title : (selectedCategory ? 'تحميل وقرائة كتب ' + selectedCategory : 'تصفح وحمّل مجموعة واسعة من الكتب باللغة العربية وغيرها | اعثر على قراءتك التالية')}
                 </title>
-                <meta name={"description"}
-                      content={selectedBook ? "كتاب " + selectedBook.title + " للكاتب " + selectedBook.author.name + " تصنيف " + selectedBook.category.name + " تحميل وقرائة الكتاب pdf "
-                          : " المعاصرة، استكشف مجموعة واسعة من الأنواع الأدبية واعثر على قراءتك التالية المثيرة. تصفح وابحث وانغمس في العالم الأدبي الغني للكتب باللغة العربي"}/>
+                <meta property="og:title" content={selectedBook ? 'كتاب ' + selectedBook.title : (selectedCategory ? 'تحميل وقرائة كتب ' + selectedCategory : 'تصفح وحمّل مجموعة واسعة من الكتب باللغة العربية وغيرها | اعثر على قراءتك التالية')} />
+                <meta property="og:description" content={selectedBook ? selectedBook.description : 'تصفح وحمّل مجموعة واسعة من الكتب باللغة العربية وغيرها | اعثر على قراءتك التالية'} />
+                <meta property="og:image" content={selectedBook?.image ? 'https://riwaya.rf.gd/riwaya/storage/app/public/images/' + selectedBook?.image.path : '/images/library.jpg'} />
+                <meta property="og:url" content={`https://riwaya-jo.site/books/?book=${selectedBook?.id}`} />
+                <meta property="og:type" content="website" />
+                <meta name="description" content={selectedBook ? 'كتاب ' + selectedBook.title + ' للكاتب ' + selectedBook.author.name + ' تصنيف ' + selectedBook.category.name + ' تحميل وقرائة الكتاب pdf ' : ' المعاصرة، استكشف مجموعة واسعة من الأنواع الأدبية واعثر على قراءتك التالية المثيرة. تصفح وابحث وانغمس في العالم الأدبي الغني للكتب باللغة العربي'} />
             </Helmet>
             <Container fluid className={"content row mx-0 justify-content-md-around justify-content-center"}>
 
@@ -189,7 +190,7 @@ const Books = () => {
 
             </Container>
         </>
-    );
+);
 }
 
 export default Books;
