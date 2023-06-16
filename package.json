@@ -41,7 +41,8 @@
   },
   "devDependencies": {
     "gulp": "^4.0.2",
-    "gulp-append-prepend": "1.0.9"
+    "gulp-append-prepend": "1.0.9",
+    "react-snap": "^1.23.0"
   },
   "optionalDependencies": {
     "jquery": "3.6.0",
@@ -51,7 +52,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postbuild": "react-snap"
   },
   "browserslist": {
     "production": [
