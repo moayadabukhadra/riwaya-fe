@@ -7,7 +7,7 @@ import BookSwiper from "../components/BookSwiper";
 import BookDetails from "../components/BookDetails";
 import LoadingScreen from "../components/LoadingScreen";
 import BookCard from "../components/BookCard";
-import {Helmet} from "react-helmet-async";
+import {Helmet} from "react-helmet";
 
 const Books = () => {
     const [books, setBooks] = useState();
