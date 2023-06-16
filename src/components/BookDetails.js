@@ -55,9 +55,11 @@ const BookDetails = ({book}) => {
             if (error.response.status === 401) {
                 Swal.fire({
                     icon: 'error',
-                    title: error.response.data.message,
+                    title: 'يجب تسجيل الدخول اولا',
                     showConfirmButton: false,
-                    timer: 1500
+                    footer: '<a href="/login">تسجيل الدخول</a>',
+                    showCancelButton: true,
+                    cancelButtonText: 'الغاء',
                 })
             }
         });
