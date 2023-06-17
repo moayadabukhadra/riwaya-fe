@@ -7,7 +7,8 @@ const author = props.author;
 
 
     <div className={"col-md-4 col-lg-3 p-2 d-flex flex-column bg-light border rounded-2 justify-content-between align-items-center"}>
-       <div className={"mb-2"}>
+
+        <div className={"mb-2"}>
            <img className={"rounded-circle"}
                 width={"150"}
                 height={"150"}
