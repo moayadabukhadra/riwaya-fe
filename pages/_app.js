@@ -1,5 +1,4 @@
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { HelmetProvider } from "react-helmet-async";
 import Layout from "./layouts/Layout";
 import { useRouter } from "next/router";
 import "assets/css/custom.scss";
@@ -14,7 +13,6 @@ function MyApp({ Component, pageProps }) {
 
     return (
         <GoogleOAuthProvider clientId={"568497747334-dt5ek21j3prthr149h5cirve4gtfeqcj.apps.googleusercontent.com"}>
-            <HelmetProvider>
                 {
                     router.pathname.startsWith('/auth') && router.pathname !== '/authors'? (
                         <Guest>
@@ -26,7 +24,6 @@ function MyApp({ Component, pageProps }) {
                         </Layout>
                     )
                 }
-            </HelmetProvider>
         </GoogleOAuthProvider>
     );
 }

@@ -19,6 +19,7 @@ import QuoteApi from "./api/Quote";
 import QuoteCard from "../src/components/QuoteCard";
 import {Helmet} from "react-helmet-async";
 import {useHistory} from "react-router-dom";
+import Head from "next/head";
 
 const Authors = () => {
     const [authors, setAuthors] = useState();
@@ -71,7 +72,7 @@ const Authors = () => {
 
     return (
         <>
-            <Helmet>
+            <Head>
                 <title>
                     {
                         selectedAuthor ? "تحميل وقرائة كتب " + selectedAuthor.name : " المؤلفين - رواية"
@@ -79,7 +80,7 @@ const Authors = () => {
                 </title>
                 <meta name={"description"}
                       content={"اكتشف مجموعة من الأسماء البارزة في عالم الكتابة | استكشف أعمالهم الأدبية وسيرهم الذاتية"}/>
-            </Helmet>
+            </Head>
             <LoadingScreen loading={loading}/>
             <div className={"content row justify-content-center justify-content-md-around align-self-center"} style={{
                 margin: '100px  auto',

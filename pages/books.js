@@ -8,6 +8,7 @@ import BookDetails from "../src/components/BookDetails";
 import LoadingScreen from "../src/components/LoadingScreen";
 import BookCard from "../src/components/BookCard";
 import {Helmet} from "react-helmet";
+import Head from "next/head";
 
 const Books = () => {
     const [books, setBooks] = useState();
@@ -53,7 +54,7 @@ const Books = () => {
     }, [params]);
     return (
         <>
-            <Helmet>
+            <Head>
                 <title>
                     {selectedBook ? 'كتاب ' + selectedBook.title : (selectedCategory ? 'تحميل وقرائة كتب ' + selectedCategory : 'تصفح وحمّل مجموعة واسعة من الكتب باللغة العربية وغيرها | اعثر على قراءتك التالية')}
                 </title>
@@ -63,7 +64,7 @@ const Books = () => {
                 <meta property="og:url" content={`https://riwaya-jo.site/books/?book=${selectedBook?.id}`} />
                 <meta property="og:type" content="website" />
                 <meta name="description" content={selectedBook ? 'كتاب ' + selectedBook.title + ' للكاتب ' + selectedBook.author.name + ' تصنيف ' + selectedBook.category.name + ' تحميل وقرائة الكتاب pdf ' : ' المعاصرة، استكشف مجموعة واسعة من الأنواع الأدبية واعثر على قراءتك التالية المثيرة. تصفح وابحث وانغمس في العالم الأدبي الغني للكتب باللغة العربي'} />
-            </Helmet>
+            </Head>
             <LoadingScreen loading={loading}/>
             <Container fluid className={"content row mx-0 justify-content-md-around justify-content-center"}>
 
