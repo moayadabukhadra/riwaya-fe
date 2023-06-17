@@ -1,11 +1,11 @@
 import {Container, Row} from "reactstrap";
-import BookCard from "./components/BookCard";
+import BookCard from "../src/components/BookCard";
 import {summary} from "../public/Helpers";
 
 const SearchResults = (props) => {
-    const data = props.location.state.data
-    const books = data.books
-    const authors = data.authors
+    const data = props.location?.state?.data
+    const books = data?.books
+    const authors = data?.authors
     return (
         <>
 
@@ -18,7 +18,7 @@ const SearchResults = (props) => {
                         books && books?.map((book) => {
                             return (
                                 <div className={"col-6 col-md-4 col-lg-3 col-xl-2 mb-4"}>
-                                    <BookCard book={book} key={book.id}/>
+                                    <BookCard book={book} key={book?.id}/>
                                 </div>
                             );
                         }

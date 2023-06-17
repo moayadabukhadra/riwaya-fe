@@ -3,10 +3,10 @@ import React, {useEffect, useState} from "react";
 import {Container, Pagination, PaginationItem, PaginationLink, Row} from "reactstrap";
 import CategoryApi from "./api/Category";
 import 'swiper/css';
-import BookSwiper from "./components/BookSwiper";
-import BookDetails from "./components/BookDetails";
-import LoadingScreen from "./components/LoadingScreen";
-import BookCard from "./components/BookCard";
+import BookSwiper from "../src/components/BookSwiper";
+import BookDetails from "../src/components/BookDetails";
+import LoadingScreen from "../src/components/LoadingScreen";
+import BookCard from "../src/components/BookCard";
 import {Helmet} from "react-helmet";
 
 const Books = () => {

@@ -5,8 +5,8 @@ import {useHistory} from "react-router-dom";
 import Swal from "sweetalert2";
 
 const ResetPassword = (props) => {
-    const token = props.match.params.token;
-    const email = props.match.params.email;
+    const token = props?.match?.params.token;
+    const email = props?.match?.params.email;
     const history = useHistory();
     const handleResetPassword = (e) => {
         e.preventDefault();

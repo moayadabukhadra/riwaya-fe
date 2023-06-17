@@ -2,7 +2,7 @@ import {Pagination, PaginationItem, PaginationLink, Row} from "reactstrap";
 import React, {useEffect, useState} from "react";
 import UserApi from "./api/User";
 import Swal from "sweetalert2";
-import LoadingScreen from "./components/LoadingScreen";
+import LoadingScreen from "../src/components/LoadingScreen";
 
 const MyLibrary = () => {
     const [books, setBooks] = useState();

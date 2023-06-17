@@ -1,11 +1,11 @@
 import {Container, Row} from "reactstrap";
-import BookSwiper from "./components/BookSwiper";
+import BookSwiper from "../src/components/BookSwiper";
 import React, {useEffect, useState} from "react";
 import BookApi from "./api/Book";
-import LoadingScreen from "./components/LoadingScreen";
+import LoadingScreen from "../src/components/LoadingScreen";
 import $ from "jquery";
 import QuoteApi from "./api/Quote";
-import QuoteCard from "./components/QuoteCard";
+import QuoteCard from "../src/components/QuoteCard";
 import {useHistory} from "react-router-dom";
 import {Helmet} from "react-helmet-async";
 

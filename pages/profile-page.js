@@ -1,8 +1,8 @@
 import store from "/src/store";
-import ImageInput from "./components/ImageInput";
+import ImageInput from "../src/components/ImageInput";
 import React, {useState} from "react";
 import UserApi from "./api/User";
-import LoadingScreen from "./components/LoadingScreen";
+import LoadingScreen from "../src/components/LoadingScreen";
 import {Row} from "reactstrap";
 
 const ProfilePage = () => {

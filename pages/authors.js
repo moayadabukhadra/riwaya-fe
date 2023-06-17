@@ -11,12 +11,12 @@ import {
     PaginationLink
 } from "reactstrap";
 import 'swiper/css';
-import AuthorCard from "./components/AuthorCard";
-import LoadingScreen from "./components/LoadingScreen";
+import AuthorCard from "../src/components/AuthorCard";
+import LoadingScreen from "../src/components/LoadingScreen";
 import parse from "html-react-parser";
-import BookCard from "./components/BookCard";
+import BookCard from "../src/components/BookCard";
 import QuoteApi from "./api/Quote";
-import QuoteCard from "./components/QuoteCard";
+import QuoteCard from "../src/components/QuoteCard";
 import {Helmet} from "react-helmet-async";
 import {useHistory} from "react-router-dom";
 

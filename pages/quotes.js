@@ -1,8 +1,8 @@
 import QuoteApi from "./api/Quote";
 import React, {useEffect, useState} from "react";
 import {Container} from "reactstrap";
-import QuoteCard from "./components/QuoteCard";
-import LoadingScreen from "./components/LoadingScreen";
+import QuoteCard from "../src/components/QuoteCard";
+import LoadingScreen from "../src/components/LoadingScreen";
 import {Helmet} from "react-helmet-async";
 
 const Quotes = () => {
