@@ -9,7 +9,6 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "swiper/swiper.min.css";
 import Guest from "./layouts/Guest";
 
-
 function MyApp({ Component, pageProps }) {
     const router = useRouter();
 
@@ -31,5 +30,13 @@ function MyApp({ Component, pageProps }) {
         </GoogleOAuthProvider>
     );
 }
+
+MyApp.getInitialProps = async ({ Component, ctx }) => {
+    let pageProps = {};
+    if (Component.getInitialProps) {
+        pageProps = await Component.getInitialProps(ctx);
+    }
+    return { pageProps };
+};
 
 export default MyApp;
