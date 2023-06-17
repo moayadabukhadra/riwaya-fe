@@ -12,7 +12,7 @@ import {
     DropdownItem,
     Dropdown,
 } from 'reactstrap';
-import store from "../store";
+import store from "/src/store";
 import $ from "jquery";
 import {useRouter} from "next/router";
 

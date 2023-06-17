@@ -1,5 +1,5 @@
 import axios from 'axios';
-import store from '../store';
+import store from '/src/store';
 
 const service = axios.create({
     baseURL: process.env.API_URL || 'https://riwaya.rf.gd/api',

@@ -66,6 +66,140 @@ __webpack_async_result__();
 
 /***/ }),
 
+/***/ 8821:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
+/* harmony import */ var _src_store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9192);
+/* harmony import */ var _components_ImageInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(339);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6689);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _api_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7521);
+/* harmony import */ var _components_LoadingScreen__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7033);
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7269);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_src_store__WEBPACK_IMPORTED_MODULE_1__, _components_ImageInput__WEBPACK_IMPORTED_MODULE_2__, _api_User__WEBPACK_IMPORTED_MODULE_4__, reactstrap__WEBPACK_IMPORTED_MODULE_6__]);
+([_src_store__WEBPACK_IMPORTED_MODULE_1__, _components_ImageInput__WEBPACK_IMPORTED_MODULE_2__, _api_User__WEBPACK_IMPORTED_MODULE_4__, reactstrap__WEBPACK_IMPORTED_MODULE_6__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+
+
+
+
+
+
+
+const ProfilePage = ()=>{
+    const user = _src_store__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z.getState().user;
+    const [loading, setLoading] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false);
+    const handleEditProfile = (e)=>{
+        e.preventDefault();
+        setLoading(true);
+        const formData = new FormData(e.target);
+        _api_User__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z.editProfile(formData).then(({ data })=>{
+            _src_store__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z.dispatch({
+                type: "UPDATE",
+                payload: data.success
+            });
+            setLoading(false);
+        });
+    };
+    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Row, {
+        className: "justify-content-center",
+        style: {
+            margin: "100px 0"
+        },
+        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+            className: "row justify-content-around col-8 bg-white shadow rounded-3 p-5",
+            children: [
+                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_LoadingScreen__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                    loading: loading
+                }),
+                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                    className: "d-flex align-items-center justify-content-center",
+                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_ImageInput__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                        itemImage: user?.image?.path
+                    })
+                }),
+                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                    className: "d-flex align-items-center flex-column",
+                    children: [
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("strong", {
+                            className: "text-center",
+                            children: user?.name
+                        }),
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
+                            className: "mx-2 fs-7",
+                            children: user?.email
+                        })
+                    ]
+                }),
+                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", {
+                    onSubmit: handleEditProfile,
+                    className: "d-flex flex-column",
+                    encType: "multipart/form-data",
+                    children: [
+                        /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                            className: "form-group mb-4",
+                            children: [
+                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("label", {
+                                    htmlFor: "name",
+                                    className: "form-label",
+                                    children: "الاسم"
+                                }),
+                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("input", {
+                                    type: "text",
+                                    name: "name",
+                                    className: "form-control",
+                                    id: "name"
+                                })
+                            ]
+                        }),
+                        /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                            className: "form-group mb-4",
+                            children: [
+                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("label", {
+                                    htmlFor: "email",
+                                    className: "form-label",
+                                    children: "البريد الالكتروني"
+                                }),
+                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("input", {
+                                    type: "email",
+                                    name: "email",
+                                    className: "form-control",
+                                    id: "email"
+                                })
+                            ]
+                        }),
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                            className: "form-group mb-4",
+                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("textarea", {
+                                className: "form-control",
+                                id: "exampleFormControlTextarea1",
+                                rows: "3",
+                                placeholder: "نبذة عنك"
+                            })
+                        }),
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
+                            type: "submit",
+                            className: "btn btn-primary align-self-end",
+                            children: "حفظ"
+                        })
+                    ]
+                })
+            ]
+        })
+    });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProfilePage);
+
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } });
+
+/***/ }),
+
 /***/ 3076:
 /***/ ((module) => {
 
@@ -122,7 +256,7 @@ module.exports = import("reactstrap");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [3722,5893,7050,7521,7033,339,8821], () => (__webpack_exec__(6862)));
+var __webpack_exports__ = __webpack_require__.X(0, [7812,9192,7521,7033,339], () => (__webpack_exec__(6862)));
 module.exports = __webpack_exports__;
 
 })();

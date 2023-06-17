@@ -1,13 +1,13 @@
 import {Form, Row} from "reactstrap";
 import React from "react";
 import UserApi from "../api/User";
-import store from "../store";
-import {useHistory} from "react-router-dom";
+import store from "/src/store";
 import FacebookLogin from "@greatsumini/react-facebook-login";
 import {GoogleLogin} from "@react-oauth/google";
+import {useRouter} from "next/router";
 
 const Register = () => {
-    const history = useHistory();
+    const router = useRouter();
     const handleSubmit = (e) => {
         e.preventDefault();
         const credentials = {
@@ -22,7 +22,7 @@ const Register = () => {
                 type: 'REGISTER',
                 payload: data.success
             });
-            history.push('/');
+            router.push('/');
         })
     }
 
@@ -34,7 +34,7 @@ const Register = () => {
                 type: 'LOGIN',
                 payload: data.success
             });
-            history.push('/');
+            router.push('/');
         })
     }
 
@@ -51,7 +51,7 @@ const Register = () => {
                 type: 'LOGIN',
                 payload: data.success
             });
-            history.push('/');
+            router.push('/');
         })
     }
 

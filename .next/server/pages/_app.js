@@ -143,27 +143,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6689);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4661);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _routes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7615);
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7050);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_routes_js__WEBPACK_IMPORTED_MODULE_3__, _store__WEBPACK_IMPORTED_MODULE_4__]);
-([_routes_js__WEBPACK_IMPORTED_MODULE_3__, _store__WEBPACK_IMPORTED_MODULE_4__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
-
+/* harmony import */ var _src_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9192);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1853);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_src_store__WEBPACK_IMPORTED_MODULE_2__]);
+_src_store__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
 
 
 const Guest = ({ children })=>{
-    const user = _store__WEBPACK_IMPORTED_MODULE_4__["default"].getState().user;
-    const history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useHistory)();
+    const user = _src_store__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z.getState().user;
+    const router = (0,next_router__WEBPACK_IMPORTED_MODULE_3__.useRouter)();
     const content = react__WEBPACK_IMPORTED_MODULE_1___default().useRef(null);
     return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
         className: "content d-flex container",
         ref: content,
         dir: "rtl",
         children: [
-            user && user.token && history.push("/"),
+            user && user.token && router.push("/"),
             children
         ]
     });
@@ -176,6 +174,13 @@ __webpack_async_result__();
 /***/ }),
 
 /***/ 4595:
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ 8722:
 /***/ (() => {
 
 
@@ -200,14 +205,6 @@ __webpack_async_result__();
 /***/ (() => {
 
 
-
-/***/ }),
-
-/***/ 8520:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("@greatsumini/react-facebook-login");
 
 /***/ }),
 
@@ -267,14 +264,6 @@ module.exports = require("react");
 
 /***/ }),
 
-/***/ 2791:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("react-helmet");
-
-/***/ }),
-
 /***/ 8638:
 /***/ ((module) => {
 
@@ -291,43 +280,11 @@ module.exports = require("react-redux");
 
 /***/ }),
 
-/***/ 4661:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("react-router-dom");
-
-/***/ }),
-
 /***/ 6695:
 /***/ ((module) => {
 
 "use strict";
 module.exports = require("redux");
-
-/***/ }),
-
-/***/ 271:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("sweetalert2");
-
-/***/ }),
-
-/***/ 9648:
-/***/ ((module) => {
-
-"use strict";
-module.exports = import("axios");;
-
-/***/ }),
-
-/***/ 2905:
-/***/ ((module) => {
-
-"use strict";
-module.exports = import("html-react-parser");;
 
 /***/ }),
 
@@ -339,27 +296,11 @@ module.exports = import("js-cookie");;
 
 /***/ }),
 
-/***/ 6201:
-/***/ ((module) => {
-
-"use strict";
-module.exports = import("react-hot-toast");;
-
-/***/ }),
-
 /***/ 7269:
 /***/ ((module) => {
 
 "use strict";
 module.exports = import("reactstrap");;
-
-/***/ }),
-
-/***/ 3015:
-/***/ ((module) => {
-
-"use strict";
-module.exports = import("swiper/react");;
 
 /***/ })
 
@@ -370,7 +311,7 @@ module.exports = import("swiper/react");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [3722,5893,7050,7521,7033,159,8184,6664,2829,339,9476,969,6616,3499,8879,4800,7267,1331,2709,8821,8707,3917,6242,8009,4673,7615,7588], () => (__webpack_exec__(9346)));
+var __webpack_exports__ = __webpack_require__.X(0, [7812,9192,8009,4673,7588], () => (__webpack_exec__(9346)));
 module.exports = __webpack_exports__;
 
 })();

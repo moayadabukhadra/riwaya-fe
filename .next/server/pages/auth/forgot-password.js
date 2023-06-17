@@ -66,6 +66,108 @@ __webpack_async_result__();
 
 /***/ }),
 
+/***/ 3917:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5893);
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7269);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6689);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _api_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7521);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([reactstrap__WEBPACK_IMPORTED_MODULE_1__, _api_User__WEBPACK_IMPORTED_MODULE_3__]);
+([reactstrap__WEBPACK_IMPORTED_MODULE_1__, _api_User__WEBPACK_IMPORTED_MODULE_3__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+
+
+
+
+const ForgotPassword = ()=>{
+    const handleSendResetPasswordLink = (e)=>{
+        e.preventDefault();
+        const credentials = {
+            email: e.target.email.value
+        };
+        _api_User__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z.forgetPassword(credentials).then(({ data })=>{
+            console.log(data);
+        });
+    };
+    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        className: "d-flex align-items-center justify-content-between flex-grow-1",
+        children: [
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("a", {
+                className: "position-absolute text-primary d-flex align-items-center gap-1",
+                href: "/",
+                style: {
+                    top: "2rem",
+                    left: "2rem"
+                },
+                children: [
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("i", {
+                        className: "fas fa-arrow-left"
+                    }),
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
+                        children: "الصفحة الرئيسية"
+                    })
+                ]
+            }),
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_1__.Form, {
+                onSubmit: handleSendResetPasswordLink,
+                className: "guest-container shadow p-5 rounded-3",
+                children: [
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h1", {
+                        className: "text-amiri text-center mb-3",
+                        children: "نسيت كلمة المرور"
+                    }),
+                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                        className: "mb-3 position-relative",
+                        children: [
+                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("i", {
+                                className: "fa fa-envelope position-absolute end-0 border-start px-2 fs-4 text-secondary",
+                                style: {
+                                    top: "40px"
+                                }
+                            }),
+                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("label", {
+                                className: "form-label",
+                                children: "البريد الالكتروني"
+                            }),
+                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("input", {
+                                type: "email",
+                                className: "form-control  pe-5",
+                                name: "email"
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
+                        type: "submit",
+                        className: "btn btn-primary text-white w-100",
+                        children: "ارسال رابط استعادة كلمة المرور"
+                    })
+                ]
+            }),
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                className: "col-7 h-100 d-none d-md-block",
+                style: {
+                    backgroundImage: `url("/images/login-img.png")`,
+                    backgroundSize: "contain",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat"
+                }
+            })
+        ]
+    });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ForgotPassword);
+
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } });
+
+/***/ }),
+
 /***/ 3076:
 /***/ ((module) => {
 
@@ -122,7 +224,7 @@ module.exports = import("reactstrap");;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [3722,5893,7050,7521,3917], () => (__webpack_exec__(6766)));
+var __webpack_exports__ = __webpack_require__.X(0, [7812,9192,7521], () => (__webpack_exec__(6766)));
 module.exports = __webpack_exports__;
 
 })();

@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import { Provider } from "react-redux";
-import toast, {Toaster} from "react-hot-toast";
 import { useRouter } from "next/router";
-import store from "../store";
+import store from "/src/store";
 import NavBar from "../common/NavBar";
 import Footer from "../common/Footer";
 import Pusher from 'pusher-js';

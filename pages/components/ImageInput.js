@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import UserApi from "../api/User";
-import store from "../store";
+import store from "/src/store";
 
 const ImageInput = ({itemImage}) => {
     const [image, setImage] = useState(null);

@@ -1,4 +1,4 @@
-import store from "./store";
+import store from "/src/store";
 import ImageInput from "./components/ImageInput";
 import React, {useState} from "react";
 import UserApi from "./api/User";

@@ -1,6 +1,6 @@
 import {Container, Row} from "reactstrap";
 import BookCard from "./components/BookCard";
-import {summary} from "./Helpers";
+import {summary} from "../public/Helpers";
 
 const SearchResults = (props) => {
     const data = props.location.state.data

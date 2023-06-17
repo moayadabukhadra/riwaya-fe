@@ -1,5 +1,5 @@
 
-import {summary} from "../Helpers";
+import {summary} from "../../public/Helpers";
 
 const AuthorCard = (props) => {
 const author = props.author;

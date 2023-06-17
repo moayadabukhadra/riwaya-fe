@@ -1,16 +1,15 @@
 import React from 'react';
-import {Route, Switch, useHistory} from "react-router-dom";
-import routes from "../routes.js";
-import store from "../store";
+import store from "/src/store";
+import {useRouter} from "next/router";
 
 const Guest = ({children}) => {
     const user = store.getState().user;
-    const history = useHistory();
+    const router = useRouter();
     const content = React.useRef(null);
 
     return (
         <div className="content d-flex container" ref={content} dir={"rtl"}>
-            {user && user.token && history.push('/')}
+            {user && user.token && router.push('/')}
             {children}
         </div>
     );

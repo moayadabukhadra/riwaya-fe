@@ -1,7 +1,7 @@
 import {Form, Row} from "reactstrap";
 import React from "react";
 import UserApi from "../api/User";
-import store from "../store";
+import store from "/src/store";
 import FacebookLogin from '@greatsumini/react-facebook-login';
 import {GoogleLogin} from '@react-oauth/google';
 import {useRouter} from "next/router";
@@ -31,7 +31,7 @@ const Login = () => {
                 type: 'LOGIN',
                 payload: data.success
             });
-            history.push('/');
+            router.push('/');
         })
     }
 
@@ -48,7 +48,7 @@ const Login = () => {
                 type: 'LOGIN',
                 payload: data.success
             });
-            history.push('/');
+            router.push('/');
         })
     }
     return (
