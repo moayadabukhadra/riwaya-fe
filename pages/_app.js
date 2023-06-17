@@ -8,6 +8,8 @@ import "/src/assets/css/index.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "swiper/swiper.min.css";
 import Guest from "./layouts/Guest";
+
+
 function MyApp({ Component, pageProps }) {
     const router = useRouter();
 
@@ -15,7 +17,7 @@ function MyApp({ Component, pageProps }) {
         <GoogleOAuthProvider clientId={"568497747334-dt5ek21j3prthr149h5cirve4gtfeqcj.apps.googleusercontent.com"}>
             <HelmetProvider>
                 {
-                    router.pathname.startsWith('/auth') ? (
+                    router.pathname.startsWith('/auth') && router.pathname !== 'authors'? (
                         <Guest>
                             <Component {...pageProps} />
                         </Guest>
