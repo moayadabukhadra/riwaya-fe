@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
         <GoogleOAuthProvider clientId={"568497747334-dt5ek21j3prthr149h5cirve4gtfeqcj.apps.googleusercontent.com"}>
             <HelmetProvider>
                 {
-                    router.pathname.startsWith('/auth') && router.pathname !== 'authors'? (
+                    router.pathname.startsWith('/auth') && router.pathname !== '/authors'? (
                         <Guest>
                             <Component {...pageProps} />
                         </Guest>
