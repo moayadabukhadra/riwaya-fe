@@ -27,7 +27,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_dist_server_future_route_modules_pages_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3185);
 /* harmony import */ var next_dist_server_future_route_modules_pages_module__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_dist_server_future_route_modules_pages_module__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_dist_build_webpack_loaders_next_route_loader_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7182);
-/* harmony import */ var private_next_pages_authors_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1246);
+/* harmony import */ var private_next_pages_authors_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3499);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([private_next_pages_authors_js__WEBPACK_IMPORTED_MODULE_2__]);
 private_next_pages_authors_js__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
@@ -164,7 +164,7 @@ __webpack_async_result__();
 
 /***/ }),
 
-/***/ 1246:
+/***/ 3499:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";

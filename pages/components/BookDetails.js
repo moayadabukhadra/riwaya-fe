@@ -67,7 +67,7 @@ const BookDetails = ({book}) => {
     return (
         <div className={"row align-items-start"}>
             <img className={"col-md-4 mb-3"}
-                 src={book.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + book.image.path : "/images/placeholders/placeholder.jpg"}
+                 src={book?.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + book?.image?.path : "/images/placeholders/placeholder.jpg"}
                  alt={book.title}/>
             <div className={"d-flex flex-column gap-2 ms-3 col-12 col-md-7"}>
                 <div className={"d-flex align-items-center justify-content-between"}>
@@ -75,7 +75,7 @@ const BookDetails = ({book}) => {
                         <span className="fw-bold text-dark text-decoration-none m-0 fs-3">{book?.title}</span>
 
                         <span className="fw-bold fs-6 text-muted text-decoration-none m-0">
-                            المؤلف: {book.author?.name}
+                            المؤلف: {book?.author?.name}
                         </span>
                         <span className="fw-bold fs-6 text-muted text-decoration-none m-0">
                             التصنيف: {book?.category?.name}
