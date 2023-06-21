@@ -13,6 +13,7 @@
     "classnames": "2.3.1",
     "html-react-parser": "^3.0.12",
     "js-cookie": "^3.0.1",
+    "next": "^13.4.6",
     "node-sass": "^8.0.0",
     "pdf-viewer-reactjs": "^2.2.3",
     "react": "^18.2.0",
@@ -24,7 +25,6 @@
     "react-pusher": "^0.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^5.3.4",
-    "react-scripts": "^5.0.1",
     "react-select": "^5.7.0",
     "reactstrap": "^9.1.6",
     "redux": "^4.2.1",
@@ -40,6 +40,12 @@
     ]
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^13.4.6",
+    "@types/node": "20.3.1",
+    "eslint": "^8.43.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "gulp": "^4.0.2",
     "gulp-append-prepend": "1.0.9"
   },
@@ -48,10 +54,9 @@
     "typescript": "4.8.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "browserslist": {
     "production": [

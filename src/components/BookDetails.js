@@ -1,10 +1,10 @@
 import parse from "html-react-parser";
 import Swal from "sweetalert2";
-import commentApi from "../api/Comment";
+import commentApi from "../../pages/api/Comment";
 import {useEffect, useState} from "react";
-import store from "../store";
+import store from "/src/store";
 import $ from "jquery";
-import UserApi from "../api/User";
+import UserApi from "../../pages/api/User";
 
 const BookDetails = ({book}) => {
     const [comments, setComments] = useState([]);
@@ -57,7 +57,7 @@ const BookDetails = ({book}) => {
                     icon: 'error',
                     title: 'يجب تسجيل الدخول اولا',
                     showConfirmButton: false,
-                    footer: '<a href="/login">تسجيل الدخول</a>',
+                    footer: '<a href="/auth/login">تسجيل الدخول</a>',
                     showCancelButton: true,
                     cancelButtonText: 'الغاء',
                 })
@@ -67,7 +67,7 @@ const BookDetails = ({book}) => {
     return (
         <div className={"row align-items-start"}>
             <img className={"col-md-4 mb-3"}
-                 src={book.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + book.image.path : "/images/placeholders/placeholder.jpg"}
+                 src={book?.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + book?.image?.path : "/images/placeholders/placeholder.jpg"}
                  alt={book.title}/>
             <div className={"d-flex flex-column gap-2 ms-3 col-12 col-md-7"}>
                 <div className={"d-flex align-items-center justify-content-between"}>
@@ -75,7 +75,7 @@ const BookDetails = ({book}) => {
                         <span className="fw-bold text-dark text-decoration-none m-0 fs-3">{book?.title}</span>
 
                         <span className="fw-bold fs-6 text-muted text-decoration-none m-0">
-                            المؤلف: {book.author?.name}
+                            المؤلف: {book?.author?.name}
                         </span>
                         <span className="fw-bold fs-6 text-muted text-decoration-none m-0">
                             التصنيف: {book?.category?.name}

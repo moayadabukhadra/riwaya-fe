@@ -9,12 +9,12 @@ const BookSwiper = (props) => {
             spaceBetween={10}
             breakpoints={breakpoints}
         >
-            {props.books && props.books.map((book,index) => {
+            {props.books && props.books.map((book, index) => {
                 return (
 
-                        <SwiperSlide  key={index + props.swiperKey + book.id} className={""}>
-                            <BookCard book={book} key={props.swiperKey + book.id } />
-                        </SwiperSlide>
+                    <SwiperSlide key={index + props.swiperKey + book.id} className={""}>
+                        <BookCard book={book} key={props.swiperKey + book.id}/>
+                    </SwiperSlide>
                 );
             })}
         </Swiper>

@@ -1,15 +1,15 @@
-import Books from "./views/Books";
-import Login from "./views/auth/Login";
-import Register from "./views/auth/Register";
-import Authors from "./views/Authors";
-import ProfilePage from "./views/ProfilePage";
-import Home from "./views/Home";
-import Quotes from "./views/Quotes";
-import SearchResults from "./views/SearchResults";
-import ContactUs from "./views/ContactUs";
-import ForgotPassword from "./views/auth/ForgotPassword";
-import ResetPassword from "./views/auth/ResetPassword";
-import MyLibrary from "./views/MyLibrary";
+import Books from "./books";
+import Login from "./auth/login";
+import Register from "./auth/register";
+import Authors from "./authors";
+import ProfilePage from "./profile-page";
+import Index from "./index";
+import Quotes from "./quotes";
+import SearchResults from "./SearchResults";
+import ContactUs from "./contact-us";
+import ForgotPassword from "./auth/forgot-password";
+import ResetPassword from "./auth/reset-password";
+import MyLibrary from "./my-library";
 
 const routes = [
     /* front */
@@ -65,7 +65,7 @@ const routes = [
     {
         path: '/',
         name: 'الرئيسية',
-        component: Home,
+        component: Index,
         layout: '/front',
         role: ['user', 'guest']
     },
