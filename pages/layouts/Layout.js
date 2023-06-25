@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
     }, [user]);
 
     return (
-        <div dir={"rtl"}>
+        <div>
             <Provider store={store}>
                 <NavBar />
                 <div className="main-content">{children}</div>

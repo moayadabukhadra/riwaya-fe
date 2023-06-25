@@ -141,8 +141,8 @@ const Books = () => {
                             client='ca-pub-2029155588392824'
                             slot='6204165593'
                             style={{display: 'block'}}
-                            format='auto'
                             responsive='true'
+                            layout={'in-article'}
                         />
                     </div>
 
