@@ -139,7 +139,6 @@ const Books = () => {
                         <script async
                                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2029155588392824"
                                 crossOrigin="anonymous"></script>
-                        <!-- square responsive -->
                         <ins className="adsbygoogle"
                              style="display:block"
                              data-ad-client="ca-pub-2029155588392824"
