@@ -16,6 +16,9 @@ function MyApp({ Component, pageProps }) {
         <GoogleOAuthProvider clientId={"568497747334-dt5ek21j3prthr149h5cirve4gtfeqcj.apps.googleusercontent.com"}>
             <Head>
                 <link rel="icon" href="/images/logo/riwaya-logo.png"/>
+                <script async
+                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2029155588392824"
+                        crossOrigin="anonymous"></script>
             </Head>
             {
                     router.pathname.startsWith('/auth') && router.pathname !== '/authors'? (
