@@ -8,6 +8,7 @@ import BookDetails from "../src/components/BookDetails";
 import LoadingScreen from "../src/components/LoadingScreen";
 import BookCard from "../src/components/BookCard";
 import Head from "next/head";
+import AdSense from "react-adsense";
 
 const Books = () => {
     const [books, setBooks] = useState();
@@ -136,20 +137,13 @@ const Books = () => {
                                 )
                             }
                         </ul>
-                     <div>
-                         <script async
-                                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2029155588392824"
-                                 crossOrigin="anonymous"></script>
-                         <ins className="adsbygoogle"
-                              style="display:block"
-                              data-ad-client="ca-pub-2029155588392824"
-                              data-ad-slot="6204165593"
-                              data-ad-format="auto"
-                              data-full-width-responsive="true"></ins>
-                         <script>
-                             (adsbygoogle = window.adsbygoogle || []).push({});
-                         </script>
-                     </div>
+                        <AdSense.Google
+                            client='ca-pub-2029155588392824'
+                            slot='6204165593'
+                            style={{display: 'block'}}
+                            format='auto'
+                            responsive='true'
+                        />
                     </div>
 
 

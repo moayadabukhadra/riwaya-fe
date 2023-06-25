@@ -17,7 +17,7 @@ import parse from "html-react-parser";
 import BookCard from "../src/components/BookCard";
 import QuoteApi from "./api/Quote";
 import QuoteCard from "../src/components/QuoteCard";
-import {Helmet} from "react-helmet-async";
+import AdSense from 'react-adsense';
 import {useHistory} from "react-router-dom";
 import Head from "next/head";
 
@@ -41,7 +41,7 @@ const Authors = () => {
         AuthorApi.getAuthorBooks(author?.id).then(({data}) => {
             setSelectedAuthorBooks(data);
             setModal(true);
-            history.push('?page=' +params.page + selectedAuthor ? "?author=" +author?.id : "")
+            history.push('?page=' + params.page + selectedAuthor ? "?author=" + author?.id : "")
         });
 
     }
@@ -111,20 +111,15 @@ const Authors = () => {
                             <QuoteCard quote={quote}/>
                         </div>
                     </div>
-                 <div>
-                     <script async
-                             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2029155588392824"
-                             crossOrigin="anonymous"></script>
-                     <ins className="adsbygoogle"
-                          style="display:block"
-                          data-ad-client="ca-pub-2029155588392824"
-                          data-ad-slot="6204165593"
-                          data-ad-format="auto"
-                          data-full-width-responsive="true"></ins>
-                     <script>
-                         (adsbygoogle = window.adsbygoogle || []).push({});
-                     </script>
-                 </div>
+
+                        <AdSense.Google
+                            client='ca-pub-2029155588392824'
+                            slot='6204165593'
+                            style={{display: 'block'}}
+                            format='auto'
+                            responsive='true'
+                        />
+
                 </div>
 
                 <div className={"col-md-9 row gap-1 justify-content-center"}>
@@ -147,7 +142,7 @@ const Authors = () => {
                                                                 setAuthors(data.data);
                                                                 setPages(data.links);
                                                             });
-                                                            history.push('?page=' +params.page + selectedAuthor ? "?author=" +selectedAuthor?.id : "")
+                                                            history.push('?page=' + params.page + selectedAuthor ? "?author=" + selectedAuthor?.id : "")
                                                         }
                                                     }}
                                     >

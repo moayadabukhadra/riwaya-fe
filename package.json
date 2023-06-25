@@ -17,6 +17,7 @@
     "node-sass": "^8.0.0",
     "pdf-viewer-reactjs": "^2.2.3",
     "react": "^18.2.0",
+    "react-adsense": "^0.1.0",
     "react-bootstrap-sidebar-menu": "^2.0.3",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
