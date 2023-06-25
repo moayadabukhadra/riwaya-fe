@@ -136,7 +136,19 @@ const Books = () => {
                                 )
                             }
                         </ul>
-
+                        <script async
+                                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2029155588392824"
+                                crossOrigin="anonymous"></script>
+                        <!-- square responsive -->
+                        <ins className="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-2029155588392824"
+                             data-ad-slot="6204165593"
+                             data-ad-format="auto"
+                             data-full-width-responsive="true"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
                     </div>
 
 
