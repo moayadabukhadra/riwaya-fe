@@ -21,6 +21,13 @@ class MyDocument extends Document {
                     <script async
                             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2029155588392824"
                             crossOrigin="anonymous"></script>
+                    <Script
+                        id="Adsense-id"
+                        data-ad-client="ca-pub-2029155588392824"
+                        async="true"
+                        strategy="beforeInteractive"
+                        onError={ (e) => { console.error('Script failed to load', e) }}
+                        src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></Script>
                 </Head>
                 <body>
                 <Main />
