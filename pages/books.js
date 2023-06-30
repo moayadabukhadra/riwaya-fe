@@ -27,6 +27,8 @@ const Books = () => {
 
 
     useEffect(() => {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+
         setLoading(true);
         const id = window.location.search.split('=')[1];
         if (id) {
@@ -137,13 +139,14 @@ const Books = () => {
                                 )
                             }
                         </ul>
-                        <AdSense.Google
-                            client='ca-pub-2029155588392824'
-                            slot='6204165593'
-                            style={{display: 'block'}}
-                            responsive='true'
-                            layout={'in-article'}
-                        />
+
+                        <ins className="adsbygoogle"
+                             style={{display:"block"}}
+                             data-ad-client="ca-pub-2029155588392824"
+                             data-ad-slot="6204165593"
+                             data-ad-format="auto"
+                             data-full-width-responsive="true"></ins>
+
                     </div>
 
 

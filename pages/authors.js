@@ -111,13 +111,12 @@ const Authors = () => {
                             <QuoteCard quote={quote}/>
                         </div>
                     </div>
-
-                        <AdSense.Google
-                            client='ca-pub-2029155588392824'
-                            slot='6204165593'
-                            style={{display: 'block'}}
-                            responsive='true'
-                        />
+                    <ins className="adsbygoogle"
+                         style={{display:"block"}}
+                         data-ad-client="ca-pub-2029155588392824"
+                         data-ad-slot="6204165593"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
 
                 </div>
 

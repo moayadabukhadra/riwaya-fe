@@ -7,7 +7,7 @@ import "/src/assets/css/index.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "swiper/swiper.min.css";
 import Guest from "./layouts/Guest";
-import Head from "next/head";
+
 
 function MyApp({ Component, pageProps }) {
     const router = useRouter();
