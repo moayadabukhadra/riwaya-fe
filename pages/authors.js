@@ -47,6 +47,8 @@ const Authors = () => {
     }
 
     useEffect(() => {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+
         const author = window.location.href.split('=')[1];
         if (author) {
             AuthorApi.getAuthor(author).then(({data}) => {

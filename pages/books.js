@@ -27,7 +27,6 @@ const Books = () => {
 
 
     useEffect(() => {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
 
         setLoading(true);
         const id = window.location.search.split('=')[1];
@@ -140,12 +139,14 @@ const Books = () => {
                             }
                         </ul>
 
-                        <ins className="adsbygoogle"
-                             style={{display:"block"}}
-                             data-ad-client="ca-pub-2029155588392824"
-                             data-ad-slot="6204165593"
-                             data-ad-format="auto"
-                             data-full-width-responsive="true"></ins>
+                        <amp-ad width="100vw" height="320"
+                                type="adsense"
+                                data-ad-client="ca-pub-2029155588392824"
+                                data-ad-slot="6204165593"
+                                data-auto-format="rspv"
+                                data-full-width="">
+                            <div overflow=""></div>
+                        </amp-ad>
 
                     </div>
 

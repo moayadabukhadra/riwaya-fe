@@ -18,16 +18,15 @@ class MyDocument extends Document {
             <Html lang={"ar"} dir={"rtl"}>
                 <Head>
                     <link rel="icon" href="/images/logo/riwaya-logo.png"/>
-                    <script async
-                            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2029155588392824"
-                            crossOrigin="anonymous"></script>
                     <Script
                         id="Adsense-id"
                         data-ad-client="ca-pub-2029155588392824"
                         async="true"
                         strategy="beforeInteractive"
                         onError={ (e) => { console.error('Script failed to load', e) }}
-                        src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></Script>
+                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2029155588392824"
+                        crossOrigin="anonymous"></Script>
+                    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
                 </Head>
                 <body>
                 <Main />
