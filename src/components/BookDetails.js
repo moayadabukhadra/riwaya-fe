@@ -14,6 +14,7 @@ const BookDetails = ({book}) => {
         UserApi.checkLibraryForBook(book.id).then(({data}) => {
             setBookInLibrary(data.success);
         });
+        setComments(book.comments ?? []);
     }, []);
     const handleAddComment = (e) => {
         e.preventDefault();
