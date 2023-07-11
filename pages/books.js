@@ -10,13 +10,12 @@ import BookCard from "../src/components/BookCard";
 import Head from "next/head";
 import AdSense from "react-adsense";
 
-const Books = () => {
+const Books = ({ selectedBook }) => {
     const [books, setBooks] = useState();
     const [loading, setLoading] = useState(true);
     const [pages, setPages] = useState();
     const [categories, setCategories] = useState();
     const [selectedCategory, setSelectedCategory] = useState();
-    const [selectedBook, setSelectedBook] = useState();
     const [relatedBooks, setRelatedBooks] = useState();
 
     const [params, setParams] = useState({
@@ -29,13 +28,6 @@ const Books = () => {
     useEffect(() => {
 
         setLoading(true);
-        const id = window.location.search.split('=')[1];
-        if (id) {
-            params.selected_book = id;
-            BookApi.getBook(id).then(({data}) => {
-                setSelectedBook(data);
-            });
-        }
         CategoryApi.getAllCategories().then(({data}) => {
             setCategories(data.map((category) => {
                 return {
@@ -215,5 +207,26 @@ const Books = () => {
         </>
 );
 }
+
+export async function getServerSideProps(context) {
+    const { query } = context;
+    const id = query.book;
+  
+    let selectedBook = null;
+    if (id) {
+      try {
+        const response = await BookApi.getBook(id);
+        selectedBook = response.data;
+      } catch (error) {
+        console.error('Error fetching book data:', error);
+      }
+    }
+  
+    return {
+      props: {
+        selectedBook,
+      },
+    };
+  }
 
 export default Books;
