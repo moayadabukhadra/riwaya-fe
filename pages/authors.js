@@ -42,9 +42,11 @@ const Authors = ({ selectedAuthor, selectedAuthorBooks }) => {
   };
 
   useEffect(() => {
-    if(selectedAuthor){
+    if (selectedAuthor) {
         setModal(true);
-    }
+      } else {
+        setModal(false);
+      }
     AuthorApi.getAllAuthors(params).then(({ data }) => {
       setAuthors(data.data);
       setPages(data.links);
@@ -177,7 +179,7 @@ export async function getServerSideProps(context) {
       const response = await AuthorApi.getAuthor(id);
       const authorBookResponse = await AuthorApi.getAuthorBooks(id);
       selectedAuthor = response.data;
-      selectedAuthorBooks = authorBookResponse.data.data;
+      selectedAuthorBooks = authorBookResponse.data;
     } catch (error) {
       console.error('Error fetching author data:', error);
     }
