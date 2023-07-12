@@ -42,6 +42,9 @@ const Authors = ({ selectedAuthor, selectedAuthorBooks }) => {
   };
 
   useEffect(() => {
+    if(selectedAuthor){
+        setModal(true);
+    }
     AuthorApi.getAllAuthors(params).then(({ data }) => {
       setAuthors(data.data);
       setPages(data.links);
