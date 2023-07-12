@@ -191,7 +191,7 @@ export async function getServerSideProps(context) {
         const response = await AuthorApi.getAuthor(id);
         const authorBookResponse =  await AuthorApi.getAuthorBooks(author);
         selectedAuthor = response.data;
-        selectedAuthorBooks = authorBookResponse.data
+        selectedAuthorBooks = authorBookResponse.data.data
       } catch (error) {
         console.error('Error fetching author data:', error);
       }
