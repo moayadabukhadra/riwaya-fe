@@ -56,7 +56,7 @@ const Authors = ({ selectedAuthor, selectedAuthorBooks }) => {
     QuoteApi.getRandomQuote().then(({ data }) => {
       setQuote(data);
     });
-  }, [params]);
+  }, [params,selectedAuthor]);
 
   return (
     <>
