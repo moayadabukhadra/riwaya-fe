@@ -84,6 +84,12 @@ const Authors = () => {
                 </title>
                 <meta name={"description"}
                       content={"اكتشف مجموعة من الأسماء البارزة في عالم الكتابة | استكشف أعمالهم الأدبية وسيرهم الذاتية"}/>
+                                          <meta property="og:title" content={selectedAuthor ?  selectedAuthor.name : 'اكتشف مجموعة من الأسماء البارزة في عالم الكتابة | استكشف أعمالهم الأدبية وسيرهم الذاتية')} />
+                    <meta property="og:description" content={selectedAuthor ? selectedAuthor.bio : 'تصفح وحمّل مجموعة واسعة من الكتب باللغة العربية وغيرها | اعثر على قراءتك التالية'} />
+                    <meta property="og:image" content={selectedAuthor?.image ? 'https://riwaya.rf.gd/riwaya/storage/app/public/images/' + selectedAuthor?.image.path : '/images/library.jpg'} />
+                    <meta property="og:url" content={`https://riwaya-jo.site/authors/?author=${selectedAuthor?.id}`} />
+                    <meta property="og:type" content="website" />
+                    <meta name="description" content={' المعاصرة، استكشف مجموعة واسعة من الأنواع الأدبية واعثر على قراءتك التالية المثيرة. تصفح وابحث وانغمس في العالم الأدبي الغني للكتب باللغة العربي'} />
             </Head>
             <LoadingScreen loading={loading}/>
             <div className={"content row justify-content-center justify-content-md-around align-self-center"} style={{
@@ -196,5 +202,6 @@ const Authors = () => {
         </>
     );
 }
+
 
 export default Authors;
