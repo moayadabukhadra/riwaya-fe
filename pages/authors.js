@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Head from 'next/head';
 import AuthorApi from './api/Author';
 import {
   Button,
