@@ -18,7 +18,7 @@ import BookCard from "../src/components/BookCard";
 import QuoteApi from "./api/Quote";
 import QuoteCard from "../src/components/QuoteCard";
 import AdSense from 'react-adsense';
-import {useHistory} from "react-router-dom";
+import { useRouter } from 'next/router';
 import Head from "next/head";
 
 const Authors = () => {
@@ -29,9 +29,8 @@ const Authors = () => {
     const [modal, setModal] = useState(false);
     const [selectedAuthorBooks, setSelectedAuthorBooks] = useState([]);
     const [quote, setQuote] = useState();
-    const history = useHistory();
     const toggle = () => setModal(!modal);
-
+    const router = useRouter();
     const [params, setParams] = useState({
         'with': 'image',
         'paginate': '6',
@@ -40,8 +39,12 @@ const Authors = () => {
         setSelectedAuthor(author);
         AuthorApi.getAuthorBooks(author?.id).then(({data}) => {
             setSelectedAuthorBooks(data);
+            router.push({
+                pathname:'/authors',
+                query:{'page': params.page, 'author': author.id}
+            });
+
             setModal(true);
-            history.push('?page=' + params.page + selectedAuthor ? "?author=" + author?.id : "")
         });
 
     }
@@ -63,7 +66,6 @@ const Authors = () => {
         AuthorApi.getAllAuthors(params).then(({data}) => {
             setAuthors(data.data);
             setPages(data.links);
-            setLoading(false);
             setLoading(false);
         });
 
