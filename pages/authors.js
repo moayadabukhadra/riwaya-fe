@@ -21,11 +21,10 @@ import AdSense from 'react-adsense';
 import { useRouter } from 'next/router';
 import Head from "next/head";
 
-const Authors = () => {
+const Authors = ({selectedAuthor}) => {
     const [authors, setAuthors] = useState();
     const [loading, setLoading] = useState(true);
     const [pages, setPages] = useState();
-    const [selectedAuthor, setSelectedAuthor] = useState();
     const [modal, setModal] = useState(false);
     const [selectedAuthorBooks, setSelectedAuthorBooks] = useState([]);
     const [quote, setQuote] = useState();
@@ -36,17 +35,10 @@ const Authors = () => {
         'paginate': '6',
     });
     const authorSelectedCallback = (author) => {
-        setSelectedAuthor(author);
-        AuthorApi.getAuthorBooks(author?.id).then(({data}) => {
-            setSelectedAuthorBooks(data);
-            router.push({
+         router.push({
                 pathname:'/authors',
                 query:{'page': params.page, 'author': author.id}
-            });
-
-            setModal(true);
         });
-
     }
 
     useEffect(() => {
@@ -84,7 +76,7 @@ const Authors = () => {
                 </title>
                 <meta name={"description"}
                       content={"اكتشف مجموعة من الأسماء البارزة في عالم الكتابة | استكشف أعمالهم الأدبية وسيرهم الذاتية"}/>
-                                          <meta property="og:title" content={selectedAuthor ?  selectedAuthor.name : 'اكتشف مجموعة من الأسماء البارزة في عالم الكتابة | استكشف أعمالهم الأدبية وسيرهم الذاتية'} />
+                    <meta property="og:title" content={selectedAuthor ?  selectedAuthor.name : 'اكتشف مجموعة من الأسماء البارزة في عالم الكتابة | استكشف أعمالهم الأدبية وسيرهم الذاتية'} />
                     <meta property="og:description" content={selectedAuthor ? selectedAuthor.bio : 'تصفح وحمّل مجموعة واسعة من الكتب باللغة العربية وغيرها | اعثر على قراءتك التالية'} />
                     <meta property="og:image" content={selectedAuthor?.image ? 'https://riwaya.rf.gd/riwaya/storage/app/public/images/' + selectedAuthor?.image.path : '/images/library.jpg'} />
                     <meta property="og:url" content={`https://riwaya-jo.site/authors/?author=${selectedAuthor?.id}`} />
@@ -202,6 +194,27 @@ const Authors = () => {
         </>
     );
 }
+
+export async function getServerSideProps(context) {
+    const { query } = context;
+    const id = query.author;
+  
+    let selectedAuthor = null;
+    if (id) {
+      try {
+        const response = await AuthorApi.getAuthor(id);
+        selectedAuthor = response.data;
+      } catch (error) {
+        console.error('Error fetching author data:', error);
+      }
+    }
+  
+    return {
+      props: {
+        selectedAuthor,
+      },
+    };
+  }
 
 
 export default Authors;
