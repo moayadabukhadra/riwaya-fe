@@ -21,12 +21,11 @@ import AdSense from 'react-adsense';
 import { useRouter } from 'next/router';
 import Head from "next/head";
 
-const Authors = ({selectedAuthor}) => {
+const Authors = ({selectedAuthor , selectedAuthorBooks}) => {
     const [authors, setAuthors] = useState();
     const [loading, setLoading] = useState(true);
     const [pages, setPages] = useState();
     const [modal, setModal] = useState(false);
-    const [selectedAuthorBooks, setSelectedAuthorBooks] = useState([]);
     const [quote, setQuote] = useState();
     const toggle = () => setModal(!modal);
     const router = useRouter();
@@ -42,19 +41,6 @@ const Authors = ({selectedAuthor}) => {
     }
 
     useEffect(() => {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-
-        const author = window.location.href.split('=')[1];
-        if (author) {
-            AuthorApi.getAuthor(author).then(({data}) => {
-                setSelectedAuthor(data);
-                setModal(true);
-            });
-            AuthorApi.getAuthorBooks(author).then(({data}) => {
-                setSelectedAuthorBooks(data);
-                setModal(true);
-            });
-        }
         AuthorApi.getAllAuthors(params).then(({data}) => {
             setAuthors(data.data);
             setPages(data.links);
@@ -203,7 +189,9 @@ export async function getServerSideProps(context) {
     if (id) {
       try {
         const response = await AuthorApi.getAuthor(id);
+        const authorBookResponse =  await AuthorApi.getAuthorBooks(author);
         selectedAuthor = response.data;
+        selectedAuthorBooks = authorBookResponse.data
       } catch (error) {
         console.error('Error fetching author data:', error);
       }
@@ -212,6 +200,7 @@ export async function getServerSideProps(context) {
     return {
       props: {
         selectedAuthor,
+        selectedAuthorBooks
       },
     };
   }
