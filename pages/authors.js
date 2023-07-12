@@ -84,7 +84,7 @@ const Authors = () => {
                 </title>
                 <meta name={"description"}
                       content={"اكتشف مجموعة من الأسماء البارزة في عالم الكتابة | استكشف أعمالهم الأدبية وسيرهم الذاتية"}/>
-                                          <meta property="og:title" content={selectedAuthor ?  selectedAuthor.name : 'اكتشف مجموعة من الأسماء البارزة في عالم الكتابة | استكشف أعمالهم الأدبية وسيرهم الذاتية')} />
+                                          <meta property="og:title" content={selectedAuthor ?  selectedAuthor.name : 'اكتشف مجموعة من الأسماء البارزة في عالم الكتابة | استكشف أعمالهم الأدبية وسيرهم الذاتية'} />
                     <meta property="og:description" content={selectedAuthor ? selectedAuthor.bio : 'تصفح وحمّل مجموعة واسعة من الكتب باللغة العربية وغيرها | اعثر على قراءتك التالية'} />
                     <meta property="og:image" content={selectedAuthor?.image ? 'https://riwaya.rf.gd/riwaya/storage/app/public/images/' + selectedAuthor?.image.path : '/images/library.jpg'} />
                     <meta property="og:url" content={`https://riwaya-jo.site/authors/?author=${selectedAuthor?.id}`} />
