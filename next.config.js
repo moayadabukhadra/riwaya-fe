@@ -10,12 +10,12 @@ module.exports = {
         // !! WARN !!
         ignoreBuildErrors: true,
     },
-    async rewrites() {
-        return [
-          {
-            source: '/sitemap.xml',
-            destination: '/sitemap.xml.js',
-          },
-        ];
-    }
+    // async rewrites() {
+    //     return [
+    //       {
+    //         source: '/sitemap.xml',
+    //         destination: '/sitemap.xml.js',
+    //       },
+    //     ];
+    // }
 }
