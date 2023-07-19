@@ -27,6 +27,10 @@ const searchBooks = search => {
     return api.get(`/search`, {params: {search}});
 }
 
+const getBooksWithoutPaginating = () => {
+    return api.get('books/all');
+}
+
 export default {
     getAllBooks,
     getBook,
@@ -34,4 +38,5 @@ export default {
     getMostReadBooks,
     downloadBook,
     searchBooks,
+    getBooksWithoutPaginating
 }
