@@ -55,7 +55,7 @@ const Index = () => {
         setLoading(true)
         const search = e.target.search.value;
         router.push({
-            path:'/search-results',
+            pathname:'/search-results',
             query:{
                 'query':search
             }
