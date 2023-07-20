@@ -56,7 +56,7 @@ const Index = () => {
         const search = e.target.search.value;
         BookApi.searchBooks(search).then(({data}) => {
             history.push({
-                pathname: '/search',
+                pathname: '/search-results',
                 state: {data: data}
             });
         }).catch((error) => {
