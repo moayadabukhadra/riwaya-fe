@@ -6,16 +6,16 @@ import LoadingScreen from "../src/components/LoadingScreen";
 import $ from "jquery";
 import QuoteApi from "./api/Quote";
 import QuoteCard from "../src/components/QuoteCard";
-import {useHistory} from "react-router-dom";
 import {Helmet} from "react-helmet-async";
 import Head from "next/head";
+import { useRouter } from 'next/router';
 
 const Index = () => {
     const [loading, setLoading] = useState(true);
     const [mostReadBooks, setMostReadBooks] = useState();
     const [latestBooks, setLatestBooks] = useState();
     const [quote, setQuote] = useState();
-    const history = useHistory();
+    const router = useRouter();
 
     useEffect(() => {
         setLoading(true);
@@ -54,13 +54,11 @@ const Index = () => {
         e.preventDefault();
         setLoading(true)
         const search = e.target.search.value;
-        BookApi.searchBooks(search).then(({data}) => {
-            history.push({
-                pathname: '/search-results',
-                state: {data: data}
-            });
-        }).catch((error) => {
-            setLoading(false)
+        router.push({
+            path:'/search-results',
+            query:{
+                'query':search
+            }
         });
 
     }
