@@ -17,7 +17,6 @@ import parse from 'html-react-parser';
 import BookCard from '../src/components/BookCard';
 import QuoteApi from './api/Quote';
 import QuoteCard from '../src/components/QuoteCard';
-import AdSense from 'react-adsense';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 

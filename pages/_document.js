@@ -39,15 +39,17 @@ class MyDocument extends Document {
                         `,
                 }} />
                 <body>
-                    <Main />
-                    <NextScript />
+                    <Main>
+                        
+                    </Main>
+                    <NextScript/>
                     <Script
                         id="Adsense-id"
                         data-ad-client="ca-pub-2029155588392824"
                         async="true"
                         strategy="beforeInteractive"
                         onError={(e) => { console.error('Script failed to load', e) }}
-                        src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></Script>
+                        src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"/>
                 </body>
             </Html>
         )

@@ -10,7 +10,7 @@ const BookCard = (props) => {
     });
     const book = props.book;
     return (
-        <a onMouseEnter={()=>{
+        <div onMouseEnter={()=>{
             
         }} href={'/books/?book=' + book.id} className="mb-5">
             <div className="card text-white card-has-bg click-col"
@@ -36,7 +36,7 @@ const BookCard = (props) => {
                     </div>
                 </div>
             </div>
-        </a>
+        </div>
 
     );
 }
