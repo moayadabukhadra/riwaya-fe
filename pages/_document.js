@@ -28,16 +28,16 @@ class MyDocument extends Document {
                     <Script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js" />
                 </Head>
                 <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-M5QT6Y6YRH"></Script>
-                <Script id="google-analytics" strategy="afterInteractive"  dangerouslySetInnerHTML={{
-        __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-M5QT6Y6YRH', {
-            page_path: window.location.pathname,       
-          });
-        `,
-        }}/>
+                <Script id="google-analytics" strategy="afterInteractive" dangerouslySetInnerHTML={{
+                    __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-M5QT6Y6YRH', {
+                            page_path: window.location.pathname,       
+                        });
+                        `,
+                }} />
                 <body>
                     <Main />
                     <NextScript />
