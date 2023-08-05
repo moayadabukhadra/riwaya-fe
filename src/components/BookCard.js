@@ -10,9 +10,7 @@ const BookCard = (props) => {
     });
     const book = props.book;
     return (
-        <div onMouseEnter={()=>{
-            
-        }} href={'/books/?book=' + book.id} className="mb-5">
+        <a  href={'/books/?book=' + book.id} className="mb-5">
             <div className="card text-white card-has-bg click-col"
                  style={{backgroundImage: `url(${book.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + book.image.path : "/images/placeholders/placeholder.jpg"})`}}>
                 <div className="card-img-overlay d-flex flex-column">
@@ -36,7 +34,7 @@ const BookCard = (props) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </a>
 
     );
 }
