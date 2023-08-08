@@ -11,22 +11,19 @@ import Guest from "./layouts/Guest";
 
 function MyApp({ Component, pageProps }) {
     const router = useRouter();
-
+    const isSitemapRoute = router.pathname === '/sitemap.xml';
     return (
-        <GoogleOAuthProvider clientId={"568497747334-dt5ek21j3prthr149h5cirve4gtfeqcj.apps.googleusercontent.com"}>
-
-            {
-                    router.pathname.startsWith('/auth') && router.pathname !== '/authors'? (
-                        <Guest>
-                            <Component {...pageProps} />
-                        </Guest>
-                    ) : (
-                        <Layout>
-                            <Component {...pageProps} />
-                        </Layout>
-                    )
-                }
-
+        <GoogleOAuthProvider clientId={'568497747334-dt5ek21j3prthr149h5cirve4gtfeqcj.apps.googleusercontent.com'}>
+            {!isSitemapRoute && (router.pathname.startsWith('/auth') && router.pathname !== '/authors' ? (
+                <Guest>
+                    <Component {...pageProps} />
+                </Guest>
+            ) : (
+                <Layout>
+                    <Component {...pageProps} />
+                </Layout>
+            ))}
+            {isSitemapRoute && <Component {...pageProps} />}
         </GoogleOAuthProvider>
     );
 }
