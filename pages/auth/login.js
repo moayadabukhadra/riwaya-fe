@@ -1,6 +1,6 @@
 import {Form, Row} from "reactstrap";
 import React from "react";
-import UserApi from "../api/User";
+import UserApi from "../../src/api/User";
 import store from "/src/store";
 import FacebookLogin from '@greatsumini/react-facebook-login';
 import {GoogleLogin} from '@react-oauth/google';

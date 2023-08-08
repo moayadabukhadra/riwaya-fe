@@ -1,5 +1,5 @@
 import React from "react";
-import MessageApi from "./api/Message";
+import MessageApi from "../src/api/Message";
 import {Helmet} from "react-helmet-async";
 import Head from "next/head";
 

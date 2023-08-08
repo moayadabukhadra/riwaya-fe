@@ -1,6 +1,6 @@
 import {Form} from "reactstrap";
 import React from "react";
-import UserApi from "../api/User";
+import UserApi from "../../src/api/User";
 import {useHistory} from "react-router-dom";
 import Swal from "sweetalert2";
 

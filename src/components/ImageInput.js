@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import UserApi from "../../pages/api/User";
+import UserApi from "../api/User";
 import store from "/src/store";
 
 const ImageInput = ({itemImage}) => {

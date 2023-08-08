@@ -1,4 +1,4 @@
-import QuoteApi from "./api/Quote";
+import QuoteApi from "../src/api/Quote";
 import React, {useEffect, useState} from "react";
 import {Container} from "reactstrap";
 import QuoteCard from "../src/components/QuoteCard";

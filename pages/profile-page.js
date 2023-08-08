@@ -1,7 +1,7 @@
 import store from "/src/store";
 import ImageInput from "../src/components/ImageInput";
 import React, {useState} from "react";
-import UserApi from "./api/User";
+import UserApi from "../src/api/User";
 import LoadingScreen from "../src/components/LoadingScreen";
 import {Row} from "reactstrap";
 

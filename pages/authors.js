@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import AuthorApi from './api/Author';
+import AuthorApi from '../src/api/Author';
 import {
   Button,
   Modal,
@@ -15,7 +15,7 @@ import AuthorCard from '../src/components/AuthorCard';
 import LoadingScreen from '../src/components/LoadingScreen';
 import parse from 'html-react-parser';
 import BookCard from '../src/components/BookCard';
-import QuoteApi from './api/Quote';
+import QuoteApi from '../src/api/Quote';
 import QuoteCard from '../src/components/QuoteCard';
 import AdSense from 'react-adsense';
 import { useRouter } from 'next/router';

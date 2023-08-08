@@ -1,10 +1,10 @@
 import parse from "html-react-parser";
 import Swal from "sweetalert2";
-import commentApi from "../../pages/api/Comment";
+import commentApi from "../api/Comment";
 import {useEffect, useState} from "react";
 import store from "/src/store";
 import $ from "jquery";
-import UserApi from "../../pages/api/User";
+import UserApi from "../api/User";
 
 const BookDetails = ({book}) => {
     const [comments, setComments] = useState([]);

@@ -1,6 +1,6 @@
 import {Pagination, PaginationItem, PaginationLink, Row} from "reactstrap";
 import React, {useEffect, useState} from "react";
-import UserApi from "./api/User";
+import UserApi from "../src/api/User";
 import Swal from "sweetalert2";
 import LoadingScreen from "../src/components/LoadingScreen";
 

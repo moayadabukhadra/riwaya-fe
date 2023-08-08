@@ -1,6 +1,6 @@
 import {Form, Row} from "reactstrap";
 import React from "react";
-import UserApi from "../api/User";
+import UserApi from "../../src/api/User";
 const ForgotPassword = () => {
     const handleSendResetPasswordLink = (e) => {
         e.preventDefault();

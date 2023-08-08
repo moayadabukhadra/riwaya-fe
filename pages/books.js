@@ -1,7 +1,7 @@
-import BookApi from './api/Book';
+import BookApi from '../src/api/Book';
 import React, {useEffect, useState} from "react";
 import {Container, Pagination, PaginationItem, PaginationLink, Row} from "reactstrap";
-import CategoryApi from "./api/Category";
+import CategoryApi from "../src/api/Category";
 import 'swiper/css';
 import BookSwiper from "../src/components/BookSwiper";
 import BookDetails from "../src/components/BookDetails";
