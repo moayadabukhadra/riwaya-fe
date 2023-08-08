@@ -113,16 +113,16 @@ const Index = () => {
                     </a>
                     <a href={"/authors"}
                         className={"fs-1 col-4 d-flex align-items-center justify-content-center flex-column page-section"}>
-                       <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 24 24">
+                       <svg id={"section-icon"} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24">
                         <path fill="#ff0000" d="M6.94 14.033a29.79 29.79 0 0 0-.606 1.782c.96-.696 2.101-1.138 3.418-1.303c2.513-.314 4.746-1.974 5.876-4.059L14.172 9l1.413-1.415l1-1.002c.43-.429.915-1.224 1.428-2.367c-5.593.867-9.018 4.291-11.074 9.818ZM17 8.997l1 1c-1 3-4 6-8 6.5c-2.669.333-4.336 2.166-5.002 5.5H3c1-6 3-20 18-20c-1 2.997-1.998 4.996-2.997 5.997L17 8.997Z"/>
                        </svg>
                         <h3 className={"text-muted"}>
                             المؤلفين
                         </h3>
                     </a>
-                    <a href={"/quotes"}
+                    <a href={"/quotes"} id={"section-icon"}
                         className={"fs-1 col-4 d-flex align-items-center justify-content-center flex-column gap-3 border-end page-section"}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 24 24">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path fill="#ff0000" d="M21 3a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H6.455L2 22.5V4a1 1 0 0 1 1-1h18ZM10.515 7.412C8.728 8.187 7.5 9.755 7.5 11.505c0 .995.277 1.609.792 2.155c.324.345.837.59 1.374.59a1.75 1.75 0 0 0 1.75-1.75a1.76 1.76 0 0 0-1.614-1.745a2.104 2.104 0 0 0-.479.01v-.092c.006-.44.1-1.74 1.639-2.573l-.447-.688Zm5 0c-1.787.775-3.015 2.343-3.015 4.093c0 .995.277 1.609.792 2.155c.324.345.837.59 1.374.59a1.75 1.75 0 0 0 1.75-1.75a1.76 1.76 0 0 0-1.614-1.745a2.104 2.104 0 0 0-.479.01v-.092c.006-.44.1-1.74 1.639-2.573l-.447-.688Z" />
                             </svg>
                         <h3 className={"text-muted"}>

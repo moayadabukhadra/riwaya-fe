@@ -156,7 +156,7 @@
 @media (max-width: 700px) {
     .page-section #section-icon {
 
-        height: 75px !important;
-        width: 75px !important;
+        height: 75% !important;
+        width: 75% !important;
     }
 }
