@@ -111,7 +111,7 @@ function NavBar(args) {
                                 <Dropdown className={"ms-4 p-0"} isOpen={dropdownOpen} toggle={dropdownToggle}>
                                     <DropdownToggle className={"bg-transparent border-0 p-0"}>
                                         <img className={"rounded-circle"}
-                                             src={user?.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + user?.image.path : "/images/placeholders/user-placeholder.png"}
+                                             src={user?.image ? "http://154.38.175.203/storage/images/" + user?.image.path : "/images/placeholders/user-placeholder.png"}
                                              width={40} height={40}/>
                                     </DropdownToggle>
                                     <DropdownMenu>

@@ -12,7 +12,7 @@ const BookCard = (props) => {
     return (
         <a  href={'/books/?book=' + book.id} className="mb-5">
             <div className="card text-white card-has-bg click-col"
-                 style={{backgroundImage: `url(${book.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + book.image.path : "/images/placeholders/placeholder.jpg"})`}}>
+                 style={{backgroundImage: `url(${book.image ? "http://154.38.175.203/storage/images/" + book.image.path : "/images/placeholders/placeholder.jpg"})`}}>
                 <div className="card-img-overlay d-flex flex-column">
                     <div className="card-body">
                         <h4 className="card-title book-title mt-0 fs-6 text-truncate" style={{
@@ -25,7 +25,7 @@ const BookCard = (props) => {
                         <a href={"/authors?author=" + book.author.id}
                            className="d-flex gap-1 align-items-center text-decoration-none">
                             <img className="mr-3 rounded-circle"
-                                 src={book.author.image ? "https://riwaya.rf.gd/riwaya/storage/app/public/images/" + book.author.image.path : "/images/placeholders/placeholder.jpg"}
+                                 src={book.author.image ? "http://154.38.175.203/storage/images/" + book.author.image.path : "/images/placeholders/placeholder.jpg"}
                                  alt="author-img" style={{maxWidth: "50px"}}/>
                             <div className="media-body">
                                 <h6 className="my-0 text-white d-block">{book.author?.name}</h6>
