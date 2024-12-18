@@ -2,7 +2,7 @@ import { Container, Row } from "reactstrap";
 import BookCard from "../src/components/BookCard";
 import { summary } from "../public/Helpers";
 import React, { useEffect, useState } from "react";
-import BookApi from "./api/Book";
+import BookApi from "../src/api/Book";
 import { useRouter } from 'next/router';
 
 
