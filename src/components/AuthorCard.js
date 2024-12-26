@@ -11,7 +11,7 @@ const author = props.author;
            <img className={"rounded-circle"}
                 width={"150"}
                 height={"150"}
-                src={author?.image ? "http://154.38.175.203/storage/images/" + author.image.path : "/images/placeholders/placeholder.jpg"}
+                src={author?.image ? "https://154.38.175.203/storage/images/" + author.image.path : "/images/placeholders/placeholder.jpg"}
                 alt={author?.name}
            />
        </div>

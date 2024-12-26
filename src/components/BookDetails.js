@@ -70,7 +70,7 @@ const BookDetails = ({ book }) => {
     return (
         <div className={"row align-items-start"}>
             <img className={"col-md-4 mb-3"}
-                src={book?.image ? "http://154.38.175.203/storage/images/" + book?.image?.path : "/images/placeholders/placeholder.jpg"}
+                src={book?.image ? "https://154.38.175.203/storage/images/" + book?.image?.path : "/images/placeholders/placeholder.jpg"}
                 alt={book.title} />
             <div className={"d-flex flex-column gap-2 ms-3 col-12 col-md-7"}>
                 <div className={"d-flex align-items-center justify-content-between"}>
@@ -115,12 +115,12 @@ const BookDetails = ({ book }) => {
                 </div>
                 {parse(book?.description)}
                 <div className={"mt-2 row align-items-center justify-content-center justify-content-lg-start gap-1"}>
-                    <a download={book.file} href={"http://154.38.175.203/api/book/download/" + book.id}
+                    <a download={book.file} href={"https://154.38.175.203/api/book/download/" + book.id}
                         className={"btn btn-primary d-flex align-items-center justify-content-center gap-1 text-white col-5 col-lg-3 mb-3"}>
                         <i className="fas fa-file-pdf" />
                         تحميل الكتاب
                     </a>
-                    <a href={"http://154.38.175.203/storage/books/" + book.file}
+                    <a href={"https://154.38.175.203/storage/books/" + book.file}
                         className={"btn btn-info  d-flex align-items-center justify-content-center gap-1 text-white col-5 col-lg-3 mb-3"}>
                         <i className="fas fa-book-open" />
                         قراءة
@@ -147,7 +147,7 @@ const BookDetails = ({ book }) => {
                                             <div className={"d-flex align-items-center justify-content-between"}>
                                                 <div className={"d-flex align-items-start"}>
                                                     <img
-                                                        src={comment.user?.image ? "http://154.38.175.203/storage/images/" + comment.user?.image.path : "/images/placeholders/user-placeholder.png"}
+                                                        src={comment.user?.image ? "https://154.38.175.203/storage/images/" + comment.user?.image.path : "/images/placeholders/user-placeholder.png"}
                                                         alt={comment.user?.name} className={"rounded-circle"} width={50}
                                                         height={50} />
                                                     <div>
@@ -193,7 +193,7 @@ const BookDetails = ({ book }) => {
                                                                         className={"d-flex align-items-center justify-content-between"}>
                                                                         <div className={"d-flex align-items-start"}>
                                                                             <img
-                                                                                src={reply.user?.image ? "http://154.38.175.203/storage/images/" + reply.user?.image.path : "/images/placeholders/user-placeholder.png"}
+                                                                                src={reply.user?.image ? "https://154.38.175.203/storage/images/" + reply.user?.image.path : "/images/placeholders/user-placeholder.png"}
                                                                                 alt={reply.user?.name}
                                                                                 className={"rounded-circle"}
                                                                                 width={50}

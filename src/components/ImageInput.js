@@ -15,7 +15,7 @@ const ImageInput = ({itemImage}) => {
     }
     useEffect(() => {
         if (itemImage) {
-            setImage("http://154.38.175.203/storage/images/" + itemImage)
+            setImage("https://154.38.175.203/storage/images/" + itemImage)
         } else {
             setImage("/images/placeholders/user-placeholder.png");
         }

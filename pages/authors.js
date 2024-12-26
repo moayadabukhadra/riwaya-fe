@@ -70,7 +70,7 @@ const Authors = ({ selectedAuthor, selectedAuthorBooks }) => {
                       content={"اكتشف مجموعة من الأسماء البارزة في عالم الكتابة | استكشف أعمالهم الأدبية وسيرهم الذاتية"}/>
                     <meta property="og:title" content={selectedAuthor ?  selectedAuthor.name : 'اكتشف مجموعة من الأسماء البارزة في عالم الكتابة | استكشف أعمالهم الأدبية وسيرهم الذاتية'} />
                     <meta property="og:description" content={selectedAuthor ? selectedAuthor.bio : 'تصفح وحمّل مجموعة واسعة من الكتب باللغة العربية وغيرها | اعثر على قراءتك التالية'} />
-                    <meta property="og:image" content={selectedAuthor?.image ? 'http://154.38.175.203/storage/images/' + selectedAuthor?.image.path : '/images/library.jpg'} />
+                    <meta property="og:image" content={selectedAuthor?.image ? 'https://154.38.175.203/storage/images/' + selectedAuthor?.image.path : '/images/library.jpg'} />
                     <meta property="og:url" content={`https://riwaya-jo.site/authors/?author=${selectedAuthor?.id}`} />
                     <meta property="og:type" content="website" />
                     <meta name="description" content={' المعاصرة، استكشف مجموعة واسعة من الأنواع الأدبية واعثر على قراءتك التالية المثيرة. تصفح وابحث وانغمس في العالم الأدبي الغني للكتب باللغة العربي'} />
@@ -143,7 +143,7 @@ const Authors = ({ selectedAuthor, selectedAuthorBooks }) => {
         <ModalHeader className="d-flex align-items-center justify-content-between w-100" toggle={toggle}>{selectedAuthor?.name}</ModalHeader>
         <ModalBody className="custom-scroll">
           <div className="d-flex align-items-start gap-2 flex-column">
-            <img className="rounded-1 image-thumbnail" width="150" src={selectedAuthor?.image ? "http://154.38.175.203/storage/images/" + selectedAuthor.image.path : "/images/placeholders/placeholder.jpg"} alt={selectedAuthor?.name} />
+            <img className="rounded-1 image-thumbnail" width="150" src={selectedAuthor?.image ? "https://154.38.175.203/storage/images/" + selectedAuthor.image.path : "/images/placeholders/placeholder.jpg"} alt={selectedAuthor?.name} />
             {selectedAuthor && parse(selectedAuthor?.bio)}
           </div>
           <div className="row justify-content-center">

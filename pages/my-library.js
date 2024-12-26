@@ -61,7 +61,7 @@ const MyLibrary = () => {
                                        <div className={"d-flex"}>
                                            <img className={"rounded-2"}
                                                 width={100}
-                                                src={book.image ? "http://154.38.175.203/storage/images/" + book.image.path : "/images/placeholders/placeholder.jpg"}
+                                                src={book.image ? "https://154.38.175.203/storage/images/" + book.image.path : "/images/placeholders/placeholder.jpg"}
                                                 alt=""/>
                                            <div className={"d-flex flex-column gap-1 p-3"}>
                                                <strong className={"fs-4"}>{book.title}</strong>
@@ -69,13 +69,13 @@ const MyLibrary = () => {
                                            </div>
                                        </div>
                                        <div className={"d-flex flex-column gap-1 justify-content-center ms-3"}>
-                                           <a href={"http://154.38.175.203/storage/books/" + book.file}
+                                           <a href={"https://154.38.175.203/storage/books/" + book.file}
                                               className={"btn btn-outline-info  d-flex align-items-center justify-content-center gap-1"}>
                                                <i className="fas fa-book-open"/>
                                                قراءة
                                            </a>
                                            <a download={book.file}
-                                              href={"http://154.38.175.203/api/book/download/" + book.id}
+                                              href={"https://154.38.175.203/api/book/download/" + book.id}
                                               className={"btn btn-outline-success d-flex align-items-center justify-content-center gap-1"}>
                                                <i className="fas fa-file-pdf"/>
                                                تحميل

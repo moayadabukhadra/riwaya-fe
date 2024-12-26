@@ -55,7 +55,7 @@ const Books = ({ selectedBook }) => {
                     </title>
                     <meta property="og:title" content={selectedBook ? 'كتاب ' + selectedBook.title : (selectedCategory ? 'تحميل وقرائة كتب ' + selectedCategory : 'تصفح وحمّل مجموعة واسعة من الكتب باللغة العربية وغيرها | اعثر على قراءتك التالية')} />
                     <meta property="og:description" content={selectedBook ? selectedBook.description : 'تصفح وحمّل مجموعة واسعة من الكتب باللغة العربية وغيرها | اعثر على قراءتك التالية'} />
-                    <meta property="og:image" content={selectedBook?.image ? 'http://154.38.175.203/storage/images/' + selectedBook?.image.path : '/images/library.jpg'} />
+                    <meta property="og:image" content={selectedBook?.image ? 'https://154.38.175.203/storage/images/' + selectedBook?.image.path : '/images/library.jpg'} />
                     <meta property="og:url" content={`https://riwaya-jo.site/books/?book=${selectedBook?.id}`} />
                     <meta property="og:type" content="website" />
                     <meta name="description" content={selectedBook ? 'كتاب ' + selectedBook.title + ' للكاتب ' + selectedBook.author.name + ' تصنيف ' + selectedBook.category.name + ' تحميل وقرائة الكتاب pdf ' : ' المعاصرة، استكشف مجموعة واسعة من الأنواع الأدبية واعثر على قراءتك التالية المثيرة. تصفح وابحث وانغمس في العالم الأدبي الغني للكتب باللغة العربي'} />
@@ -65,7 +65,7 @@ const Books = ({ selectedBook }) => {
                     </title>
                     <meta property="og:title" content={selectedBook ? 'كتاب ' + selectedBook.title : (selectedCategory ? 'تحميل وقرائة كتب ' + selectedCategory : 'تصفح وحمّل مجموعة واسعة من الكتب باللغة العربية وغيرها | اعثر على قراءتك التالية')} />
                     <meta property="og:description" content={selectedBook ? selectedBook.description : 'تصفح وحمّل مجموعة واسعة من الكتب باللغة العربية وغيرها | اعثر على قراءتك التالية'} />
-                    <meta property="og:image" content={selectedBook?.image ? 'http://154.38.175.203/storage/images/' + selectedBook?.image.path : '/images/library.jpg'} />
+                    <meta property="og:image" content={selectedBook?.image ? 'https://154.38.175.203/storage/images/' + selectedBook?.image.path : '/images/library.jpg'} />
                     <meta property="og:url" content={`https://riwaya-jo.site/books/?book=${selectedBook?.id}`} />
                     <meta property="og:type" content="website" />
                     <meta name="description" content={selectedBook ? 'كتاب ' + selectedBook.title + ' للكاتب ' + selectedBook.author.name + ' تصنيف ' + selectedBook.category.name + ' تحميل وقرائة الكتاب pdf ' : ' المعاصرة، استكشف مجموعة واسعة من الأنواع الأدبية واعثر على قراءتك التالية المثيرة. تصفح وابحث وانغمس في العالم الأدبي الغني للكتب باللغة العربي'} />

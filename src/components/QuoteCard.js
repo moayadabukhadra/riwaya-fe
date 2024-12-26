@@ -17,7 +17,7 @@ const QuoteCard = ({quote}) => {
                 </p>
                 <div>
                     <img alt={"quote-author"} className={"rounded-circle"} width={"30"}
-                         src={quote?.author?.image ? "http://154.38.175.203/storage/images/" + quote.author?.image.path : "/images/placeholders/placeholder.jpg"}/>
+                         src={quote?.author?.image ? "https://154.38.175.203/storage/images/" + quote.author?.image.path : "/images/placeholders/placeholder.jpg"}/>
                     <small className={"fs-6"}>
                         {quote?.author?.name}
                     </small>
